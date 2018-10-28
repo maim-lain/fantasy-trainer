@@ -15,14 +15,6 @@ Friday | ✓
 Saturday | ✓
 
 <br>
-
-### Mary talk
-#### How are you doing?
-- Be assertive -> Belittle her (+1 corruption)
-- Be thoughtful (+1 love)
-#### Tell me about Allitia
-- 
-
 <br>
 
 ### Elizabeth talk
@@ -44,8 +36,6 @@ Saturday | ✓
 - I'm going to marry you -> Compliment her (+1 love) or I'm going to improve the city (+1 love)
 
 <br>
-
-
 <br>
 <br>
 
