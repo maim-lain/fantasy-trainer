@@ -38,6 +38,7 @@ Saturday | ✓
 <br>
 <br>
 <br>
+<br>
 
 ## Day 1
 - Be professional with her
@@ -48,7 +49,10 @@ Saturday | ✓
 #### Dungeon
 - I want your body
 - Punish her
-- Leave her in pain (+1 corruption) or Heal her (+1 love)
+
+Corruption | Love
+--- | ---
+Leave her in pain | Heal her
 
 #### Elizabeth's room
 - Talk -> Chit chat
@@ -155,3 +159,7 @@ Saturday | ✓
   - Option 1 - Fuck her: Get sex scene, but Sarah won't be able to live with you in the castle
   - Option 2 - Bring her home: Don't get sex scene, but Sarah will come live with you in the castle
   - Option 3 - If you have the mod installed choose 'Fuck her' to get the scene and have her live with you
+
+#### Throne room
+- Mary -> Talk
+- For sex (+1 corruption) or She need help (+1 love)
