@@ -29,7 +29,7 @@ Saturday | ✓
 - Really just your tits tbh (+1 corruption)
 - Would you like a kiss? (+1 love)
 - Do you want to see my cock? (+1 corruption)
-#### ?
+#### Hello princess, how are you feeling?
 - I'll say what's next (+1 corruption) or Good for you (+1 love)
 #### I want to talk about Allitia
 - I'm going to marry you -> Turn her on (+1 corruption) or I'm going to destroy the city (+1 corruption)
