@@ -25,6 +25,18 @@ Event | Req. Corruption
 <br>
 <br>
 
+### Elizabeth dungeon scenes
+Event | Eliza corruption | Mary love | Mary corruption
+--- | :---: | :---:
+Spank Elizabeth |   |   |  
+Mary spanks her |   | 10+ | 10+
+Finger Elizabeth | 10+ |   |  
+Mary fingers her | 10+ | 10+ | 25+
+
+
+<br>
+<br>
+
 ### Elizabeth talk
 #### Mind if I ask you a personal question?
 - What's your favorite meal? (+1 love)
@@ -175,6 +187,22 @@ Event | Req. Corruption
 #### Throne room
 - Mary -> Talk
 - For sex (+1 corruption)
+- Mary -> Talk
+- Why did you betray Allitia?
+- Did he ever fuck you?
+- I'm just teasing
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Mary -> Talk
+- Talk about Elizabeth
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth (hold Ctrl to skip)
 
 <br>
 <br>
