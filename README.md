@@ -17,6 +17,14 @@ Saturday | ✓
 <br>
 <br>
 
+### Elizabeth job events
+Event | Req. Corruption
+--- | :---:
+#1 | 15+
+
+<br>
+<br>
+
 ### Elizabeth talk
 #### Mind if I ask you a personal question?
 - What's your favorite meal? (+1 love)
