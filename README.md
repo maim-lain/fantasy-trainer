@@ -152,4 +152,6 @@ Saturday | ✓
 
 #### Market
 - Item shop
-- Fuck her or Bring her home?????
+  - Option 1 - Fuck her: Get sex scene, but Sarah won't be able to live with you in the castle
+  - Option 2 - Bring her home: Don't get sex scene, but Sarah will come live with you in the castle
+  - Option 3 - If you have the mod installed choose 'Fuck her' to get the scene and have her live with you
