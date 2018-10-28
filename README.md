@@ -124,3 +124,42 @@ Saturday | ✓
 - Talk -> Chit chat
 - Work
 - Advance time
+
+#### Throne room
+- Mary -> Talk
+- Tell me about Allitia
+- Tell me about the current Allitia
+- I'll need your help
+- Yes, tradition is important
+
+#### Market
+- Item shop
+- Help her up
+- I think it's cute
+- Turn it to ‘Closed'
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+- Advance time
+
+#### Throne room
+- Mary -> Talk
+- Tell me about Allitia
+- Tell me about the Mysterious Forest
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth (hold Ctrl to skip)
+- Advance time
+
+<br>
+
+### Day 6
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+
+#### Market
+- Item shop
+- Fuck her or Bring her home?????
