@@ -37,6 +37,16 @@ Mary fingers her | 10+ | 10+ | 25+
 <br>
 <br>
 
+### Elizabeth sexual actions
+Scene | Love | Corruption
+--- | :---: | :---:
+Stand still | 5+ |  
+Grape her | 10+ | 10+
+Handjob | 20+ | 15+
+
+<br>
+<br>
+
 ### Sarah talk
 #### How long have you been working the shop?
 - That must've been hard -> You're doing a great job (+1 love)
@@ -63,8 +73,6 @@ Mary fingers her | 10+ | 10+ | 25+
 #### I want to talk about Allitia
 - I'm going to marry you -> Turn her on (+1 corruption) or I'm going to destroy the city (+1 corruption)
 - I'm going to marry you -> Compliment her (+1 love) or I'm going to improve the city (+1 love)
-#### You may believe elsewise but..
-- 
 
 <br>
 <br>
@@ -177,7 +185,7 @@ Mary fingers her | 10+ | 10+ | 25+
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Finger Elizabeth (hold Ctrl to skip)
+- Replay a scene to increase corruption (hold Ctrl to skip)
 
 <br>
 <br>
@@ -211,7 +219,7 @@ Mary fingers her | 10+ | 10+ | 25+
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Finger Elizabeth
+- Replay a scene
 
 #### Sarah's room
 - How's the shop doing?
@@ -235,7 +243,7 @@ Mary fingers her | 10+ | 10+ | 25+
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Finger Elizabeth
+- Replay a scene
 
 #### Sarah's room
 - Talk -> Chit chat
@@ -266,7 +274,7 @@ Mary fingers her | 10+ | 10+ | 25+
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Finger Elizabeth
+- Replay a scene
 
 #### Sarah's room
 - Talk -> Chit chat
@@ -278,6 +286,27 @@ Mary fingers her | 10+ | 10+ | 25+
 <br>
 
 ## Day 9
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Mary -> Talk
+- Talk about Elizabeth
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Replay a scene
+
+#### Sarah's room
+- Talk -> Chit chat
+- How long have you been working the shop?
+- That must've been hard
+- With your looks you'll do fine
 
 <br>
 <br>
