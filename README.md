@@ -27,7 +27,7 @@ Event | Req. Corruption
 
 ### Elizabeth dungeon scenes
 Event | Eliza corruption | Mary love | Mary corruption
---- | :---: | :---:
+--- | :---: | :---: | :---:
 Spank Elizabeth |   |   |  
 Mary spanks her |   | 10+ | 10+
 Finger Elizabeth | 10+ |   |  
