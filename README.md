@@ -34,6 +34,8 @@ Saturday | ✓
 #### I want to talk about Allitia
 - I'm going to marry you -> Turn her on (+1 corruption) or I'm going to destroy the city (+1 corruption)
 - I'm going to marry you -> Compliment her (+1 love) or I'm going to improve the city (+1 love)
+#### You may believe elsewise but..
+- 
 
 <br>
 <br>
