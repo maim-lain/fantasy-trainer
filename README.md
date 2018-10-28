@@ -21,7 +21,7 @@ Saturday | ✓
 #### Mind if I ask you a personal question?
 - What's your favorite meal? (+1 love)
 - What's your favorite position? (+1 corruption)
-#### Mary
+#### What do you think about Mary?
 - Yeah you're right (+1 love)
 - Yeah, Mary's a slut (+1 corruption)
 #### You walk into Elizabeth's room, hand on your chin deep in thought
