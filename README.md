@@ -18,7 +18,7 @@ Saturday | ✓
 <br>
 
 ### Elizabeth job events
-Event | Req. Corruption
+Event | Corruption
 --- | :---:
 Flash tits | 15+
 Handjob | 25+
@@ -43,6 +43,13 @@ Scene | Love | Corruption
 Stand still | 5+ |  
 Grape her | 10+ | 10+
 Handjob | 20+ | 15+
+
+### Mary sexual actions
+Scene | Corruption
+--- | :---:
+Get naked | 8+
+Dance | 15+
+Dance naked | 25+
 
 <br>
 <br>
