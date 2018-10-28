@@ -96,7 +96,7 @@ Saturday | ✓
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Go to the dungeon
+- Spank Elizabeth
 
 <br>
 <br>
@@ -228,8 +228,7 @@ Leave her in pain | Heal her
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Go to the dungeon
-- Advance time
+- Spank Elizabeth
 
 <br>
 
