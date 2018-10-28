@@ -1,5 +1,22 @@
 # Fantasy Trainer Walkthrough
 
+<br>
+<br>
+
+#### Mary throne room schedule
+Day | Can talk
+--- | ---
+Sunday | x
+Monday | 
+Tuesday | x
+Wednesday | 
+Thursday | x
+Friday | 
+Saturday | 
+
+<br>
+<br>
+
 ### Day 1
 - Be professional with her
 
@@ -34,12 +51,3 @@
 
 
 
-Day | Can talk
---- | ---
-Sunday | x
-Monday | 
-Tuesday | x
-Wednesday | 
-Thursday | x
-Friday | 
-Saturday | 
