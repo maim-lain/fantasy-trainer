@@ -3,16 +3,16 @@
 <br>
 <br>
 
-#### Mary throne room schedule
+### Mary throne room schedule:
 Day | Can talk
---- | ---
-Sunday | x
-Monday | 
-Tuesday | x
-Wednesday | 
-Thursday | x
-Friday | 
-Saturday | 
+--- | :---:
+Sunday |  
+Monday | ✓
+Tuesday |  
+Wednesday | ✓
+Thursday |  
+Friday | ✓
+Saturday | ✓
 
 <br>
 
