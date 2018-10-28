@@ -18,7 +18,7 @@ Saturday | ✓
 
 ### Mary talk
 #### How are you doing?
-- Be assertive -> Belittle her (+1 love)
+- Be assertive -> Belittle her (+1 corruption)
 - Be thoughtful (+1 love)
 #### Tell me about Allitia
 - 
@@ -26,12 +26,22 @@ Saturday | ✓
 <br>
 
 ### Elizabeth talk
-#### Question
+#### Mind if I ask you a personal question?
 - What's your favorite meal? (+1 love)
 - What's your favorite position? (+1 corruption)
 #### Mary
 - Yeah you're right (+1 love)
 - Yeah, Mary's a slut (+1 corruption)
+#### You walk into Elizabeth's room, hand on your chin deep in thought
+- Of course! (+1 love)
+- Really just your tits tbh (+1 corruption)
+- Would you like a kiss? (+1 love)
+- Do you want to see my cock? (+1 corruption)
+#### ?
+- I'll say what's next (+1 corruption) or Good for you (+1 love)
+#### I want to talk about Allitia
+- I'm going to marry you -> Turn her on (+1 corruption) or I'm going to destroy the city (+1 corruption)
+- I'm going to marry you -> Compliment her (+1 love) or I'm going to improve the city (+1 love)
 
 <br>
 
@@ -39,12 +49,12 @@ Saturday | ✓
 <br>
 <br>
 
-### Day 1
+## Day 1
 - Be professional with her
 
 <br>
 
-### Day 2
+## Day 2
 #### Dungeon
 - I want your body
 - Punish her
@@ -52,7 +62,6 @@ Saturday | ✓
 
 #### Elizabeth's room
 - Talk -> Chit chat
-- I'll say what's next (+1 corruption) or Good for you (+1 love)
 - Work
 - Insult her (+1 corruption) or Compliment her (+1 love)
 
@@ -68,8 +77,50 @@ Saturday | ✓
 
 ### Day 3
 #### Elizabeth's room
-- Be professional with her
+- Talk -> Chit chat
+- Work
 
+#### Throne room
+- Mary -> Talk
+- How are you doing?
+- Be assertive -> Belittle her (+1 corruption) or Be thoughtful (+1 love)
+- Advance time
 
+#### Elizabeth's room
+- Talk -> Chit chat
 
+#### Throne room
+- Mary -> Talk
+- Tell me about Allitia
+- Tell me Allitia's history
+- Send Elizabeth to the dungeon
 
+#### Dungeon
+- Go to the dungeon
+- Advance time
+
+<br>
+
+### Day 4
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth
+- Advance time
+
+<br>
+
+### Day 5
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+- Advance time
