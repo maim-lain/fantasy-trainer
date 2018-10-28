@@ -75,7 +75,7 @@ Saturday | ✓
 
 <br>
 
-### Day 3
+## Day 3
 #### Elizabeth's room
 - Talk -> Chit chat
 - Work
@@ -101,7 +101,7 @@ Saturday | ✓
 
 <br>
 
-### Day 4
+## Day 4
 #### Elizabeth's room
 - Talk -> Chit chat
 - Work
@@ -119,7 +119,7 @@ Saturday | ✓
 
 <br>
 
-### Day 5
+## Day 5
 #### Elizabeth's room
 - Talk -> Chit chat
 - Work
@@ -155,7 +155,7 @@ Saturday | ✓
 
 <br>
 
-### Day 6
+## Day 6
 #### Elizabeth's room
 - Talk -> Chit chat
 - Work
