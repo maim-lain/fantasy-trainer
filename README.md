@@ -39,7 +39,143 @@ Saturday | ✓
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 
+# Corruption Route
+## Day 1
+- Be professional with her
+
+<br>
+<br>
+
+## Day 2
+#### Dungeon
+- I want your body
+- Punish her
+- Leave her in pain (+1 corruption)
+
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+- Insult her (+1 corruption)
+
+#### Town square
+- Check the town square
+- Advance time to night (click light switch on map)
+
+#### Elizabeth's room
+- Talk -> Chit chat
+- Advance time
+
+<br>
+<br>
+
+## Day 3
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+
+#### Throne room
+- Mary -> Talk
+- How are you doing?
+- Be assertive -> Belittle her (+1 corruption)
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Mary -> Talk
+- Tell me about Allitia
+- Tell me Allitia's history
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Go to the dungeon
+
+<br>
+<br>
+
+## Day 4
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth
+
+<br>
+<br>
+
+## Day 5
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+
+#### Throne room
+- Mary -> Talk
+- Tell me about Allitia
+- Tell me about the current Allitia
+- I'll need your help
+- Yes, tradition is important
+
+#### Market
+- Item shop
+- Help her up
+- I think it's cute
+- Turn it to 'Closed'
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Mary -> Talk
+- Tell me about Allitia
+- Tell me about the Mysterious Forest
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth (hold Ctrl to skip)
+
+<br>
+<br>
+
+## Day 6
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+
+#### Market
+- Item shop
+  - Option 1 - Fuck her: Get sex scene, but Sarah won't be able to live with you in the castle
+  - Option 2 - Bring her home: Don't get sex scene, but Sarah will come live with you in the castle
+  - Option 3 - If you have the mod installed choose 'Fuck her' to get the scene and have her live with you
+
+#### Throne room
+- Mary -> Talk
+- For sex (+1 corruption)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Love Route
 ## Day 1
 - Be professional with her
 
