@@ -20,7 +20,8 @@ Saturday | ✓
 ### Elizabeth job events
 Event | Req. Corruption
 --- | :---:
-#1 | 15+
+Flash tits | 15+
+Handjob | 25+
 
 <br>
 <br>
@@ -33,6 +34,14 @@ Mary spanks her |   | 10+ | 10+
 Finger Elizabeth | 10+ |   |  
 Mary fingers her | 10+ | 10+ | 25+
 
+<br>
+<br>
+
+### Sarah talk
+#### How long have you been working the shop?
+- That must've been hard -> You're doing a great job (+1 love)
+- That must've been hard -> With your looks you'll do fine (+1 corruption)
+#### ?
 
 <br>
 <br>
@@ -202,7 +211,73 @@ Mary fingers her | 10+ | 10+ | 25+
 - Send Elizabeth to the dungeon
 
 #### Dungeon
-- Finger Elizabeth (hold Ctrl to skip)
+- Finger Elizabeth
+
+#### Sarah's room
+- How's the shop doing?
+- Talk -> Chit chat
+- How long have you been working the shop?
+- Are your parents still around?
+
+<br>
+<br>
+
+## Day 7
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth
+
+#### Sarah's room
+- Talk -> Chit chat
+- How long have you been working the shop?
+- That must've been hard
+- You're doing a great job
+
+<br>
+<br>
+
+## Day 8
+#### Elizabeth's room
+- Talk -> Chit chat
+- Work
+
+#### Throne room
+- Mary -> Talk
+- Talk about Mary
+- You're doing a good job
+- Advance time
+
+#### Elizabeth's room
+- Talk -> Chit chat
+
+#### Throne room
+- Mary -> Talk
+- Talk about Elizabeth
+- Send Elizabeth to the dungeon
+
+#### Dungeon
+- Finger Elizabeth
+
+#### Sarah's room
+- Talk -> Chit chat
+- How long have you been working the shop?
+- That must've been hard
+- With your looks you'll do fine
+
+<br>
+<br>
+
+## Day 9
 
 <br>
 <br>
