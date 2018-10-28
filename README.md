@@ -15,6 +15,28 @@ Friday |
 Saturday | 
 
 <br>
+
+### Mary talk
+#### How are you doing?
+- Be assertive -> Belittle her (+1 love)
+- Be thoughtful (+1 love)
+#### Tell me about Allitia
+- 
+
+<br>
+
+### Elizabeth talk
+#### Question
+- What's your favorite meal? (+1 love)
+- What's your favorite position? (+1 corruption)
+#### Mary
+- Yeah you're right (+1 love)
+- Yeah, Mary's a slut (+1 corruption)
+
+<br>
+
+
+<br>
 <br>
 
 ### Day 1
