@@ -1,5 +1,5 @@
 # The script of the game goes in this file.
-# THIS IS v0.76
+# THIS IS v0.86
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -73,6 +73,11 @@ label start:
     $ firsttimeSexmary = 1
     $ theballinfotoggle = 0
     $ maryconvolist = []
+
+    #Mary room check to see what you can do in her room and if its the first time.
+    #0 nothing, 1 first time hold, 2 hold, 3 first time kiss, 4 kiss, 5 first time feel, 6 feel, 7 first time 69, 8 69, 9 first time sex(balsony), 10 sex
+    $ maryRomanceRoomLevel = 0
+
 
     #check to handle which dress mary is using, 0 is maid, 1 is black,2 is sexy underwear
     $ maryOutfit = 0
@@ -150,7 +155,6 @@ label start:
 
     #Melony Variables
     $ melonyResistLevel = 100
-    $ melonyconvolist = ["Black Dress"]   #actually her outfit list
     $ isMelonyUnlocked = 0
     $ melonyOutfit = 0
 
@@ -171,6 +175,7 @@ label start:
 
     #non Character variables
     $ isitdaytime = 1
+    $ didelizabethDungeon = 0
     $ gold = 0
     $ day = "Monday"
     $ time1 = "Day"
@@ -179,8 +184,8 @@ label start:
     $ corMul = 1
     $ gardenLevel = 1
     $ inventory = []
-    $ shop_level = 0
-    $ shop = []
+    #$ shop_level = 0
+    #$ shop = []
     $ scene_list = []
     $ watchingaScene = 0
     $ popularity_level = 0
@@ -196,67 +201,118 @@ label start:
     #These checks are created ahead of time that way I wont need to restart the game to inniate an event, they will have comments for details when implemented/used
     $ cleacheck = 0
 
-    #Mary room check to see what you can do in her room and if its the first time.
-    #0 nothing, 1 first time hold, 2 hold, 3 first time kiss, 4 kiss, 5 first time feel, 6 feel, 7 first time 69, 8 69, 9 first time sex(balsony), 10 sex
-    $ checkONE = 0
-
     #sets up the christmas box in Sarah's shop
-    $ checkTWO = 0
+    $ christmasboxcheck = 0
 
     # check for melony's outfit
-    $ checkTHREE = 0
+    $ melonyOutfitcheck = 0
 
     #substitute for willpacificavisit, if 1 she visits room at night, if 0 she doesnt
-    $ checkFOUR = 0
+    $ willpacificavisit = 0
 
     # check for how far pacifica will go with you in your room, 0 is cuddle, 1 is hj, 2 is
-    $ checkFIVE = 0
+    $ pacificaRoomProgressLevel = 0
 
     # check for how far you can go in pacifica and lilly's room 0 is nothing, 1 jerk off, 2 is feel up, 3 is bj, 4 is sex
-    $ checkSIX = 0
+    $ drowsistersprogressLevel = 0
 
     #check to see which items you gave pacifica
-    $ checkSEVEN = 0
+    $ pacificaItems = 0
 
     #check to give Pacifica Pajama outfit
-    $ checkEIGHT = 0
-
-    #adds catgirl outfit to shop (This will be changed in a later version to just have it in shop from get-go)
-    $ checkNINE = 0
+    $ pacipajamacheck = 0
 
     #adds little red riding hood outfit for Lilly
-    $ checkTEN = 0
+    $ littleRedRidingOutfit = 0
 
     #acts as melony's resistence checker
-    $ checkELEVEN = 0
+    $ melonyResistance = 0
 
     # checktwelve determines when checkeleven goes from 0 to 1, 3 days after you meet melony
-    $ checkTWELVE = 0
+    $ melonyResistanceCheckerChecker = 0
 
     # substitute for melonyaction checker 0 is none, 1 is done today
-    $ checkTHIRTEEN = 0
+    $ melonyActionCheck = 0
 
     #check to see if mary is ready to talk about upping the dungeon actions with elizabeth
-    $ checkFOURTEEN = 0
+    $ marydungeontalk = 0
 
     #check to unlock liana
-    $ checkFIFTEEN = 0
+    $ unlockLiana = 0
 
     #counter of how many hits liana has on you
-    $ checkSIXTEEN = 0
+    $ lianaHitCounter = 0
 
     #counter of how many hits you have on liana
-    $ checkSEVENTEEN = 0
+    $ MCHitCounteronLiana = 0
 
+    #check for recruiting Liana
+    $ lianaRecruitCheck = 0
+
+    #check for 3000 gold once cheat
+    $ threethousandcheck = 0
+
+    #check to add elizabeth's naked outfit
+    $ elinakedcheck = 0
+    #check to add pacifica's naked outfit
+    $ pacinakedcheck = 0
+    #check to add sarah's naked outfit
+    $ sarahnakedcheck = 0
+
+    #check for 2nd+ dialogue for orgasm torture
+    $ orgasmtorture2nddialoguecheck = 0
+
+    #check for first time last dungeon scene
+    $ firsttimelastdungeonscene = 0
+
+    #check for lilly to know what you've done with pacifica(romance)
+    $ howfargonepacificaRomance = 0
+    #check for lilly to know what you've done with pacifica(corruption)
+    $ howfargonepacificaCorruption = 0
+
+    #quest progression check for sarah "can't sleep at night". 0 = hasn't started, 1 is started, 2 is went back next day, 3 is complete
+    $ checkONE = 0
+
+    # quest progression check for Sarah's "tsundere...herdere", 0 = hasnt started, 1 is looking for flower, 2 is completed
+    $ checkTWO = 0
+
+    # quest progression check for Sarah's "Too short..Own good", 0 = Hasnt started, 1 is looking for clothes, 2 is bought clothes, 3 is complete
+    $ checkTHREE = 0
+
+    # quest progression for "A suit for a suitor"
+    $ checkFOUR = 0
+
+    #quest progression for "fantasy Trainer: Endgame" which is the last part of the game
+    $ checkFIVE = 0
+
+    #check to start lilly dating
+    $ checkSIX = 0
+
+    #check for if you gave lilly the pink dress for the date
+    $ checkSEVEN = 0
+
+    $ checkEIGHT = 0
+
+    $ checkNINE = 0
+    $ checkTEN = 0
+
+    $ checkELEVEN = 0
+    $ checkTWELVE = 0
+    $ checkTHIRTEEN = 0
+    $ checkFOUTEEN = 0
+    $ checkFIFTEEN = 0
+    $ checkSIXTEEN = 0
+    $ checkSEVENTEEN = 0
     $ checkEIGHTEEN = 0
     $ checkNINETEEN = 0
-
     $ checkTWENTY = 0
+
     $ checkTWENTYONE = 0
     $ checkTWENTYTWO = 0
     $ checkTWENTYTHREE = 0
     $ checkTWENTYFOUR = 0
     $ checkTWENTYFIVE = 0
+
     $ checkTWENTYSIX = 0
     $ checkTWENTYSEVEN = 0
     $ checkTWENTYEIGHT = 0
@@ -286,8 +342,12 @@ label start:
 
     #list of lists to keep track of unforseen things
 
+    #list for active quests
     $ check_listOne = []
+
+    #List for completed quests
     $ check_listTwo = []
+
     $ check_listThree = []
     $ check_listFour = []
     $ check_listFive = []
@@ -361,7 +421,7 @@ label start:
 
     #maps
     image marketplace day = "marketday.png"
-    image marketplace night = "marketnight.png"
+    image marketplace night = "marketplacenight.png"
     image marketplace dayblur = "marketdayblur.png"
     image townsquare day = "townsquareday.png"
     image townsquare night = "townsquarenight.png"
@@ -386,6 +446,9 @@ label start:
     image castle castleRoomBlurredNight = "castleRoomNightBlur.png"
     image castle yourRoom = "playerRoom.png"
     image castle traininghall = "fightingarena.png"
+    image castle throneRoomTalk = "throneRoomZoomMaryLook.png"
+    image castle throneRoomTalkMaryLook = "throneRoomZoomMaryLookNotMC.png"
+    image castle throneRoomTalkMCLook = "throneRoomZoomMCLookNotMary.png"
 
     image castle pandlRoom0 = "pacificaLillyroom0.png"
     image castle pandlRoom1 = "pacificaLillyroom1.png"
@@ -396,6 +459,9 @@ label start:
     image castle pandlRoom6 = "pacificaLillyroom6.png"
     image castle pandlRoom7 = "pacificaLillyroom7.png"
     image castle pandlRoomNight = "pacificaLillyroom7night.png"
+
+    image castle throneRoomNight = "throneroomnight.png"
+    image castle throneRoomZoomNight = "throneroomZoomnight.png"
 
     image intro intropage1 = "newintropage1.png"
     image intro intropage1hover = "newintropage1hover.png"
@@ -410,6 +476,9 @@ label start:
     image sscene elizabethSpankThree = "elizabethSpankScene3.png"
     image sscene elizabethSpankFour = "elizabethSpankScene4.png"
     image sscene elizabethSpankFive = "elizabethSpankScene5.png"
+
+    image sscene pushelizabeth = "pushingelizrape.png"
+
 
     image sscene dungeoneliclothes = "dungeonfingerfullyclothed.png"
     image sscene dungeoneliburn = "dungeonfingerclothesburning.png"
@@ -449,11 +518,26 @@ label start:
     image townsquare eliworkingdonations4 = "DONATIONS4.png"
 
     image sscene eliRapZero = "MCgropeEli.png"
+    image sscene eliRapZeroNight = "McgropeEliNight.png"
+    image sscene eliRapZeroStruggle = "McgropeEliStruggle.png"
+    image sscene eliRapZeroStruggleNight = "McgropeEliStruggleNight.png"
     image sscene eliRapOne = "elizbedroomscene21.png"
     image sscene eliRapTwo = "elizbedroomscene22.png"
     image sscene eliRapThree = "elizbedroomscene3.png"
     image sscene eliRapFour = "elizbedroomscene32.png"
 
+
+    image sscene elihjob1 = "elizhandjob1.png"
+    image sscene elihjob2 = "elizhandjob2.png"
+    image sscene elihjob3 = "elizhandjob3.png"
+    image sscene elihjob4 = "elizhandjob4.png"
+    image sscene elihjob5 = "elizhandjob5.png"
+
+    image sscene elinakedhjob1 = "elizhandjobtopless1.png"
+    image sscene elinakedhjob2 = "elizhandjobtopless2.png"
+    image sscene elinakedhjob3 = "elizhandjobtopless3.png"
+    image sscene elinakedhjob4 = "elizhandjobtopless4.png"
+    image sscene elinakedhjob5 = "elizhandjobtopless5.png"
 
     image sscene pacificaVisit0 = "pacificaVisit0.png"
     image sscene pacificaVisit1 = "pacificaVisit1.png"
@@ -481,6 +565,17 @@ label start:
     image sscene pacigrope3 = "pacificagrope3.png"
     image sscene pacigrope4 = "pacificagrope4.png"
     image sscene pacigrope5 = "pacificagrope5.png"
+
+    image sscene lillydate1 = "lilydatewithoutmc.png"
+    image sscene lillydate2 = "lilydatewithmc.png"
+    image sscene lillylunch1 = "lilydatept21.png"
+    image sscene lillylunch2 = "lilydatept22.png"
+    image sscene lillylunch3 = "lilydatept23.png"
+    image sscene lillylunch4 = "lilydatept24.png"
+    image sscene lillylunch5 = "lilydatept25.png"
+    image sscene lillylunch6 = "lilydatept26.png"
+    image sscene lillylunch7 = "lilydatept27.png"
+
 
     image sscene lianaBJ1 = "bjsceenelianalines1.png"
     image sscene lianaBJ2 = "bjsceenelianalines2.png"
@@ -519,6 +614,24 @@ label start:
     image sscene sarahTitsZero = "sarahtitsshow0.png"
     image sscene sarahTitsOne = "sarahtitsshow1.png"
     image sscene sarahTitsTwo = "sarahtitsshow2.png"
+
+    image sscene sarahtitjob1 = "sarahtitjob1.png"
+    image sscene sarahtitjob2 = "sarahtitjob2.png"
+    image sscene sarahtitjob3 = "sarahtitjob3.png"
+    image sscene sarahtitjob4 = "sarahtitjob4.png"
+    image sscene sarahtitjob5 = "sarahtitjob5.png"
+    image sscene sarahtitjob6 = "sarahtitjob6.png"
+
+    image sscene sarahmakeout1 = "sarahmakeout1.png"
+    image sscene sarahmakeout2 = "sarahmakeout2.png"
+
+    image sscene sarahmagrope1 = "sarahmagrope1.png"
+    image sscene sarahmagrope2 = "sarahmagrope2.png"
+
+    image sscene sarahstriptease0 = "stripscenesarah1.png"
+    image sscene sarahstriptease1 = "stripscenesarah2.png"
+    image sscene sarahstriptease2 = "stripscenesarah3.png"
+    image sscene sarahstriptease3 = "stripscenesarah4.png"
 
     image sscene sarahSexOne = "sarahsex1.png"
     image sscene sarahSexTwo = "sarahsex2.png"
@@ -620,6 +733,9 @@ label start:
     $ shop.append("Semi-Formal Dark Dress")
     $ shop.append("Yellow Sundress")
     $ shop.append("Dark Formal Suit")
+    $ shop.append("Catgirl Outfit")
+    $ shop.append("One Piece White Swimsuit")
+
 
     #Game Starts here!
 
@@ -701,6 +817,12 @@ label start:
         image side player nakedsmile = "playerHeadnakedsmile.png"
         image side player naked = "playerHeadnaked.png"
         image side player nakedyell = "playerHeadnakedyell.png"
+
+        image side player nakedcum = "headshots_mc1.png"
+        image side player nakedlip = "headshots_mc2.png"
+        image side player nakedsmile = "headshots_mc3.png"
+        image side player nakedfrown = "headshots_mc4.png"
+
 
         hide head soldierhead
         show fullbodyE bloodyArmour1 at left
@@ -894,6 +1016,12 @@ label start:
         image side elizabeth cry = "elizabethHeadCry.png"
         image side elizabeth blush = "elizabethHeadBlush.png"
 
+        image side elizabeth nakedblush = "headshots_eliz1.png"
+        image side elizabeth nakedyell = "headshots_eliz4.png"
+        image side elizabeth nakedangry = "headshots_eliz2.png"
+        image side elizabeth nakedhappy = "headshots_eliz5.png"
+        image side elizabeth nakedcry = "headshots_eliz3.png"
+
         $ girlList.append("Princess Elizabeth")
 
 
@@ -1043,9 +1171,9 @@ label start:
         e neutral "What are they?"
 
 
-        m "First off is your payment for the job, 300 gold."
-        $ gold += 300
-        show text "{b}{color=#ff0}+300 Gold!{/color}{/b}":
+        m "First off is your payment for the job, 500 gold."
+        $ gold += 500
+        show text "{b}{color=#ff0}+500 Gold!{/color}{/b}":
             xalign 0.25 yalign 0.72
         with Dissolve(0.8)
         hide text
@@ -1093,12 +1221,15 @@ label start:
             ground "overworld.png"
             hover "overworldhover.png"
 
-            hotspot (10, 0, 607, 155) clicked Jump("forest")
-            hotspot (210, 250, 312, 260) clicked Jump("market")
-            hotspot (385, 45, 300, 235) clicked Jump("castleLobby")
-            hotspot (700, 87, 330, 250) clicked Jump("townsquare")
-            hotspot (1180, 520, 150, 150) clicked Jump("gotonighttime")
-            hotspot (8, 555, 72, 65) clicked Jump("seeInventory")
+            hotspot (150, 0, 452, 188) clicked Jump("forest")
+            hotspot (85, 285, 285, 200) clicked Jump("market")
+            hotspot (371, 193, 160, 187) clicked Jump("castleLobby")
+            hotspot (880, 87, 280, 240) clicked Jump("townsquare")
+            hotspot (1183, 545, 170, 160) clicked Jump("gotonighttime")
+            hotspot (550, 185, 215, 145) clicked Jump("thetraininghall")
+            hotspot (575, 340, 200, 175) clicked Jump("theSlums")
+            hotspot (8, 560, 72, 65) clicked Jump("seeInventory")
+            hotspot (1190, 50, 100, 75) clicked Jump ("seeQuests")
             hotspot (8, 490, 65, 65) clicked OpenURL("http://www.patreon.com/fantasytrainer")
 
         text "{color=#ff0}[gold]{/color}":
@@ -1112,7 +1243,7 @@ label start:
 
 
 
-    "This is the beginning of Fantasy Trainer's build 0.76!"
+    "This is the beginning of Fantasy Trainer's build 0.86!"
     "The game is now opened up to you, you can explore the map and interact with different characters that you meet"
     "Find ways to make money and ways to recruit more girls to become your servants"
     "Please enjoy the current content and know that work is being done to increase it."
@@ -1129,12 +1260,15 @@ label start:
             ground "overworldnight.png"
             hover "overworldnighthover.png"
 
-            hotspot (10, 0, 607, 155) clicked Jump("forest")
-            hotspot (210, 250, 312, 260) clicked Jump("market")
-            hotspot (385, 45, 300, 235) clicked Jump("castleLobby")
-            hotspot (700, 87, 330, 250) clicked Jump("townsquare")
-            hotspot (1180, 520, 150, 150) clicked Jump("solar_system")
-            hotspot (8, 555, 72, 65) clicked Jump("seeInventory")
+            hotspot (150, 0, 452, 188) clicked Jump("forest")
+            hotspot (85, 285, 285, 200) clicked Jump("marketnotnight")
+            hotspot (371, 193, 160, 187) clicked Jump("castleLobby")
+            hotspot (880, 87, 280, 240) clicked Jump("townsquare")
+            hotspot (1183, 545, 170, 160) clicked Jump("solar_system")
+            hotspot (550, 185, 215, 145) clicked Jump("thetraininghall")
+            hotspot (575, 340, 200, 175) clicked Jump("theSlums")
+            hotspot (8, 560, 72, 65) clicked Jump("seeInventory")
+            hotspot (1190, 50, 100, 75) clicked Jump ("seeQuests")
             hotspot (8, 490, 65, 65) clicked OpenURL("http://www.patreon.com/fantasytrainer")
 
         text "{color=#ff0}[gold]{/color}":
@@ -1183,6 +1317,18 @@ label solar_system:
         with Dissolve(0.7)
         $ gold += sarahProfits
 
+
+    if day == "Monday" or day == "Thursday":
+        if lianaRecruitCheck >= 1:
+            scene ow nighttime
+            "Liana earned some gold from training new recruits!"
+            show text "{color=#ff0}+25 Gold!{/color}":
+                xalign 0.25 yalign 0.72
+            with Dissolve(0.8)
+            hide text
+            with Dissolve(0.7)
+            $ gold += 25
+
     if day == "Friday" or day == "Monday" or day == "Wednesday":
         if cleaprofitsunlocked == 1:
             scene ow nighttime
@@ -1204,55 +1350,51 @@ label solar_system:
             $ gold += cleaProfits
 
     #This checks and appropriately adjusts mary's actions when you call her to your room
-    if checkONE == 0 and maryLoveLevel >= 15:
-        $ checkONE = 1
-    elif checkONE == 2 and maryLoveLevel >= 30:
-        $ checkONE = 3
-    elif checkONE == 4 and maryLoveLevel >= 40:
-        $ checkONE = 5
-    elif checkONE == 6 and maryLoveLevel >= 50:
-        $ checkONE = 7
-    elif checkONE == 8 and maryLoveLevel >= 60:
-        $ checkONE = 9
+    if maryRomanceRoomLevel == 0 and maryLoveLevel >= 15:
+        $ maryRomanceRoomLevel = 1
+    elif maryRomanceRoomLevel == 2 and maryLoveLevel >= 30:
+        $ maryRomanceRoomLevel = 3
+    elif maryRomanceRoomLevel == 4 and maryLoveLevel >= 40:
+        $ maryRomanceRoomLevel = 5
+    elif maryRomanceRoomLevel == 6 and maryLoveLevel >= 50:
+        $ maryRomanceRoomLevel = 7
+    elif maryRomanceRoomLevel == 8 and maryLoveLevel >= 60:
+        $ maryRomanceRoomLevel = 9
 
     # this checks pacifica's love level and adjusts accordingly
-    if checkFIVE == 0 and pacificaLoveLevel >= 15 and lillyLoveLevel >= 5:
-        $ checkFIVE = 1
-    elif checkFIVE == 1 and pacificaLoveLevel >= 25 and lillyLoveLevel >= 10:
-        $ checkFIVE = 2
-    elif checkFIVE == 2 and pacificaLoveLevel >= 40 and lillyLoveLevel >= 15:
-        $ checkFIVE = 3
-    elif checkFIVE == 3 and pacificaLoveLevel >= 55 and lillyLoveLevel >= 20:
-        $ checkFIVE = 4
+    if pacificaRoomProgressLevel == 0 and pacificaLoveLevel >= 15 and lillyLoveLevel >= 5:
+        $ pacificaRoomProgressLevel = 1
+    elif pacificaRoomProgressLevel == 1 and pacificaLoveLevel >= 25 and lillyLoveLevel >= 10:
+        $ pacificaRoomProgressLevel = 2
+    elif pacificaRoomProgressLevel == 2 and pacificaLoveLevel >= 40 and lillyLoveLevel >= 15:
+        $ pacificaRoomProgressLevel = 3
+    elif pacificaRoomProgressLevel == 3 and pacificaLoveLevel >= 55 and lillyLoveLevel >= 20:
+        $ pacificaRoomProgressLevel = 4
 
 
     # this checks pacifica's corruption level and adjusts accordingly
-    if checkSIX == 0 and pacificaLoveLevel >= 15 and lillyLoveLevel >= 5:
-        $ checkSIX = 1
-    elif checkSIX == 1 and pacificaCorLevel >= 25 and lillyLoveLevel >= 10:
-        $ checkSIX = 2
-    elif checkSIX == 2 and pacificaCorLevel >= 40 and lillyLoveLevel >= 15:
-        $ checkSIX = 3
-    elif checkSIX == 3 and pacificaCorLevel >= 55 and lillyLoveLevel >= 20:
-        $ checkSIX = 4
+    if drowsistersprogressLevel == 0 and pacificaLoveLevel >= 15 and lillyLoveLevel >= 5:
+        $ drowsistersprogressLevel = 1
+    elif drowsistersprogressLevel == 1 and pacificaCorLevel >= 25 and lillyLoveLevel >= 10:
+        $ drowsistersprogressLevel = 2
+    elif drowsistersprogressLevel == 2 and pacificaCorLevel >= 40 and lillyLoveLevel >= 15:
+        $ drowsistersprogressLevel = 3
+    elif drowsistersprogressLevel == 3 and pacificaCorLevel >= 55 and lillyLoveLevel >= 20:
+        $ drowsistersprogressLevel = 4
 
-    #these two are "cheats" to get outfits in the game without having players start from begning
-    if checkNINE == 0:
-        $ checkNINE = 1
-        $ shop.append("Catgirl Outfit")
 
-    $ checkTWELVE = dayNumber - 25
-    if checkELEVEN == 0 and checkTWELVE >= 3:
-        $ checkELEVEN = 1
+    $ melonyResistanceCheckerChecker = dayNumber - 25
+    if melonyResistance == 0 and melonyResistanceCheckerChecker >= 3:
+        $ melonyResistance = 1
 
-    if checkELEVEN == 2 and melonyResistLevel <= 75:
-        $ checkELEVEN = 3
+    if melonyResistance == 2 and melonyResistLevel <= 75:
+        $ melonyResistance = 3
 
-    $ checkTHIRTEEN = 0
+    $ melonyActionCheck = 0
 
     if dressbuy_checker >= 4:
-        if checkTEN == 0:
-            $ checkTEN = 1
+        if littleRedRidingOutfit == 0:
+            $ littleRedRidingOutfit = 1
             $ gliff_shop.append("Red Riding Hood Outfit")
 
     if heistnumber == dayNumber:
@@ -1340,11 +1482,14 @@ label solar_system:
             $ isPacificaWorking = 0
 
 
+
+
     $ haveItalkedToElizabeth = 0
     $ haveIactionedElizabeth = 0
     $ haveItalkedToMary = 0
     $ haveIactionedMary = 0
     $ haveIcalledMary = 0
+    $ haveIactionedSarahNight = 0
     $ haveItalkedtoClea = 0
     $ haveIactionedClea = 0
     $ haveItalkedtoPacifica = 0
@@ -1362,7 +1507,7 @@ label solar_system:
     #Here are the NPC variable Setters
 
     #I'm commenting out the level changes for levels that arent current in game
-    if maryLoveLevel >= 11 and maryConversationLevel == 0:
+    if maryLoveLevel >= 20 and maryConversationLevel == 0:
         $ maryConversationLevel = 1
    # if maryLoveLevel >= 25 and maryConversationLevel == 1:
       #  $ maryConversationLevel = 2
@@ -1371,10 +1516,10 @@ label solar_system:
         $ maryDungeonLevel = 1
     if maryLoveLevel >= 10 and maryCorLevel >=25 and maryDungeonLevel == 1:
         $ maryDungeonLevel = 2
-    if maryLoveLevel >= 30 and maryCorLevel >=20 and checkFOURTEEN == 1 and maryDungeonLevel == 2:
+    if maryLoveLevel >= 30 and maryCorLevel >=20 and marydungeontalk == 1 and maryDungeonLevel == 2:
         $ maryDungeonLevel = 3
-   # if maryLoveLevel >= 40 and maryCorLevel >=30 and maryDungeonLevel == 3:
-       # $ maryDungeonLevel = 4
+    if maryLoveLevel >= 40 and maryCorLevel >=40 and maryDungeonLevel == 3 and orgasmtorture2nddialoguecheck == 1:
+        $ maryDungeonLevel = 4
 
     #THIS IS ELIZABETH"S starting convo setters
     if elizabethlove >= 10 and elizabethlove <= 20:
@@ -1395,6 +1540,22 @@ label solar_system:
     elif elizabethcorruption >= 56 and elizabethcorruption <=70:
         $ eliconvolist[1] = "You were gone for too long please...I need you..I need your cock I'll do anything you want " + elichoosename + "."
 
+    if elinakedcheck == 0:
+        if elizabethlove >= 55 or elizabethcorruption >= 55:
+            $ elinakedcheck = 1
+            $ elizabeth_clothes.append("Naked")
+
+
+    if pacinakedcheck== 0:
+        if pacificaLoveLevel >= 55 or pacificaCorLevel >= 55:
+            $ pacinakedcheck= 1
+            $ pacificaconvolist.append("Naked")
+
+
+    if sarahnakedcheck == 0:
+        if sarahLoveLevel >= 55 or sarahCorLevel >= 55:
+            $ sarahnakedcheck = 1
+            $ sarah_clothes.append("Naked")
 
     $ dayNumber += 1
     if dayNumber == 5:
@@ -1405,18 +1566,18 @@ label solar_system:
         $ isPacificaUnlocked = 1
     if dayNumber == 25:
         $ isMelonyUnlocked = 1
-    if dayNumber >= 30 and checkFIFTEEN == 0:
-        $ checkFIFTEEN = 1
+    if dayNumber >= 30 and unlockLiana == 0:
+        $ unlockLiana = 1
 
 
     if isMelonyUnlocked == 1:
         jump melonyarrival
 
-    if checkFIFTEEN == 1:
+    if unlockLiana == 1:
         jump lianaarrival
 
-    if checkFOUR == 1:
-        $ checkFOUR = 0
+    if willpacificavisit == 1:
+        $ willpacificavisit = 0
         jump pacificaVisit
 
     call screen worldmap #Displaying the imagemap
@@ -1483,9 +1644,9 @@ label gotonighttime:
         $ jobtwoconversation = 0
 #--------------------------------------------
 
-    if checkTWO == 0:
+    if christmasboxcheck == 0:
         $ shop.append("Colorful Festive Box")
-        $ checkTWO = 1
+        $ christmasboxcheck = 1
 
     if isCleaUnlocked == 1:
         e neutral "I should check on Sarah at some point, see how she's doing."
@@ -1509,6 +1670,7 @@ label daytime:
 
 
 label firsttimebanquet:
+    $ checkFOUR = 3
     define u = DynamicCharacter("Mortimer", image = "mortimer")
     image fullBodyMORT neutral = "MortimerPennyfickle.png"
     image side mortimer neutral = "mortimerHeadshotNeutral.png"
@@ -1575,7 +1737,7 @@ label firsttimebanquet:
     "You move from the castle lobby into the throne room. A small band plays some light music"
     show fullBodyROUGE neutral at right
     with moveinright
-    "Noblewoman""Ah there he is! The man of the hour."
+    "Noblewoman" "Ah there he is! The man of the hour."
     r neutral "Ah. THIS, is madam Rouge."
     "You're greeted by a very fancily dressed woman in red waving a fan frantically"
     e smile "Ah hello madam, nice to meet you."
@@ -1653,6 +1815,10 @@ label firsttimebanquet:
         with Dissolve(0.5)
         hide fullBodyR neutralflip
         with Dissolve(0.5)
+        $ renpy.notify("Quest Completed: A Suit For A Suitor")
+        $ check_listTwo.append("A Suit For A Suitor")
+        $ check_listOne.remove("A Suit For A Suitor")
+        $ checkFOUR = 3
         "Congratulations, You've had your first banquet!"
         "You are now able to take any girl you want to the banquet and have them wear any available outfit for different outcomes."
         $ theballinfotoggle = 3
@@ -1682,6 +1848,11 @@ label attendthebanquet:
 
         elif chosen_outfit == "Sexy Red Lingerie":
             $ elizabethOutfit = 3
+
+        elif chosen_outfit == "Naked":
+            "She can't go to the banquet naked! Choose something else."
+            jump attendthebanquet
+
 
     elif selected_girl == "Mary":
         "What outfit would you like Mary to wear?"
@@ -1719,6 +1890,10 @@ label attendthebanquet:
 
         elif chosen_outfit == "Sexy Christmas Dress":
             $ sarahOutfit = 3
+
+        elif chosen_outfit == "Naked":
+            "She can't go to the banquet naked! Choose something else."
+            jump attendthebanquet
 
     elif selected_girl == "Clea":
         "What outfit would you like Clea to wear?"
@@ -1762,6 +1937,10 @@ label attendthebanquet:
         elif chosen_outfit == "Pajamas":
             $ pacificaOutfit = 6
 
+        elif chosen_outfit == "Naked":
+            "She can't go to the banquet naked! Choose something else."
+            jump attendthebanquet
+
 
     elif selected_girl == "Lilly":
         "What outfit would you like Lilly to wear?"
@@ -1784,7 +1963,7 @@ label attendthebanquet:
     elif selected_girl == "Melony":
 
         "What outfit would you like Melony to wear?"
-        call screen screen_clothes(melonyconvolist,adj=tutorials_adjustment)
+        call screen screen_clothes(melony_clothes,adj=tutorials_adjustment)
 
         $ chosen_outfit = _return
 
@@ -2006,8 +2185,11 @@ label startthebanquet:
         if melonyOutfit == 0:
             show fullBodyN neutral at left
             with moveinleft
-        else:
+        elif melonyOutfit == 1:
             show fullBodyN bikini at left
+            with moveinleft
+        else:
+            show fullBodyN swimsuit at left
             with moveinleft
         u neutral "Hello madam pleasure to m-m-muh...demon?"
         n neutral "The pleasure is all mine my lord. Quite the banquet wouldn't you say?"
@@ -2225,7 +2407,7 @@ label startthebanquet:
 
                 label elilooksgreat:
                     e neutral "I love that dress personally. Thank you for wearing it tonight Elizabeth."
-                    z blush "Oh uh, your welcome [elichoosename]. I'm...glad you approve."
+                    z blush "Oh uh, you're welcome [elichoosename]. I'm...glad you approve."
                     "You and the princess share a small moment looking into eachother's eyes"
                     y neutral "....alright then."
                     e neutral "Ah forgive me Madam Rouge I lost myself for a second there."
@@ -3328,6 +3510,10 @@ label lianaarrival:
     image side liana neutral = "orcgirlheadshot.png"
     image side liana blush = "orcgirlheadshot_blushing.png"
 
+    image side liana nakednervous = "headshots_liana1.png"
+    image side liana nakedcum = "headshots_liana2.png"
+    image side liana nakedyell = "headshots_liana3.png"
+
         #$ girlList.append("Melony")                                 #Do this when appropriate
 
     $ liana_clothes = ["Orc Clothing"]
@@ -3448,8 +3634,8 @@ label lianaarrival:
 
     li neutral "Hmph. Can we start already?"
     "The two of you walk to the edge of the arena prepared to fight"
-    $ checkSIXTEEN = 0
-    $ checkSEVENTEEN = 0
+    $ lianaHitCounterEEN = 0
+    $ MCHitCounteronLianaEN = 0
     scene sscene lianafight1
     with Dissolve(0.5)
     e smile "Whenever you're ready."
@@ -3501,8 +3687,8 @@ label lianaarrival:
         e neutral "OOF!"
         scene sscene lianafight1
         e neutral "\[Why the hell did I try to dodge INTO the side she was punching with UGH!\]"
-        $ checkSIXTEEN += 1
-        if checkSIXTEEN >= 3:
+        $ lianaHitCounterEEN += 1
+        if lianaHitCounterEEN >= 3:
             jump fightover
         jump battleLiana
 
@@ -3514,8 +3700,8 @@ label lianaarrival:
         scene sscene lianafight1
         e neutral "\[The hell was that? Some kind of moan?\]"
         li neutral "N-Nice hit human! You're not as weak as I assumed."
-        $ checkSEVENTEEN += 1
-        if checkSEVENTEEN >= 3:
+        $ MCHitCounteronLianaEN += 1
+        if MCHitCounteronLianaEN >= 3:
             jump fightover
         jump battleLiana
 
@@ -3526,8 +3712,8 @@ label lianaarrival:
         e neutral "\[OW what the hell?!! Why would stepping back work she just kept coming straight at me I'm an idiot.\]"
         scene sscene lianafight1
         li neutral "Pathetic. Let's keep going!"
-        $ checkSIXTEEN += 1
-        if checkSIXTEEN >= 3:
+        $ lianaHitCounterEEN += 1
+        if lianaHitCounterEEN >= 3:
             jump fightover
         jump battleLiana
 
@@ -3539,8 +3725,8 @@ label lianaarrival:
         li blush "OHH!"
         scene sscene lianafight1
         e neutral "\[That is NOT a normal sound one makes when punched in the gut...\]"
-        $ checkSEVENTEEN += 1
-        if checkSEVENTEEN >= 3:
+        $ MCHitCounteronLianaEN += 1
+        if MCHitCounteronLianaEN >= 3:
             jump fightover
         jump battleLiana
 
@@ -3552,8 +3738,8 @@ label lianaarrival:
         e neutral "Gah!"
         scene sscene lianafight1
         li neutral "C'mon Mister king of the humans, can't you do better than that?!"
-        $ checkSIXTEEN += 1
-        if checkSIXTEEN >= 3:
+        $ lianaHitCounterEEN += 1
+        if lianaHitCounterEEN >= 3:
             jump fightover
         jump battleLiana
 
@@ -3568,14 +3754,14 @@ label lianaarrival:
         scene sscene lianafight1
         li neutral "...."
         e neutral "\[This is strange, it's almost as if she enjoyed getting hit...\]"
-        $ checkSEVENTEEN += 1
-        if checkSEVENTEEN >= 3:
+        $ MCHitCounteronLianaEN += 1
+        if MCHitCounteronLianaEN >= 3:
             jump fightover
         jump battleLiana
 
 
     label fightover:
-        if checkSIXTEEN >= 3:
+        if lianaHitCounterEEN >= 3:
             "You take a step back to brace yourself and she hits you again"
             scene sscene lianafight4
             with hpunch
@@ -3584,6 +3770,445 @@ label lianaarrival:
             with Dissolve(1.5)
             "You wake up a couple hours later, not sure what happened. But you have a feeling it's gonna happen all over again if you don't get the sequence right..."
             call screen worldmap
+        elif MCHitCounteronLianaEN >= 3:
+            scene castle traininghall
+            with Dissolve(1.0)
+
+            if playerOutfit == 0:
+                show fullbodyE neutralArmsCrossed at left
+            elif playerOutfit == 1:
+                show fullbodyE neutralArmour1 at left
+            elif playerOutfit == 2:
+                show fullbodyE bloodyarmour at left
+            elif playerOutfit == 3:
+                show fullbodyE playersuit at left
+
+            show fullBodyLi neutral at right
+
+            li neutral "Hah...hah.."
+            e neutral "You're not bad, I mean you seem stronger than a human at least. Can't really compare you to other Orcs."
+            li blush "I-I'm the Strongest Orc in the tribe!"
+            e neutral "Sure sure...now...what to do with you."
+            e neutral "\[That entire fight seemed strange...everytime I hit her it almost sounded like she enjoyed it...\]"
+            e neutral "Tell me, being the strong and beautiful Orc that you are, why did you leave your tribe."
+            li neutral "I don't have to answer your questions."
+            e neutral "I won the fight, the least you can do is that."
+            li neutral "....I-I left for my own reasons, I wanted to leave!"
+            e neutral "\[Well that's an obvious lie....alright I have an idea, it may be nothing I need to test out this theory of mine.\]"
+            if playerOutfit == 0:
+                show fullbodyE neutralArmsCrossed:
+                    xalign 0.5
+                with move
+            elif playerOutfit == 1:
+                show fullbodyE neutralArmour1:
+                    xalign 0.5
+                with move
+            elif playerOutfit == 2:
+                show fullbodyE bloodyarmour:
+                    xalign 0.5
+                with move
+            elif playerOutfit == 3:
+                show fullbodyE playersuit:
+                    xalign 0.5
+                with move
+            "You walk a bit closer to her"
+            e neutral "Alright listen to me you weak orc scum. Take off your clothes."
+            li neutral "What?!"
+            with hpunch
+            e yell "I SAID TAKE OFF YOUR CLOTHES YOU BITCH."
+            li neutral "I...."
+            e yell "Now. You're going to show me your tits or I'm going to tear off what you call clothes myself."
+            "Liana stood looking shocked for a moment"
+            show fullBodyLi naked
+            with Dissolve(1.2)
+            "Then to your surprise proceeded to undress as you asked"
+            e neutral "\[I knew it! She's a god damn masochist. I bet if I treat her poorly enough I could get her to do anything...\]"
+            e neutral "\[Aside from the scars she is quite good looking...and fit...mmmm those tits too..\]"
+            jump lianaoptions
+
+        else:
+            call screen worldmap
+
+    label lianaoptions:
+        menu:
+            "Give her a job":
+                jump givelianajob
+            "Fuck her brains out":
+                jump fuckliana
+
+        label givelianajob:
+            $ lianachoosename = "Your Highness"
+            $ lianaOutfit = 1
+
+            #first use of conditionswitch, much easier to switch between outfits, might integrate further later on(v0.79)
+            image lianaO current = ConditionSwitch(
+                "lianaOutfit == 0", "liananeutral.png", "lianaOutfit == 1", "liananaked.png" , "True", "liananeutral.png")
+
+            hide fullBodyLi
+            show lianaO current at right
+
+
+            e smile "Alright...Liana was it? I'll give you what you want."
+            li neutral "What? But you defeated me..."
+            e smile "No worries, it'll come with some conditions though."
+            li neutral "Okay...."
+            e neutral "You can start training civilians into soldiers right here in the training hall. The City is low on soldiers anyways since the war ended."
+            e neutral "You get a job like you wanted, and you'll get payed by taking half of the registration fee, the rest will go to me got it?"
+            li neutral ".....alright yes."
+            e smile "In exchange you will live with me in my castle, there's a couple of other women who live there already so try to get along."
+            li neutral "You...want me to live with you? But I'm a stranger...and an Orc!"
+            e smile "I don't discriminate. Plus sometimes I get really hangry, that's horny and angry, and I've been looking for someone to help me out with that."
+            li neutral "I thought hangry was when you were hungry an-"
+            e neutral "Kinda like I'm getting right now."
+            li blush "....O-Okay I can help you out with that.."
+            e smile "Great! Welcome to Allitia."
+            "Congratulations! You've recruited Liana the Orc. She won't have much content right now (v0.85) but you can still talk to her, and she'll bring in 25 gold twice a week"
+            $ unlockLiana = 2
+            $ lianaRecruitCheck = 1
+            $ lianaOutfit = 0
+            call screen lobbycastle
+
+        label fuckliana:
+            li nakednervous "Y-You like what you see? You humans are so pathetic always thinking about m-mating..."
+            e neutral "Shut up and get on your knees."
+            li nakednervous "Wha-"
+            e yell "Stop making me repeat myself you green skinned bitch!"
+            scene blank darkness
+            with Dissolve(0.5)
+            "Liana does as she's told as you yourself evaporate all your own clothes with your magic"
+
+
+            image sscene lianaBJ1 = "bjsceenelianalines1.png"
+            image sscene lianaBJ2 = "bjsceenelianalines2.png"
+            image sscene lianaBJ3 = "bjsceenelianalines3.png"
+            image sscene lianaBJ4 = "bjsceenelianalines4.png"
+            image sscene lianaBJ5 = "bjsceenelianalines5.png"
+            image sscene lianaBJ6 = "bjsceenelianalines6.png"
+            image sscene lianaBJ7 = "bjsceenelianalines7.png"
+
+            scene sscene lianaBJ1
+            with Dissolve(1.0)
+            li nakedyell "I see you're already...hard."
+            e neutral "No more talking from you. Put my cock in your mouth."
+            scene sscene lianaBJ2
+            e smile "Nice."
+            scene sscene lianaBJ3
+            "Now let's...."
+
+            image LianaBJtest:
+                "bjsceenelianalines3.png"
+                0.07
+                "bjsceenelianalines4.png"
+                0.07
+                "bjsceenelianalines5.png"
+                0.07
+                "bjsceenelianalines6.png"
+                0.07
+                "bjsceenelianalines7.png"
+                0.1
+                "bjsceenelianalines6.png"
+                0.8
+                "bjsceenelianalines5.png"
+                0.07
+                "bjsceenelianalines4.png"
+                0.07
+                "bjsceenelianalines3.png"
+                0.07
+                repeat
+
+            show LianaBJtest
+            e smile "Ah there we go yeah..."
+            window hide
+            pause
+            "Liana's strong neck muscles squeezed your dick as it went down her throat"
+            e smile "Fuck that's good. Gotta admit it didn't take much did it?"
+            li nakedyell "??"
+            e smile "I just tell you to suck my cock and you just go ahead and do it, must be quite the slut back home."
+            li nakednervous "Nuhmnuh!!"
+
+            image LianaBJtestlvl2:
+                "bjsceenelianalines3.png"
+                0.05
+                "bjsceenelianalines4.png"
+                0.05
+                "bjsceenelianalines5.png"
+                0.05
+                "bjsceenelianalines6.png"
+                0.05
+                "bjsceenelianalines7.png"
+                0.05
+                "bjsceenelianalines6.png"
+                0.05
+                "bjsceenelianalines5.png"
+                0.05
+                "bjsceenelianalines4.png"
+                0.05
+                "bjsceenelianalines3.png"
+                0.05
+                repeat
+
+            show LianaBJtestlvl2
+            window hide
+            pause
+            "The warmth and wetness of Liana's throat felt amazing, and although tight there was no resistence at all"
+            e smile "You know I have a theory. I think you were cast out."
+            li nakedyell "HMH??!"
+            e smile "Yeah I think your little secret got found out, hard to save face in a tribe that idolizes being strong and tough.."
+            e smile "UGH! When people find out you get turned on by pain."
+            li nakedcum "Unh uh! Unh uh!"
+            e smile "Oh you don't agree? Here let's test my theory then."
+            scene sscene lianaBJ7
+            with hpunch
+            pause
+
+            image sscene wetbjliana1 = "bjsceenelianasaliva3fix.png"
+            image sscene wetbjliana2 = "bjsceenelianasaliva2fix.png"
+            image sscene wetbjliana3 = "bjsceenelianasaliva1fix2.png"
+
+            scene sscene wetbjliana1
+            pause
+            scene sscene wetbjliana2
+            pause
+            scene sscene wetbjliana3
+            e neutral "Turn around and put your hands on the ground. Now."
+            li nakedyell "Hah...ha..."
+            li nakednervous "O-Okay."
+
+
+            image sscene lianaanal1 = "lianaanal1.png"
+            image sscene lianaanal2 = "lianaanal2.png"
+            image sscene lianaanal3 = "lianaanal3.png"
+            image sscene lianaanal4 = "lianaanal4.png"
+            image sscene lianaanal5 = "lianaanal5.png"
+            image sscene lianaanal6 = "lianaanal6.png"
+
+            image sscene lianaanalxray3 = "lianaanalxray3.png"
+            image sscene lianaanalxray4 = "lianaanalxray4.png"
+            image sscene lianaanalxray5 = "lianaanalxray5.png"
+            image sscene lianaanalxray6 = "lianaanalxray6.png"
+
+
+            scene sscene lianaanal1
+            with Dissolve(1.0)
+            "You rest your dick against the top of Liana's ass"
+            e smile "Oh yeah I can tell you're gonna be tight."
+            scene sscene lianaanal2
+            li nakedyell "Wait that's my!"
+            scene sscene lianaanal3
+            with hpunch
+            li nakedcum "AHH!"
+            e smile "That's fucking right. I'm going to fuck your ass."
+            li nakedyell "You can't, please!"
+            e smile "It's gonna hurt, and you're gonna like it aren't you?"
+            scene sscene lianaanal4
+            with hpunch
+            li nakedcum "OH MY GODS!"
+            e yell "Aren't you!??"
+            li nakednervous "......ye-"
+            jump lianaanalback
+
+            label lianaanalback:
+
+
+                image LianaANALtest1:
+                    "lianaanal2.png"
+                    0.09
+                    "lianaanal3.png"
+                    0.09
+                    "lianaanal4.png"
+                    0.09
+                    "lianaanal5.png"
+                    0.09
+                    "lianaanal4.png"
+                    0.09
+                    "lianaanal3.png"
+                    0.09
+                    "lianaanal2.png"
+                    0.09
+                    repeat
+
+                hide LianaANALtest2
+                show LianaANALtest1
+                window hide
+                pause
+
+                menu:
+                    "Slap":
+                        jump normalslap
+                    "Xray":
+                        jump lianaanalbackxray
+                    "Continue":
+                        jump lianaanalback
+                    "Move on":
+                        jump analpullhairliana
+
+            label lianaanalbackxray:
+                e yell "Vigilia Cantavit Gallus!"
+                li nakedyell "W-What?"
+                e yell "Shut up!"
+                jump lianaanalbackxray2
+
+            label lianaanalbackxray2:
+
+                image LianaANALtest2:
+                    "lianaanal2.png"
+                    0.09
+                    "lianaanalxray3.png"
+                    0.09
+                    "lianaanalxray4.png"
+                    0.09
+                    "lianaanalxray5.png"
+                    0.09
+                    "lianaanalxray4.png"
+                    0.09
+                    "lianaanalxray3.png"
+                    0.09
+                    "lianaanal2.png"
+                    0.09
+                    repeat
+                hide LianaANALtest1
+                show LianaANALtest2
+                window hide
+                pause
+
+                menu:
+                    "Slap":
+                        jump xrayslap
+                    "Undo Xray":
+                        jump lianaanalback
+                    "Continue":
+                        jump lianaanalbackxray2
+                    "Move on":
+                        jump analpullhairliana
+
+
+
+            label normalslap:
+                scene sscene lianaanal5
+                pause
+                scene sscene lianaanal6
+                with hpunch
+                scene sscene lianaanal5
+                li nakedcum "AHN!"
+                e yell "You fucking like that bitch?"
+                scene sscene lianaanal5
+                scene sscene lianaanal6
+                with hpunch
+                scene sscene lianaanal5
+                e yell "Take it! Take my cock up your ass!"
+                jump lianaanalback
+
+
+            label xrayslap:
+                scene sscene lianaanalxray5
+                pause
+                scene sscene lianaanalxray6
+                with hpunch
+                scene sscene lianaanalxray5
+                li nakedcum "AHN!"
+                e yell "You fucking like that bitch?"
+                scene sscene lianaanalxray5
+                scene sscene lianaanalxray6
+                with hpunch
+                scene sscene lianaanalxray5
+                e yell "Take it! Take my cock up your ass!"
+                jump lianaanalbackxray2
+
+
+            label analpullhairliana:
+
+                image sscene lianahairpull0 = "liana_anal_frontextra1.png"
+                image sscene lianahairpull0b = "liana_anal_frontextra2fix2.png"
+
+                scene sscene lianahairpull0
+                with Dissolve(1.0)
+                li nakedyell "Hah...hah..why'd you stop?"
+                e smile "I knew you were into it. I wanna try something else..."
+                "You mumble a few choice words and magical chains begin to bind Liana's arms"
+                scene sscene lianahairpull0b
+                with hpunch
+                li nakedcum "AH!"
+                e smile "Yeah I figured you'd like your hair pulled. Now beg!"
+                li nakedyell "P-Please human King...f..fuck my ass!"
+
+                image sscene liana_orgasm = "liana_anal_front6.png"
+                image sscene liana_afterglow = "liana_anal_front7.png"
+                image LianaBJtest3:
+                    "liana_anal_front1.png"
+                    0.07
+                    "liana_anal_front2.png"
+                    0.07
+                    "liana_anal_front3.png"
+                    0.07
+                    "liana_anal_front4.png"
+                    0.07
+                    "liana_anal_front5.png"
+                    0.07
+                    "liana_anal_front4.png"
+                    0.07
+                    "liana_anal_front3.png"
+                    0.3
+                    "liana_anal_front2.png"
+                    0.07
+                    repeat
+
+                show LianaBJtest3
+                window hide
+                pause
+                "Liana's warm ass felt good, real good. Warm and tight. It squeezed you every time you went balls deep"
+
+
+                image LianaBJtest9:
+                    "liana_anal_front1.png"
+                    0.05
+                    "liana_anal_front2.png"
+                    0.05
+                    "liana_anal_front3.png"
+                    0.05
+                    "liana_anal_front4.png"
+                    0.05
+                    "liana_anal_front5.png"
+                    0.05
+                    "liana_anal_front4.png"
+                    0.05
+                    "liana_anal_front3.png"
+                    0.1
+                    "liana_anal_front2.png"
+                    0.05
+                    repeat
+
+                show LianaBJtest9
+                window hide
+                li nakedcum "Ah! Ah! Ah!"
+                e smile "It hurts doesn't?!"
+                li nakedcum "Yes!"
+                e smile "You like it don't you??!"
+                li nakedcum "I-I love it!!! Don't stop!!"
+                window hide
+                pause
+                "You feel your orgasm approaching fast"
+                li nakedyell "I-I think I'm gonna c-"
+                e smile "Right on time FUCK!"
+                scene sscene liana_orgasm
+                with hpunch
+                with flash
+                e smile "AHHH FUCKING FILL YOU UP!"
+                "Liana's asshole squeezed every last drop of cum out of your balls as it began to spill out onto the ground"
+                li nakedcum "UHNNN YESSS GREAT GODDESS TAKE ME!"
+                with flash
+                pause
+                scene sscene liana_afterglow
+                with Dissolve(1.0)
+                e neutral "*gasp*...*gasp*.."
+                li nakedcum "*gasp*...*gasp*.."
+                e neutral "I expect you to leave my city within the hour."
+                scene blank darkness
+                with Dissolve(2.0)
+                "You get up and leave the Orc girl on the ground, you were done with her."
+                "You can now view this sex scene in the scene viewer in your room!"
+                $ unlockLiana = 2
+                $ scene_list.append("Liana Sex Scene")
+                call screen worldmap
 
 
 
@@ -3650,6 +4275,10 @@ label melonyarrival:
         image side melony serious = "melonyheadshotdeadpan.png"
         image side melony lust = "melonyheadshotlust.png"
 
+        image side melony nakedsmile = "headshots_mel1.png"
+        image side melony nakedyell = "headshots_mel2.png"
+        image side melony nakedlick = "headshots_mel4.png"
+        image side melony nakedlust = "headshots_mel3.png"
 
         $ girlList.append("Melony")                                 #MOVE THIS APPROPRIATELY WHEN YOU KEEP MELONY
 
@@ -3699,6 +4328,9 @@ label melonyarrival:
             with moveinright
         elif elizabethOutfit == 3:
             show fullBodyZ currentOutfit3 at right
+            with moveinright
+        elif elizabethOutfit == 4:
+            show fullBodyZ eliNaked at right
             with moveinright
 
         "Elizabeth joins you both outside the gates"
@@ -3775,6 +4407,11 @@ label melonyarrival:
         elif elizabethOutfit == 3:
             image fullBodyZ xmasdressflip = im.Flip("elizchristmas.png",horizontal=True)
             show fullBodyZ xmasdressflip:
+                xalign 0.2
+            with moveinleft
+        elif elizabethOutfit == 4:
+            image fullBodyZ nakedflip = im.Flip("eliznude.png",horizontal=True)
+            show fullBodyZ nakedflip:
                 xalign 0.2
             with moveinleft
 
@@ -3867,6 +4504,9 @@ label melonyarrival:
         elif elizabethOutfit == 3:
             show fullBodyZ xmasdressflip at left
             with move
+        elif elizabethOutfit == 4:
+            show fullBodyZ eliNaked at left
+            with move
         z blush "B-Blockhead??! "
         n neutral "Hmmm…"
         show fullBodyN neutral:
@@ -3895,7 +4535,7 @@ label melonyarrival:
         n neutral "Well at least she seems good for something."
         "Elizabeth struggles to speak "
         n neutral "Nice hips too. Tell me, has [povname] impregnated you yet?"
-        "A look of shock, awe, and pure frustration takes over the princesses face. "
+        "A look of shock, awe, and pure frustration takes over the   face. "
         z blush "I-I-Impregnanted??!! "
         n serious "Are you just going to repeat everything I say? "
         menu:
@@ -3959,6 +4599,10 @@ label melonyarrival:
                 show fullBodyN bikini:
                     xalign 0.7
                 with Dissolve(0.5)
+            if melonyOutfit == 2:
+                show fullBodyN swimsuit:
+                    xalign 0.7
+                with Dissolve(0.5)
 
 
             if elizabethOutfit == 0:
@@ -3972,6 +4616,9 @@ label melonyarrival:
                 with Dissolve(0.5)
             elif elizabethOutfit == 3:
                 show fullBodyZ xmasdressflip at left
+                with Dissolve(0.5)
+            elif elizabethOutfit == 4:
+                show fullBodyZ eliNaked at left
                 with Dissolve(0.5)
 
             if playerOutfit == 0:
@@ -4320,26 +4967,26 @@ label melonyarrival:
                     n neutral "Just relax, I'll take care of everything."
                     "Melony's clothes burn up in a magical fire as her massive tits pass by your dick"
                     scene sscene melonyRiding3
-                    n neutral "I know you've wanted to see my tits since you were a little."
+                    n nakedlust "I know you've wanted to see my tits since you were a little."
                     e neutral "....."
                     window hide
                     pause
                     "She positions herself above your cock"
                     scene sscene melonyRiding4
-                    n neutral "Alright no more talking I've waited long enough."
+                    n nakedlick "Alright no more talking I've waited long enough."
                     scene sscene melonyRiding5
                     "She lowers her hips, penetrating herself with the head of your cock"
-                    n lust "Oh gods"
+                    n nakedyell "Oh gods"
                     "She holds it there, savoring it. You could feel her juices as they started to run down your cock"
                     "She was very, very wet."
                     scene sscene melonyRiding6
                     with Dissolve(0.5)
                     "Finally she leans back"
-                    n lust "uhn."
+                    n nakedyell "uhn."
                     scene sscene melonyRiding7
-                    n lust "UHN!"
+                    n nakedyell "UHN!"
                     scene sscene melonyRiding8
-                    n lust "YES!!!"
+                    n nakedyell "YES!!!"
                     with vpunch
                     image melriding1:
                         "melridingscene7.png"
@@ -4350,11 +4997,11 @@ label melonyarrival:
 
                     show melriding1
                     "She starts to ride your cock, reaching ecstasy everytime she reaches the base of your shaft"
-                    n neutral "Ah! Ah! Ah!"
+                    n nakedyell "Ah! Ah! Ah!"
                     "sounds of wet slapping and moaning filled the room, Melony didn't hold anything back"
                     window hide
                     pause
-                    n lust "Fuck me fuck me fuck me!"
+                    n nakedlust "Fuck me fuck me fuck me!"
                     image sscene doorRoomblur = "doorRoom.png"
                     scene sscene doorRoomblur
                     with Dissolve(0.7)
@@ -4385,6 +5032,9 @@ label melonyarrival:
                     elif elizabethOutfit == 3:
                         show fullBodyZ currentOutfit3 at right
                         with moveinright
+                    elif elizabethOutfit == 4:
+                        show fullBodyZ eliNaked at left
+                        with Dissolve(0.5)
 
                     z sad "So do you think he'll convince her to leave?"
                     r neutral "I really don't know she seemed...adamant about staying. Or..getting something?"
@@ -4404,15 +5054,15 @@ label melonyarrival:
                         with moveinleft
 
                     "Mary slowly leans her ear to your door"
-                    n lust "{size=-8}Ah!....Ah!..{/size}"
+                    n nakedyell "{size=-8}Ah!....Ah!..{/size}"
                     z sad "Well?"
                     r neutral "Um...I think-"
-                    n lust "{size=-4}Ah!..Oh!..Oh yes!{/size}"
+                    n nakedyell "{size=-4}Ah!..Oh!..Oh yes!{/size}"
                     r blush "Oh my..I think they're.."
                     z "Wha-"
-                    n lust "Yes Yes! Your cock is so good!"
+                    n nakedyell "Yes Yes! Your cock is so good!"
                     z blush "Oh gods...okay."
-                    n lust "MMMMMMM!"
+                    n nakedlick "MMMMMMM!"
                     r neutral "Should we leave?"
                     z sad "......."
                     scene sscene melonyRiding9
@@ -4429,7 +5079,7 @@ label melonyarrival:
                         0.4
                         repeat
                     show melriding2
-                    n lust "This is what you wanted isn't it? All those years ago. I saw the way you looked at me, and I know it's why you took off."
+                    n nakedlust "This is what you wanted isn't it? All those years ago. I saw the way you looked at me, and I know it's why you took off."
                     "*Slap* *Slap* *Slap*"
                     window hide
                     pause
@@ -4444,16 +5094,16 @@ label melonyarrival:
                     window hide
                     pause
                     e neutral "\[gods be damned I can't resist her at all, this feels too good! I'm so close.\]"
-                    n lust "gods yes! You like that?"
-                    n lust "You like your cock inside me!? Does it feel good baby!?"
+                    n nakedyell "gods yes! You like that?"
+                    n nakedyell "You like your cock inside me!? Does it feel good baby!?"
                     e neutral "....."
                     scene sscene melonyRiding12
                     with Dissolve(0.5)
                     "She was right, everything she said was right and you can't control yourself any longer, you grab one of her tits with your hand"
-                    n lust "Well Look at you, couldn't resist anymore huh?"
+                    n nakedlick "Well Look at you, couldn't resist anymore huh?"
                     "You feel that familiar pressure building quickly inside of your dick"
                     n neutral "Oh? You're close aren't you? Well go on then."
-                    n lust "Cum for me! Cum for mommy!"
+                    n nakedlust "Cum for me! Cum for mommy!"
                     scene sscene melonyRiding13
                     with hpunch
                     window hide
@@ -4461,12 +5111,12 @@ label melonyarrival:
                     "Melony squeezes her pussy as you erupt inside of her"
                     with hpunch
                     with flash
-                    n lust "Oh yes! Baby yes let it all out!"
+                    n nakedyell "Oh yes! Baby yes let it all out!"
                     with flash
                     "You cum harder than ever before, filling Melony with unreal amounts of your seed, eventually it explodes out of her"
                     with hpunch
                     with flash
-                    n lust "Oh gods I knew you were the one..."
+                    n nakedyell "Oh gods I knew you were the one..."
                     scene blank darkness
                     with Dissolve(2.5)
                     "Your strength evaporates from your body, you release your hand and within seconds everything goes black."
@@ -4491,6 +5141,17 @@ label melonyarrival:
                     jump yourRoom
 
 
+label theSlums:
+    if isitdaytime == 1:
+        scene ow default
+
+    "This Area is coming soon (v0.85)"
+    if isitdaytime == 1:
+        call screen worldmap
+    else:
+        call screen nightmap
+
+
 
 label forest:
     if isitdaytime == 1:
@@ -4508,6 +5169,11 @@ label forest:
         image side clea smile = "CleaHeadSmirk.png"
         image side clea yelling = "CleaHeadYelling.png"
         image side clea blush = "CleaHeadBlush.png"
+
+        image side clea nakedblush = "headshots_clea1.png"
+        image side clea nakedyell = "headshots_clea2.png"
+        image side clea nakedlip = "headshots_clea3.png"
+        image side clea nakedcum =  "headshots_clea4.png"
 
         $ girlList.append("Clea")
 
@@ -4534,6 +5200,21 @@ label forest:
                 jump callthemout
 
         label callthemout:
+
+            if playerOutfit == 0:
+                show fullbodyE neutralArmsCrossed at left
+                with moveinleft
+            elif playerOutfit == 1:
+                show fullbodyE neutralArmour1 at left
+                with moveinleft
+            elif playerOutfit == 2:
+                show fullbodyE bloodyArmour1 at left
+                with moveinleft
+            elif playerOutfit == 3:
+                show fullbodyE playersuit:
+                    xalign 0.05
+                with moveinleft
+
             "You stand up and turn around"
 
             e neutral "Alright. If you want to hide your prescence you're doing a terrible job. C'mon out."
@@ -4915,6 +5596,10 @@ label forest:
             e neutral "Relax, before I make my decision I want to ask you some simple questions."
 
             c neutral "What are they."
+
+            $ renpy.notify("Quest Updated: Tsundere? I Don't Even Know Herdere")
+
+            $ checkTWO = 2
             $ decisionmaker = 0
             menu:
                 "You're powerful?":
@@ -5047,6 +5732,10 @@ label forest:
 
 
                 label fuckcleanow:
+                    image side clea nakedblush = "headshots_clea1.png"
+                    image side clea nakedyell = "headshots_clea2.png"
+                    image side clea nakedlip = "headshots_clea3.png"
+                    image side clea nakedcum =  "headshots_clea4.png"
 
                     e neutral "I’m going to help you out."
                     c neutral "Y-You are?"
@@ -5094,12 +5783,12 @@ label forest:
                     e neutral "I Think."
                     show sscene cleasidesex2
                     "You push into her"
-                    c blush "UHN!"
+                    c nakedlip "UHN!"
                     e smile "That we."
                     show sscene cleasidesex3
                     with hpunch
                     "You push yourself as far as you can"
-                    c blush "AHH!"
+                    c nakedyell "AHH!"
                     e smile "Can skip that part."
                     show sscene cleasidesex2
                     "You pull yourself slowly out, her pussy grips onto your dick as you retract"
@@ -5119,9 +5808,9 @@ label forest:
                     show cleasidesex
 
                     "Clea moaned as she felt you fill her insides with your cock"
-                    c blush "UNNNNMPH!"
+                    c nakedyell "UNNNNMPH!"
                     "Then out again."
-                    c blush "Hah….hah….hah"
+                    c nakedblush "Hah….hah….hah"
                     "You thrust once more, again with more force, then you establish a rhythm with her body"
                     "She sticks her ass out as you pull her and thrust forward"
                     image cleabelowsex1:
@@ -5136,8 +5825,8 @@ label forest:
                         repeat
 
                     show cleabelowsex1
-                    c blush "Oh!"
-                    c blush "OH GODS."
+                    c nakedblush "Oh!"
+                    c nakedlip "OH GODS."
                     image cleabelowsex2:
                         "cleafrombelowdone1.png"
                         0.5
@@ -5152,7 +5841,7 @@ label forest:
                     show cleabelowsex2
                     "You go faster"
                     e smile "Gods your so fucking tight I love it!"
-                    c blush "Ah Ah Ah Ah Ah!"
+                    c nakedyell "Ah Ah Ah Ah Ah!"
                     image cleabelowsex3:
                         "cleafrombelowdone1.png"
                         0.3
@@ -5167,7 +5856,7 @@ label forest:
                     show cleabelowsex3
                     "And faster"
                     "The sounds of flesh and moans fill the air as your lust takes over"
-                    c neutral "{size=-10}Fuck {/size}{size=-6}fuck fuck {/size}{size=-3}Fuck {/size} FUCK YES FUCK ME FUCKMEFUCKMEFUCKME"
+                    c nakedblush "{size=-10}Fuck {/size}{size=-6}fuck fuck {/size}{size=-3}Fuck {/size} FUCK YES FUCK ME FUCKMEFUCKMEFUCKME"
                     image cleabelowsex4:
                         "cleafrombelowdone1.png"
                         0.1
@@ -5182,10 +5871,10 @@ label forest:
                     show cleabelowsex4
                     "You grab harder and thrust faster, as fast as you could"
                     "Clea’s mind goes blank as all things lose meaning except your cock inside of her"
-                    c blush "IM CUMMING IM CUMMING IM CUMMING OH GOOODS"
+                    c nakedyell "IM CUMMING IM CUMMING IM CUMMING OH GOOODS"
                     "Her entire body vibrates as she screams in ecstasy"
                     "As she orgasms you feel her pussy squeeze hard on your cock, the feeling was overwhelming"
-                    e yell "AHHHHHHH"
+                    e nakedcum"AHHHHHHH"
                     "You thrust forward one final time, going balls deep as you feel the pressure inside your member erupt"
                     define flash = Fade(0.1, 0.0, 0.5, color="#fff")
                     with flash
@@ -5200,9 +5889,9 @@ label forest:
                     with hpunch
                     pause
                     with hpunch
-                    c blush "Oh gods there it is, I feel it I feel it inside me!"
+                    c nakedcum "Oh gods there it is, I feel it I feel it inside me!"
                     "It spills out of her pussy like a waterfall"
-                    c smile "Hah…..hah…..hah.."
+                    c nakedblush "Hah…..hah…..hah.."
                     e smile "Hah….hah…..hah…"
                     "The both of you stand there connected for a few minutes, basking in your lust and sweat"
                     scene forest day
@@ -5218,12 +5907,12 @@ label forest:
                         show fullbodyE bloodyArmour1:
                             xalign 0.4 yalign 0.5
                     "Finally you pull out, some more cum falls to the ground as you do"
-                    c smile "A…..Amazing…thank you."
+                    c nakedblush "A…..Amazing…thank you."
                     e neutral "No problem…hah."
-                    c smile "I can tell."
+                    c nakedblush "I can tell."
                     e neutral "Hmm?"
                     "Clea touches her stomach lightly with her hands"
-                    c smile "I’m pregnant, I can tell."
+                    c nakedlip "I’m pregnant, I can tell."
                     e neutral "Oh…great, I guess you can stay in the forest then."
                     if playerOutfit == 0:
                         show fullbodyE neutralArmsCrossed:
@@ -5238,14 +5927,14 @@ label forest:
                             xalign 0.1 yalign 0.5
                         with move
                     "You pull up your pants and walk over to some karulians you spotted a couple feet away to pick them up"
-                    c smile "Before you go."
+                    c nakedlip "Before you go."
                     e neutral "Yes?"
-                    c smile "Our daughter, what should her name be?"
+                    c nakedlip "Our daughter, what should her name be?"
                     python:
                         daughtersname = renpy.input("What would you like to name your daughter?")
-                    c smile "[daughtersname]...As you wish."
+                    c nakedlip "[daughtersname]...As you wish."
                     e neutral "Goodbye Clea."
-                    c neutral "Goodbye King [povname]."
+                    c nakedlip "Goodbye King [povname]."
                     "You leave the clearing and walk through the dark part of the forest once again and head home."
                     # $ didwefuckclea = 1
                     $ scene_list.append("Clea Sex Scene")
@@ -5274,6 +5963,79 @@ label forest:
         "The mysterious forest, said to bring death and dissapearence to any man foolish enough to enter."
         "Not even the war prompted a side to use it for strategy"
         "And yet it has claimed many lives for the rumours that beautiful fairy nymphs would grant you a wish if you should catch them..."
+        if isitdaytime == 1:
+            call screen worldmap
+        else:
+            call screen nightmap
+
+label seeQuests:
+    if isitdaytime:
+        scene ow default
+    else:
+        scene ow nighttime
+
+    call screen quest_screen(check_listOne, check_listTwo, adj = tutorials_adjustment)
+    $ quest_selected = _return
+    if quest_selected == "Can't Sleep At Night":
+        if checkONE == 1:
+            "Mary has tasked you with getting some items. The best place to look for them is a shop in the market."
+            jump seeQuests
+        elif checkONE == 2:
+            "You met with Sarah, the cute but sleepy owner of the item shop. You've told her you'll come back another day to ask about her situation."
+            jump seeQuests
+        else:
+            "You shouldn't be here"
+            jump seeQuests
+
+    elif quest_selected == "Fantasy Trainer: Endgame":
+        if checkFIVE == 1:
+            "This quest is the last part of the game and as such is not currently implemented, so don't worry about it"
+            jump seeQuests
+        else:
+            jump seeQuests
+    elif quest_selected == "A Suit For A Suitor":
+        if checkFOUR == 1:
+            "Mary wants me to practice for the big Ball by hosting banquets, but I'll need a nice suit first. I should get one before Saturday if I can."
+            jump seeQuests
+        elif checkFOUR == 2:
+            "I have a suit, so all I have to do is attend the banquet on saturday with Mary."
+            jump seeQuests
+        elif checkFOUR == 3:
+            "You shouldn't be here"
+            jump seeQuests
+    elif quest_selected == "Tsundere? I Don't Even Know Herdere":
+        if checkTWO == 1:
+            "I promised Sarah that I'd search the Mysterious Forest for Karulians. The main ingredient in Love potions."
+            jump seeQuests
+        elif checkTWO == 2:
+            "I've decided to bring Clea home with me, I should bring her to the castle garden to show her where she'll work."
+            jump seeQuests
+        else:
+            "You shouldn't be here"
+            jump seeQuests
+
+    elif quest_selected == "A Date With Lilly":
+        "I've told Lilly I'll take her on a date during the date. But she probably won't go if Pacifica doesn't like me, oh and I'll have to get her a nice little dress for the occasion too."
+        jump seeQuests
+
+    elif quest_selected == "Too Short For Your Own Good":
+        if checkTHREE == 1:
+            "Sarah seems like a nice girl, especially after what happened. I should buy some of her products. Maybe some dresses as gifts?"
+            jump seeQuests
+        elif checkTHREE == 2:
+            "Poor Sarah is always selling nice clothes to girls that she herself can't wear. I should try and find another shop that sells Sarah's size."
+            jump seeQuests
+        elif checkTHREE == 3:
+            "I met a Dwarf named Gliff that specializes in smaller women's fashion. Maybe I can get Sarah a dress as a gift?"
+            jump seeQuests
+    elif quest_selected == "What's That Under There?":
+        if checkFOUR == 1:
+            "I found Gliff's shop which has a wide variety of outfits. But I feel like he's hiding something. Maybe I should buy some of his products so he'll open up."
+            jump seeQuests
+        else:
+            "You shouldn't be here"
+            jump seeQuests
+    else:
         if isitdaytime == 1:
             call screen worldmap
         else:
@@ -5310,6 +6072,11 @@ label seeInventory:
             show item sexyunderwearsarah:
                 xalign 0.5 yalign 0.5
             "Sexy fishnet underwear set for a shorter girl, very revealing."
+            jump seeInventory
+        elif inventoryitem_selected == "One Piece White Swimsuit":
+            show item onepieceswimsuit:
+                xalign 0.5 yalign 0.5
+            "A nice looking pure white one piece bathing suit, it'd probably look great on a...more voluptuous woman."
             jump seeInventory
         elif inventoryitem_selected == "Small Pink Sundress":
             show item smallpinkdress:
@@ -5462,6 +6229,10 @@ label seeInventory:
             call screen nightmap
 
 
+label marketnotnight:
+    scene marketplace night
+    "I have no reason to go to the market at night"
+    call screen nightmap
 
 label market:
     if isitdaytime == 1:
@@ -5607,7 +6378,12 @@ label lookforclothes:
         "You can access his shop during the day from the marketplace"
         g neutral "Oh an'uh...if yee have anything of value worth selling...I can also...take care of that for ye."
         "You can also sell certain items you come across for some profit."
+        $ renpy.notify("Quest Updated: Too Short For Your Own Good")
+        $ checkTHREE = 3
         $ dressbuy_checker = 4
+        $ renpy.notify("Quest Added: What's That Under There?")
+        $ check_listOne.append("What's That Under There?")
+        $ checkFOUR = 1
         call screen worldmap
 
 label gliffshop:
@@ -5869,6 +6645,7 @@ label gliffshop2:
                 "You do not have enough Gold right now"
                 jump gliffshop
 
+
     elif selectedItem == "Small Summer Outfit":
         image item summeroutfit = "summeroutfitpreview.png"
         show item summeroutfit:
@@ -5953,6 +6730,11 @@ label unlockUnderwear:
     e smile "Oh I know. I think I might come back too, real soon."
     g neutral "Well then, always a pleasure yer highness."
     "The two of you exchange knowing smiles as you leave the store"
+    $ renpy.notify("Quest Completed: What's That Under There?")
+    $ checkFOUR = 2
+    $ check_listTwo.append("What's That Under There?")
+    $ check_listOne.remove("What's That Under There?")
+
     "Congratulations, you can now ask Gliff to see his sexy outfit collection in the back"
     if isitdaytime == 1:
         call screen worldmap
@@ -6144,6 +6926,16 @@ label itemShop:
         image side sarah tired = "sarahHeadTired.png"
         image side sarah surprised = "sarahHeadSurprised.png"
 
+        image side sarah nakedconcentrate = "headshots_sarah1.png"
+        image side sarah nakedhappy = "headshots_sarah2.png"
+        image side sarah nakedsurprised = "headshots_sarah3.png"
+        image side sarah nakedlust = "headshots_sarah4.png"
+        image side sarah nakedstare = "headshots_sarah5.png"
+
+        image sscene sarahfalling1 = "sarahfalling1.png"
+        image sscene sarahfalling2 = "sarahfalling2.png"
+        image sscene sarahfalling3 = "sarahfalling3.png"
+
         $ girlList.append("Sarah")
 
         $ sarah_clothes = []
@@ -6151,11 +6943,16 @@ label itemShop:
         $ Sarah = "Shopkeeper girl"
 
         s blush "S-Sorry we’re closed!"
-
+        scene sscene sarahfalling1
+        with Dissolve(1.0)
         "A feminine voice calls out as a girl appears from behind one of the shelves carrying several books and bottles and other things"
-        "Clearly it was too much for her, as she gets closer she trips on what seems to be nothing at all and falls flat on her face"
+        scene sscene sarahfalling2
+        "Clearly it was too much for her, as she gets closer she trips on what seems to be nothing at all"
+        scene sscene sarahfalling3
+        with vpunch
+        "And falls flat on her face."
         "Everything she was carrying falls all over the ground"
-        with hpunch
+
 
         s surprised "OUCH!"
 
@@ -6166,7 +6963,24 @@ label itemShop:
                 jump watchherstruggle
 
         label helpherup:
+            scene itemshop blurred
+            with Dissolve(0.5)
+
+            show fullBodyS neutral at right
+            with moveinright
             s neutral "A-Ah yes thank you, I don’t think anything broke.."
+
+            if playerOutfit == 0:
+                show fullbodyE neutralArmsCrossed at left
+                with moveinleft
+
+            elif playerOutfit == 1:
+                show fullbodyE neutralArmour1 at left
+                with moveinleft
+
+            elif playerOutfit == 2:
+                show fullbodyE bloodyArmour1 at left
+                with moveinleft
 
             "You crouch down to help her to her knees then start picking up the things she dropped"
 
@@ -6184,11 +6998,28 @@ label itemShop:
             jump continuetalking
 
         label watchherstruggle:
+            scene itemshop blurred
+            with Dissolve(0.5)
+
+            show fullBodyS neutral at right
+            with moveinright
+
             s tired "Gosh darnit I fell again!"
 
             "She takes her now red face off the floor and starts picking up all the things she dropped"
             s tired "Good looks like nothing broke this time.."
             "It seems in your silence she forgot that you were there so when she turned to face you a new shade of red encompassed her face"
+            if playerOutfit == 0:
+                show fullbodyE neutralArmsCrossed at left
+                with moveinleft
+
+            elif playerOutfit == 1:
+                show fullbodyE neutralArmour1 at left
+                with moveinleft
+
+            elif playerOutfit == 2:
+                show fullbodyE bloodyArmour1 at left
+                with moveinleft
 
             s blush "A-Ah! Oh yes um one second please"
             jump continuetalking
@@ -6329,6 +7160,9 @@ label itemShop:
 
                 "Sarah walks off to the back of the store somewhere as you walk out the door"
                 "You spot the doorsign that still said ‘Open’"
+                $ renpy.notify("Quest Updated: Can't Sleep At Night")
+
+                $ checkONE = 2
 
                 menu:
                     "Turn it to ‘Closed’": #+1
@@ -6368,16 +7202,7 @@ label itemShop:
         "You see the shop and make out the wooden sign above the door which you didn’t notice before"
         "It did indeed say ‘Item Shop’"
         "You walk inside"
-        call screen welcomeshop
-
-    screen welcomeshop:
-
-        imagemap:
-            ground "itemshopSarah.png"
-            hover "itemshopSarahHover.png"
-
-            hotspot (480, 180, 490, 300) clicked Jump("talktosarah")
-
+        jump talktosarah
 
     label talktosarah:
         if isCleaUnlocked == 3:
@@ -6422,7 +7247,7 @@ label itemShop:
                 hide text
                 with Dissolve(1.0)
 
-                $ isCleaUnlocked = 4
+                $ isCleaUnlocked = 5
                 if isitdaytime == 1:
                     call screen worldmap
                 else:
@@ -6444,7 +7269,7 @@ label itemShop:
                 hide text
                 with Dissolve(1.0)
 
-                $ isCleaUnlocked = 4
+                $ isCleaUnlocked = 5
                 if isitdaytime == 1:
                     call screen worldmap
                 else:
@@ -6459,7 +7284,7 @@ label itemShop:
 
                 s blush "Y-Yes goodbye [sarahchoosename]!"
 
-                $ isCleaUnlocked = 4
+                $ isCleaUnlocked = 5
                 if isitdaytime == 1:
                     call screen worldmap
                 else:
@@ -6537,6 +7362,18 @@ label itemShop:
             "You’d have to be blind not to see how attractive she was, her clumsy personality was just so distracting it was hard to really appreciate the size of her bosom, and her sexy figure"
             "As you started to stare at her breasts popping out of her red cotton shirt you realised your member was starting to get stiff"
             "After a few more seconds you had come to a decision"
+
+            $ checkONE = 3
+            $ check_listTwo.append("Can't Sleep At Night")
+            $ check_listOne.remove("Can't Sleep At Night")
+
+            $ renpy.notify("Quest Completed: Can't Sleep At Night")
+            pause
+            $ renpy.notify("Quest Added: Too Short For Your Own Good")
+            $ check_listOne.append("Too Short For Your Own Good")
+
+            $ checkTHREE = 1
+
 
             menu:
                 "Fuck her":
@@ -6624,6 +7461,40 @@ label itemShop:
                     else:
                         "You do not have enough Gold right now"
                         jump buyanitem
+
+
+
+            if selectedItem == "One Piece White Swimsuit":
+                image item onepieceswimsuit = "melonysuitpreview.png"
+                show item onepieceswimsuit:
+                    xalign 0.5 yalign 0.5
+                e neutral "Woah, you sell swimsuits here too?"
+                s neutral "We have a small selection but yes."
+                e smile "Hmm I'm getting a real 'AraAraa, do you like my swimsuit?' vibe."
+                s surprised "I don't think I understand what you're saying...."
+                e neutral "You know? Big busty Onee-sans?"
+                s surprised "B-Busty?"
+                e neutral "Nevermind, clearly you aren't also a cultured man like me."
+                s neutral "But I'm not a man at all....it costs {color=#ff0}200 Gold{/color}."
+                e neutral "\[I currently have {color=#ff0}[gold] Gold{/color}.\]"
+                menu:
+                    "Buy":
+                        jump buymelswimsuit
+                    "Don't Buy":
+                        jump gliffshop
+
+                label buymelswimsuit:
+                    hide item
+                    if gold >= 200:
+                        $ gold -= 200
+                        "You pay Sarah and she hands you the swimsuit in a bag"
+                        $ inventory.append(selectedItem)
+                        $ shop.remove(selectedItem)
+                        jump buyanitem
+                    else:
+                        "You do not have enough Gold right now"
+                        jump gliffshop
+
 
             if selectedItem == "Invisiscroll":
                 show item invisiscroll:
@@ -6832,7 +7703,7 @@ label itemShop:
                     xalign 0.5 yalign 0.5
                 with Dissolve(0.5)
                 s blush "Oh my! T-That's a corruption scroll, if you read this people will be more susceptible to your...well corruption."
-                s neutral "That'll be {color=#ff0}300 Gold{/color} please."
+                s neutral "That'll be {color=#ff0}250 Gold{/color} please."
                 e neutral "\[I currently have {color=#ff0}[gold] Gold{/color} coins.\]"
                 menu:
                     "Buy":
@@ -6842,8 +7713,8 @@ label itemShop:
 
                 label buyCscroll:
                     hide item
-                    if gold >= 300:
-                        $ gold -= 300
+                    if gold >= 250:
+                        $ gold -= 250
                         $ corMul += 1
                         "You pay up and take the scroll, looking through it's contents you find yourself more knowledgeable in the ancient ways of corrupting young women"
                         "Once you finished reading the scroll dissapates magically in your hands"
@@ -6857,9 +7728,9 @@ label itemShop:
                 show item lovescroll:
                     xalign 0.5 yalign 0.5
                 with Dissolve(0.5)
-                s neutral "A charm scroll, if you read this people it'll be easier for women to..."
+                s neutral "A charm scroll, if you read this it'll be easier for women to..."
                 e neutral "Yes?"
-                s blush "F-Fall in love with you...it's {color=#ff0}300 Gold{/color}."
+                s blush "F-Fall in love with you...it's {color=#ff0}250 Gold{/color}."
                 e neutral "\[I currently have {color=#ff0}[gold] Gold{/color} coins.\]"
                 menu:
                     "Buy":
@@ -6869,8 +7740,8 @@ label itemShop:
 
                 label buyLscroll:
                     hide item
-                    if gold >= 300:
-                        $ gold -= 300
+                    if gold >= 250:
+                        $ gold -= 250
                         $ loveMul += 1
                         "You pay Sarah and read the scroll, it read like some girly magazine written on ancient paper"
                         e neutral "'Five ways to get into any girl's pants'....huh."
@@ -6966,6 +7837,7 @@ label itemShop:
                         "Sarah gently lays the folded suit in a box and hands it to you"
                         s neutral "I hope you enjoy whatever event you're attending [sarahchoosename]."
                         $ doYouHaveASuit = 1
+                        $ checkFOUR = 2
 
 
                     else:
@@ -7113,6 +7985,8 @@ label itemShop:
                 call screen worldmap
 
             label illhelpsarah:
+                $ renpy.notify("Quest Updated: Too Short For Your Own Good")
+                $ checkTHREE = 2
                 e smile "No worries Sarah, I'll find a way to help you."
                 s tired "R-Really?"
                 e smile "I can't garantee results but it's the least I can do for you, my favorite business partner."
@@ -7173,8 +8047,8 @@ label itemShop:
 
             "Sarah opens her top to reveal her bare tits"
 
-            s neutral "Enjoy them [sarahchoosename]."
-            s neutral "This is j-just a little reward for helping me out!"
+            s nakedhappy "Enjoy them [sarahchoosename]."
+            s nakedsurprised "This is j-just a little reward for helping me out!"
             "Even if her voice was shaking Sarah revealed her tits to you with a smile on her face"
             show sscene sarahZoomTits:
 
@@ -7187,7 +8061,105 @@ label itemShop:
             window hide
             pause
 
-            jump allDonewithSarah
+            if sarahTipLevel <= 1:
+                jump allDonewithSarah
+            else:
+                image sscene sarahtitjob1 = "sarahtitjob1.png"
+                image sscene sarahtitjob2 = "sarahtitjob2.png"
+                image sscene sarahtitjob3 = "sarahtitjob3.png"
+                image sscene sarahtitjob4 = "sarahtitjob4.png"
+                image sscene sarahtitjob5 = "sarahtitjob5.png"
+                image sscene sarahtitjob6 = "sarahtitjob6.png"
+
+                scene sscene sarahTitsTwo
+                s nakedhappy "But THIS is a bigger reward for showing me you care..."
+                scene blank darkness
+                with Dissolve(1.0)
+                "Sarah walks around the desk and stops in front of you"
+                s nakedsurprised "You uh...you're gonna need to get on your knees."
+                e neutral "Huh why?"
+                s nakedstare "I'm uh...I'm pretty short so it's not gonna reach unless you do."
+                e neutral "What-"
+                s nakedhappy "Oh and pull down your pants."
+                e smile "....Yes ma'am."
+                scene sscene sarahtitjob1
+                with Dissolve(1.0)
+                "Your confusion was quickly dissapated as sarah quickly grabs your dick with her tits in the most professional manner she could"
+                e smile "Okay now..."
+                scene sscene sarahtitjob2
+                "She moves her tits along your cock rubbing them and squeezing them together"
+                scene sscene sarahtitjob1
+                "The warmth of her body and soft skin felt amazing, you were really getting into it"
+                scene sscene sarahtitjob2
+                "All the while Sarah focused on your cock, doing her best to please it"
+                scene sscene sarahtitjob1
+                window hide
+                pause
+                scene sscene sarahtitjob3
+                s nakedconcentrate "Is this good? Am I doing it right?"
+                e neutral "Huh what?"
+                e neutral "Fuckin yeah sure, don't stop!"
+
+                image sarahtitjobin:
+                    "sarahtitjob1.png"
+                    0.7
+                    "sarahtitjob2.png"
+                    0.7
+                    repeat
+
+                show sarahtitjobin
+                window hide
+                pause
+                e smile "mmmm yeah that's good I'm getting close.."
+                s nakedhappy "Oh really? Great because I don't normally do this so-"
+                e smile "FUCK I'm gonna cum!"
+                s nakedsurprised "Wha-"
+                scene sscene sarahtitjob4
+                with hpunch
+                scene sscene sarahtitjob5
+                e smile "UGH!"
+                scene sscene sarahtitjob4
+                with hpunch
+                scene sscene sarahtitjob5
+                s nakedsurprised "Oh wow there's...quite a lot.."
+                scene sscene sarahtitjob4
+                with flash
+                scene sscene sarahtitjob5
+                "You shoot the last of your seed over Sarah's face, taking a deep breath as you do"
+                e smile "Oh man."
+                s nakedhappy "Looks like you really needed one of thes-"
+
+                show head soldierhead:
+                    xalign 0.0 yalign 1.0
+
+
+                "Soldier" "Hey I was wondering if you had any sw-"
+                scene sscene sarahtitjob6
+                with hpunch
+                hide head soldierhead
+                s nakedstare "....."
+                e neutral "....."
+                show head soldierhead:
+                    xalign 0.0 yalign 1.0
+                "Soldier" "wooorrrddss...I'll uh....I'll come back."
+                hide head soldierhead
+
+
+                #PuT an if here when we add more reward scenes for sarah
+                e neutral "Sarah that was really good but uh..."
+                s nakedhappy "*Ahem* Yes uh I should go clean up...come again?"
+                e smile "You know it."
+
+                $ sarahCorLevel += corMul
+                show text "{b}{color=#dc143c} Corruption Increased {/color}{/b}" at loveLocationBottomLeft
+                s nakedlust ""
+
+                if isitdaytime == 1:
+                    call screen worldmap
+                else:
+                    call screen nightmap
+
+
 
         label allDonewithSarah:
             s neutral "Uh, well I think that's enough for now! If you keep treating me right there might be.."
@@ -7201,6 +8173,7 @@ label itemShop:
             s neutral ""
 
             scene sscene sarahTitsZero
+            with Dissolve(1.0)
             "Sarah gets herself together as you thank her and go back outside"
 
             if isitdaytime == 1:
@@ -7565,16 +8538,16 @@ screen lobbycastle:
         ground "castlelobby.png"
         hover "castlelobbyhover.png"
 
-        hotspot (750, 290, 220, 205) clicked Jump("choice_castle_2")#dungeon
-        hotspot (380, 200, 300, 270) clicked Jump("choice_castle_1")#throne room
-        hotspot (0, 300, 80, 260) clicked Jump ("castleGrounds")#garden/training hall
-        hotspot (5, 5, 70, 180) clicked Jump ("underconstruction") #extra door
-        hotspot (200, 5, 100, 180) clicked Jump ("melonyRoom") #Melonysroom
-        hotspot (500, 5, 100, 180) clicked Jump ("yourRoom") #Your room
-        hotspot (800, 5, 100, 180) clicked Jump ("pacificaAndLillysRoom") #PACIFICA AND LILLY
-        hotspot (980, 0, 260, 180) clicked Jump ("bedrooms") #Bedrooms
-        hotspot (980, 200, 178, 300) clicked Jump ("dinningHall") #1st floor hallway
-        hotspot (1159, 280, 150, 250) clicked Jump ("goBack") #go back
+        hotspot (150, 325, 150, 205) clicked Jump("choice_castle_2")#dungeon
+        hotspot (490, 340, 295, 180) clicked Jump("choice_castle_1")#throne room
+        hotspot (995, 360, 180, 165) clicked Jump ("castleGrounds")#garden/training hall
+        #hotspot (5, 5, 70, 180) clicked Jump ("underconstruction") #extra door
+        #hotspot (200, 5, 100, 180) clicked Jump ("melonyRoom") #Melonysroom
+        hotspot (1020, 170, 190, 180) clicked Jump ("yourRoom") #Your room
+        #hotspot (800, 5, 100, 180) clicked Jump ("pacificaAndLillysRoom") #PACIFICA AND LILLY
+        hotspot (550, 200, 175, 130) clicked Jump ("bedrooms") #Bedrooms
+        hotspot (100, 125, 165, 200) clicked Jump ("dinningHall") #1st floor hallway
+        hotspot (15, 600, 145, 95) clicked Jump ("goBack") #go back
 
 screen lobbycastlenight:
 
@@ -7582,16 +8555,15 @@ screen lobbycastlenight:
         ground "castlelobbynight.png"
         hover "castlelobbynighthover.png"
 
-        hotspot (750, 290, 220, 205) clicked Jump("choice_castle_2")#dungeon
-        hotspot (380, 200, 300, 270) clicked Jump("choice_castle_1")#throne room
-        hotspot (0, 300, 80, 260) clicked Jump ("castleGrounds")#garden/training hall
-        hotspot (5, 5, 70, 180) clicked Jump ("underconstruction") #extra door
-        hotspot (200, 5, 100, 180) clicked Jump ("melonyRoom") #Melony room
-        hotspot (500, 5, 100, 180) clicked Jump ("yourRoom") #Your room
-        hotspot (800, 5, 100, 180) clicked Jump ("pacificaAndLillysRoom") #PACIFICA AND LILLY
-        hotspot (980, 0, 260, 180) clicked Jump ("bedrooms") #Bedrooms
-        hotspot (980, 200, 178, 300) clicked Jump ("dinningHall") #1st floor hallway
-        hotspot (1159, 280, 150, 250) clicked Jump ("goBack") #go back
+        hotspot (150, 325, 150, 205) clicked Jump("choice_castle_2")#dungeon
+        hotspot (490, 340, 295, 180) clicked Jump("choice_castle_1")#throne room
+        hotspot (995, 360, 180, 165) clicked Jump ("castleGrounds")#garden/training hall
+        #hotspot (200, 5, 100, 180) clicked Jump ("melonyRoom") #Melony room
+        hotspot (1020, 170, 190, 180) clicked Jump ("yourRoom") #Your room
+        #hotspot (800, 5, 100, 180) clicked Jump ("pacificaAndLillysRoom") #PACIFICA AND LILLY
+        hotspot (550, 200, 175, 130) clicked Jump ("bedrooms") #Bedrooms
+        hotspot (100, 125, 165, 200) clicked Jump ("dinningHall") #1st floor hallway
+        hotspot (15, 600, 145, 95) clicked Jump ("goBack") #go back
 
 
 label melonyRoom:
@@ -7609,8 +8581,10 @@ label melonyRoom:
 
         if melonyOutfit == 0:
             show fullBodyN neutral at right
-        else:
+        elif melonyOutfit == 1:
             show fullBodyN bikini at right
+        else:
+            show fullBodyN swimsuit at right
 
         menu:
             "Melony":
@@ -7638,7 +8612,7 @@ label melonyRoom:
             image sscene melonyYoga6 = "melyoga6.png"
 
 
-            if checkELEVEN == 1:
+            if melonyResistance == 1:
 
                 n neutral "Oh sweetheart there you are, come to see me?"
                 e neutral "Uh yeah..."
@@ -7712,8 +8686,8 @@ label melonyRoom:
                     $ melonyResistLevel -= 10
                     show text "{b}{color=#9400D3} Resistance Decreased!{/color}{/b}" at loveLocationBottomLeft
                     e neutral "...."
-                    $ checkELEVEN = 2
-                    $ checkTHIRTEEN = 1
+                    $ melonyResistance = 2
+                    $ melonyActionCheck = 1
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
@@ -7730,13 +8704,13 @@ label melonyRoom:
                     $ melonyResistLevel -= 5
                     show text "{b}{color=#9400D3} Resistance Decreased!{/color}{/b}" at loveLocationBottomLeft
                     "Even though you left in the end, you can feel your resistance to her weaken a little, not as much as it could've though"
-                    $ checkTHIRTEEN = 1
+                    $ melonyActionCheck = 1
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
                         call screen lobbycastlenight
 
-            elif checkELEVEN == 2:
+            elif melonyResistance == 2:
                 n neutral "Hello sweetheart."
                 e neutral "Hello Melony."
                 n neutral "Can I help you with something?"
@@ -7785,14 +8759,14 @@ label melonyRoom:
                     $ melonyResistLevel -= 10
                     show text "{b}{color=#9400D3} Resistance Decreased!{/color}{/b}" at loveLocationBottomLeft
                     n lust ""
-                    $ checkTHIRTEEN = 1
+                    $ melonyActionCheck = 1
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
                         call screen lobbycastlenight
 
 
-            elif checkELEVEN == 3:
+            elif melonyResistance == 3:
 
                 image sscene melonymasterbate1 = "melmasterbate1.png"
                 image sscene melonymasterbate2 = "melmasterbate2.png"
@@ -7852,7 +8826,7 @@ label melonyRoom:
                     show text "{b}{color=#9400D3} Resistance Decreased!{/color}{/b}" at loveLocationBottomLeft
                     e neutral "I'm so fucked up..."
                     "That being said you still turned around and left."
-                    $ checkTHIRTEEN = 1
+                    $ melonyActionCheck = 1
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
@@ -7938,15 +8912,15 @@ label melonyRoom:
                     $ melonyResistLevel -= 10
                     show text "{b}{color=#9400D3} Resistance Decreased!{/color}{/b}" at loveLocationBottomLeft
                     n neutral ""
-                    $ checkTHIRTEEN = 1
-                    $ checkELEVEN = 4
+                    $ melonyActionCheck = 1
+                    $ melonyResistance = 4
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
                         call screen lobbycastlenight
 
 
-            if checkELEVEN == 4:
+            if melonyResistance == 4:
 
                 n neutral "Hello sweetheart."
                 e neutral "Hello Melony."
@@ -8013,7 +8987,7 @@ label melonyRoom:
                     n lust "It's only a matter of time before you're mine...you could never resist me."
                     e neutral "We'll see about that."
                     "Your words did not reflect your internal tempermant and thoughts, she bested you once again and you both knew it"
-                    $ checkTHIRTEEN = 1
+                    $ melonyActionCheck = 1
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
@@ -8026,11 +9000,11 @@ label melonyRoom:
             if isitdaytime == 0:
                 "This part of the game isn't implemented yet, you can still interact with her during the day"
                 jump melonyRoom
-            if checkTHIRTEEN == 1:
+            if melonyActionCheck == 1:
                 "You probably shouldn't interact with her again today...she already got the better of you."
                 jump melonyRoom
             else:
-                if checkELEVEN >= 1:
+                if melonyResistance >= 1:
                     jump melonytorture
                 else:
 
@@ -8051,15 +9025,46 @@ label melonyRoom:
                     jump melonyRoom
 
         label changeMel:
-            if checkTHREE == 1:
-                if melonyOutfit == 0:
-                    $ melonyOutfit = 1
-                else:
-                    $ melonyOutfit = 0
-                jump melonyRoom
-            else:
-                "Melony only has one outfit right now"
-                jump melonyRoom
+            e smile "Hey uh, could you change into something else?"
+            n neutral "You want me to wear something sexier?"
+            call screen screen_clothes(melony_clothes,adj=tutorials_adjustment)
+
+            $ chosen_outfit = _return
+
+            if chosen_outfit == "Black Demon Outfit":
+                $ melonyOutfit = 0
+                e neutral "Wear your nice black outfit, it suits you."
+                n neutral "Almost anything I put on suits me let's be honest."
+                e neutral "...y-yeah."
+
+                hide fullBodyN
+                with Dissolve(1.0)
+                show fullBodyN neutral at right
+                with Dissolve(1.2)
+                window hide
+                pause
+            elif chosen_outfit == "Christmas Bikini":
+                $ melonyOutfit = 1
+                e neutral "You look really nice in your...festive outfit."
+                n neutral "Oh you naughty boy, I bet that one's your favorite."
+                show fullBodyN bikini at right
+                with Dissolve(0.5)
+                window hide
+                pause
+
+            elif chosen_outfit == "One Piece White Swimsuit":
+                $ melonyOutfit = 2
+                e neutral "Your uh....one piece looks nice could you...wear it?"
+                n neutral "It's very form fitting isn't it?"
+                e neutral "...."
+                show fullBodyN swimsuit at right
+                with Dissolve(1.2)
+                n neutral "*Whistles* No running near the pool!"
+                window hide
+                pause
+
+            jump melonyRoom
+
 
         label givemelsomething:
             e neutral "I'd like to give you something."
@@ -8075,9 +9080,21 @@ label melonyRoom:
                 n neutral "Oh [povname]! Such a...provocative gift. Are you sure want me to wear this given our....situation?"
                 e neutral "Yes even if you wear something like that I won't be tempted, wear it whenever you want."
                 n lust "Oh I will thank you very much."
-                $ melonyconvolist.append(selectedItem)
+                $ melony_clothes.append(selectedItem)
                 $ inventory.remove(selectedItem)
-                $ checkTHREE = 1
+                $ melonyOutfitcheck = 1
+                jump melonyRoom
+
+            if selectedItem == "One Piece White Swimsuit":
+                image fullBodyN swimsuit = "melonyfullbodySwimsuit.png"
+                "You hand Melony the bathing suit"
+                n neutral "Oh my! You got this for me?!"
+                e neutral "Yeah it looked your size so...figured you'd like it."
+                n lust "Well I'll wear it whenever you want, you can always fulfill any fantasy with me sweetie!"
+                e yell "I don't have no swimsuit fantasies!!"
+                $ melony_clothes.append(selectedItem)
+                $ inventory.remove(selectedItem)
+                $ melonyOutfitcheck = 2
                 jump melonyRoom
 
             if selectedItem == "Love Potion":
@@ -8134,21 +9151,21 @@ label pacificaAndLillysRoom:
 
         if isitdaytime == 1:
 
-            if checkSEVEN == 0:
+            if pacificaItems== 0:
                 scene castle pandlRoom0
-            elif checkSEVEN == 1:
+            elif pacificaItems== 1:
                 scene castle pandlRoom1
-            elif checkSEVEN == 2:
+            elif pacificaItems== 2:
                 scene castle pandlRoom2
-            elif checkSEVEN == 3:
+            elif pacificaItems== 3:
                 scene castle pandlRoom3
-            elif checkSEVEN == 4:
+            elif pacificaItems== 4:
                 scene castle pandlRoom4
-            elif checkSEVEN == 5:
+            elif pacificaItems== 5:
                 scene castle pandlRoom5
-            elif checkSEVEN == 6:
+            elif pacificaItems== 6:
                 scene castle pandlRoom6
-            elif checkSEVEN == 7:
+            elif pacificaItems== 7:
                 scene castle pandlRoom7
 
             if lillyOutfit == 0:
@@ -8324,6 +9341,9 @@ label pacificaAndLillysRoom:
                     pause
                     e smile "All over you."
                     "Instead of shame you found yourself revelling with pleasure seeing them covered in your fluid, whether this was a good or bad thing is really up to you"
+                    if howfargonepacificaCorruption == 0:
+                        $ howfargonepacificaCorruption = 1
+
                     if pacificaCorLevel < 35:
 
                         p neutral "Wha..what the hell?"
@@ -8490,6 +9510,9 @@ label pacificaAndLillysRoom:
                             e smile "Now now, you don't want her to wake up right?"
                             "Her eyes start to roll up as she begins to pass out"
                             "You finally let her move her head as she gasps for air"
+                            if howfargonepacificaCorruption == 2:
+                                $ howfargonepacificaCorruption = 3
+
                             if pacificaCorLevel < 50:
                                 scene blank darkness
                                 with Dissolve(2.5)
@@ -8569,7 +9592,7 @@ label pacificaAndLillysRoom:
                                     pause
                                     e smile "Fuck yeah that feels good."
                                     p blush "Uhn Uhn Uhn!"
-                                    e smile "You like this? Huh? I bet you like watching don't you you little slut."
+                                    e smile "You like this? Huh? You like watching don't you you little slut."
                                     p blush "Wha-Uhn!"
                                     e smile "Can you hear your sister's cunt getting filled?"
                                     l confused "......"
@@ -8620,6 +9643,9 @@ label pacificaAndLillysRoom:
                                     "You put your dick away and buckle up your pants extremely satisfied"
                                     "It's been a while since you came that much and you needed a nap"
                                     "You leave the room and the drow sisters to themselves and the night"
+                                    if howfargonepacificaCorruption == 3:
+                                        $ howfargonepacificaCorruption = 4
+
                                     call screen lobbycastlenight
 
                                 label dontlookatlilly:
@@ -8645,6 +9671,10 @@ label pacificaAndLillysRoom:
                                     "You put your dick away and buckle up your pants extremely satisfied"
                                     "It's been a while since you came that much and you needed a nap"
                                     "You leave the room and the drow sisters to themselves and the night"
+                                    if howfargonepacificaCorruption == 3:
+                                        $ howfargonepacificaCorruption = 5
+                                    elif howfargonepacificaCorruption == 4:
+                                        $ howfargonepacificaCorruption = 6
                                     call screen lobbycastlenight
 
 
@@ -8920,11 +9950,30 @@ label addresslilly:
 
 
     label talktolilly:
-        menu:
-            "How old are you?":
-                jump howoldareyou
-            "How are you doing?":
-                jump howareyoudoinglilly
+        if checkSIX == 0:
+            menu:
+                "How old are you?":
+                    jump howoldareyou
+                "How are you doing?":
+                    jump howareyoudoinglilly
+
+        elif checkSIX >= 1 and lillyLoveLevel >= 5 and checkSEVEN == 1 and (howfargonepacificaRomance >= 1 or howfargonepacificaCorruption >= 1):
+            menu:
+                "Date with Lilly":
+                    jump datewithlilly
+                "How old are you?":
+                    jump howoldareyou
+                "How are you doing?":
+                    jump howareyoudoinglilly
+
+        else:
+            menu:
+                "How old are you?":
+                    jump howoldareyou
+                "How are you doing?":
+                    jump howareyoudoinglilly
+
+
 
         label howoldareyou:
             e neutral "I have a question for you."
@@ -8955,9 +10004,14 @@ label addresslilly:
             with move
             l smile "I'm going on a date with the king! Woohoo!"
             e neutral "\[I can't deny her now...\]"
-            e smile "Alright! Let's have a date one day soon alright? I'd say I expect you to look your best but you always look pretty."
+            l neutral "I'll need something to wear though..."
+            e smile "I'll take care of that! So let's have a date one day soon alright? I'd say I expect you to look your best but you always look pretty."
             l smile "Teehee!"
-            "Going on dates with Lilly isn't in the game yet, still, should be cute. (v0.76)"
+            if checkSIX == 0:
+                $ checkSIX = 1
+                $ renpy.notify("Quest Added: A Date With Lilly")
+                $ check_listOne.append("A Date With Lilly")
+
             jump addresslilly
 
 
@@ -9024,6 +10078,7 @@ label addresslilly:
             l smile "I love pink!"
             e smile "Lilly I want you to put this one whenever I ask okay?"
             l smile "Okay! I just hope you don't ask me to wear my dirty dress again..."
+            $ checkSEVEN = 1
             $ lilly_clothes.append(selectedItem)
             $ inventory.remove(selectedItem)
             $ gaveLillyCupCakeDress = 1
@@ -9180,8 +10235,211 @@ label addresslilly:
 
 
 
+    label datewithlilly:
+
+        image sscene lillydate1 = "lilydatewithoutmc.png"   #Can delete this later already up top(0.85)
+        image sscene lillydate2 = "lilydatewithmc.png"
+        image sscene lillylunch1 = "lilydatept21.png"
+        image sscene lillylunch2 = "lilydatept22.png"
+        image sscene lillylunch3 = "lilydatept23.png"
+        image sscene lillylunch4 = "lilydatept24.png"
+        image sscene lillylunch5 = "lilydatept25.png"
+        image sscene lillylunch6 = "lilydatept26.png"
+        image sscene lillylunch7 = "lilydatept27.png"
+
+        if checkSIX == 1:
+            $ checkSIX = 2
+            $ renpy.notify("Quest Complete: A Date With Lilly")
+            $ check_listTwo.append("A Date With Lilly")
+            $ check_listOne.remove("A Date With Lilly")
+
+        e smile "Well Lilly, you ready to go on our date?"
+        l smile "OHMYGOSH yes I am!"
+        if lillyOutfit != 2:
+            l smile "Just lemme change really quick!"
+
+        scene sscene lillydate1
+        with Dissolve(1.5)
+        "The two of you leave the castle and head out into the beautiful sunny day"
+        "You decide on taking a walk through the market to window shop and get something to eat"
+
+        "It doesn't take long before the Market starts bustling with the sounds of haggling and advertisements"
+        l smile "Thanks again for spending this time with me I really appreciate it."
+        e smile "Oh uh no problem Lilly."
+        l smile "I've been meaning to explore the market lately, never had the chance when sis and I were in the alleys, the town square was pretty much all I visited."
+        e neutral "Huh...that's too bad.."
+        scene sscene lillydate2
+        with Dissolve(0.5)
+        "You and Lilly have a good time exploring and looking at curious bobbles and items"
+
+        l smile "Oh look your majesty! These arrows look like they've been recovered from the battlefield."
+        e smile "Oh? How do you know?"
+        l smile "Well their enchanted arrows but the merchant's selling them for 2 copper each! There's no way he knows the true value of them it's a steal!"
+
+        "The way Lilly was talking took you off guard"
+        e smile "\[Maybe she's just knowledgeable? After having lived on the street for a while..\]"
+        l smile "Ah and this set of jewllery right here have magic cores in them but they're not enchanted!"
+        l smile "He should pay the price to get them enchanted then he could sell them at a much higher rate for more profit. Classic mistake to be honest."
+        scene sscene lillydate1
+        with Dissolve(1.0)
+
+        if playerOutfit == 0:
+            show fullbodyE neutralArmsCrossed at left
+            with moveinleft
+        elif playerOutfit == 1:
+            show fullbodyE neutralArmour1 at left
+            with moveinleft
+        elif playerOutfit == 2:
+            show fullbodyE bloodyArmour1 at left
+            with moveinleft
+        elif playerOutfit == 3:
+            show fullbodyE playersuit at left
+            with moveinleft
+        e neutral "Lilly you seem different when you're browsing...product."
+        show fullBodyL currentOutfit3 at right
+        with moveinright
+        l confused "Huh? Oh uh yeah I just....love merchant...ing...things haha."
+        menu:
+            "Call her out on it":
+                jump calllillyout
+            "Forget about it":
+                jump silenttreatlilly
+
+        label calllillyout:
+            e neutral "Nope, nope something's off here you're off you're acting different I actually don't think it's the product at all."
+            l confused "I-I uh....you see..it's not what...I plead the fifth?"
+            e neutral "See you're not even talking like how you normally talk at all."
+
+            $ lillyLoveLevel += 1
+            l confused "Oh shoot...I messed up. I-I'm sorry."
+
+            e neutral "Explain."
+            l confused "*sigh*...It's not that I'm trying to deceive you your majesty..it's just..the 'super cute dumb little girl' thing isn't really...me."
+            e neutral "I can see that now."
+            l smile "I'm still cute! It's just I kinda lay it on really thick whenever my sister is around..."
+            e neutral "You're doing this for your sister?"
+            l confused "Yeah, she still believes I'm her precious little innocent sis who needs to be protected, since she didn't really get the chance cause she had to look after us."
+            e neutral "Oh man that's kinda sad."
+            l smile "It's alright, I'll grow into my real personality soon and I can stop the act."
+            e smile "Oh no please don't you're so cute small!"
+            l smile "Haha hey like I said, I'll still be cute no matter how tall I am."
+            e smile "Man I'm starving you wanna find something to eat?"
+            show text "{b}{color=#00008b} Lilly's Love Increased {/color}{/b}" at loveLocationBottomLeft
+            l smile "Yeah sure!....Thanks for not making a big deal about it."
+            hide text
+            with Dissolve(1.0)
+            e smile "No problem at all Lilly."
+            jump continuelillysecret
+
+        label silenttreatlilly:
+            e neutral ".....Well I won't force you if you don't wanna talk it's fine."
+            l confused "...."
+            e neutral "Shall we get something to eat?"
+            l smile "Sure I'm actually pretty hungry!"
+
+            jump continuelillysecret
 
 
+        label continuelillysecret:
+
+            "The two of you find a restaurant with an open patio and decide to eat there"
+            l confused "Special price on...Borgars? What are Borgars?"
+            e neutral "I don't know they look like they're a kind of sandwich?"
+            l smile "Let's get em!"
+            scene sscene lillylunch2
+            with Dissolve(1.0)
+            "The two of you buy some Borgars and sit down on a patio bench with a big umbrella"
+            l smile "Desh ish so good!"
+            e smile "Ah Know! *munch munch*"
+            scene sscene lillylunch1
+            l confused "\[....He's being so nice to me, nobody's ever treated me or sis like this..he even got me a dress!\]"
+            l confused "\[I wanna do something for him...\]"
+            scene sscene lillylunch3
+            with Dissolve(1.0)
+            if howfargonepacificaRomance >=  howfargonepacificaCorruption:
+                jump lillylunchkiss
+            else:
+                jump lillylunchrub
+
+
+            label lillylunchkiss:
+                l smile "You know..I really appreciate what you're doing for my sister and I."
+                e smile "Hey no worries I'm happy to help you two out."
+                l smile "When you're humble about something like that...you can really get a girl to fall for you know you?"
+                e neutral "Um.....oh well I uh..."
+                scene sscene lillylunch6
+                "Lilly gives you a gentle kiss on the cheek"
+                l smile "*Chuu*"
+                scene sscene lillylunch7
+                with Dissolve(0.5)
+                "Lilly resumes eating her Borgar happily"
+                e neutral "\[Well that was...unexpected. She really is the cutest girl I've ever met.\]"
+                #this is where the if statement to move onto next scene will be
+                jump continuelillydate1
+            label lillylunchrub:
+                e neutral "...."
+                e neutral "Lilly? What are y-"
+                window hide
+                pause
+                scene sscene lillylunch4
+                window hide
+                pause
+                e neutral "Ohhhhh kay um-"
+                l confused "Sis would do this to make men feel good sometimes, does it feel good?"
+                scene sscene lillylunch4
+                e neutral "Well. I uh-"
+                image lillycrotchrub:
+                    "lilydatept24.png"
+                    0.7
+                    "lilydatept25.png"
+                    0.7
+                    repeat
+
+                show lillycrotchrub
+                window hide
+                pause
+
+                e neutral "Holy shit Lilly I don't think this is entirely appropriate."
+                l confused "It's getting hard."
+                e neutral "...."
+                l smile "That means you like it right? That means you like me?"
+                e neutral "Of course I like you it's just..."
+                l confused "\[I think this is when I need to 'talk dirty'...\]"
+                l smile "You want to f-fuck me?"
+                e neutral "Jesus Lilly where did you-"
+                image lillycrotchrub2:
+                    "lilydatept24.png"
+                    0.3
+                    "lilydatept25.png"
+                    0.3
+                    repeat
+
+                show lillycrotchrub2
+                window hide
+                pause
+                "Lilly picks up speed"
+                l smile "Your dick being hard means you want to fuck me right? Tell me the truth."
+                e neutral "I-It's just a natural bodi-"
+                l confused "Tell me the truth right now or I'll scream!"
+                e neutral "Okay okay! Shit. I-I want to fuck you."
+                l smile "You want to put it inside my tight little pussy?"
+                e neutral "\[Jesus this girl! She's worst than her sister!\]"
+                e neutral "Y-Yeah..."
+                scene sscene lillylunch7
+                l smile "Great!"
+                "Lilly resumes eating with a very satisfied look on her face"
+                e neutral "...."
+                jump continuelillydate1
+
+
+
+
+        label continuelillydate1:
+            scene blank darkness
+            with Dissolve(0.8)
+            "You both finish your meals and head back to the castle"
+            e neutral "I'm not sure how to feel about Lilly, but it seems how I treat Pacifica effects how she feels about me."
+            jump gotonighttime
 
 
 
@@ -9201,8 +10459,6 @@ label yourRoom:
             jump patreonSupporters
         "View Scenes":
             jump viewscenesintro
-        "Test animation":
-            jump testanimation3
         "Back":
             jump returnlobbycastle
 
@@ -9657,7 +10913,7 @@ label yourRoom:
                 show LianaBJtest9
                 window hide
                 li blush "Ah! Ah! Ah!"
-                e smile "It hurts doesn't?!"
+                e smile "It hurts doesn't it?!"
                 li blush "Yes!"
                 e smile "You like it don't you??!"
                 li blush "I-I love it!!! Don't stop!!"
@@ -9733,68 +10989,68 @@ label yourRoom:
             with Dissolve(0.5)
             "You bite the front strings of her top and impressively rip it off with your mouth, revealing her perky tits"
             "At the same time you grab her shorts and pull them straight down to show her smooth and shaved pussy"
-            p blush "Ah..please..d-don’t."
+            p nakedcry "Ah..please..d-don’t."
             e smile "Sorry. At this point I can’t stop myself."
             "You unbuckle your belt and let your pants fall, the thief jumps at the sound of it hitting the ground"
             "Finally you grip your twitching cock and guide it to the edge of her pussy. Rubbing it along her sex"
             "She looks down at your massive cock and struggles to speak as her face gets even redder"
-            p nakedsurprised "Oh gods i-it's.."
-            p nakedsurprised "I-"
+            p nakedcry "Oh gods i-it's.."
+            p nakedcry "I-"
             show sscene pSexTwo
             with Dissolve(0.5)
             "You penetrate her."
-            p nakedsmile "OOOhh!"
+            p nakedyell "OOOhh!"
             "It's warmth engulfs your dick as you push halfway, then balls deep inside her"
             show sscene pSexThree
             with Dissolve(0.5)
-            p nakedsmile "MMMMM!"
+            p nakedyell "MMMMM!"
             e smile "Haha not only are you a thief it seems you're a liar too!"
-            p nakedsurprised "W-What?"
+            p nakedcry "W-What?"
             e smile "You're wet as hell Miss drow. You love it, have you always fantasized about getting raped?!"
-            p nakedsurprised "Wha-"
-            p nakedsurprised "N-No of course not!"
+            p nakedcry "Wha-"
+            p nakedyell "N-No of course not!"
             e smile "Then why are you smiling?"
-            p nakedsurprised "..."
-            p nakedsmile "..."
+            p nakedyell "..."
+            p nakedcum "..."
             show sscene pSexTwo
             with Dissolve(0.5)
             "You pull out just slightly before thrusting forward once again"
             show sscene pSexThree
             with hpunch
-            p nakedsmile "YES!"
+            p nakedcum "YES!"
             e smile "Hah!"
-            p nakedsurprised "I-I mean-"
+            p nakedyell "I-I mean-"
             show sscene pSexTwo
             with Dissolve(0.5)
             "You pull back again then forward once more, aquiring a rythm"
             show sscene pSexThree
             with hpunch
-            p nakedsurprised "Ah!"
+            p nakedcum "Ah!"
             show sscene pSexTwo
             pause
             show sscene pSexThree
             with hpunch
-            p nakedsurprised "Fuck."
+            p nakedyell "Fuck."
             show sscene pSexTwo
             pause
             show sscene pSexThree
             with hpunch
-            p nakedsmile "FUCK!"
+            p nakedyell "FUCK!"
             show sscene pSexTwo
             pause
             show sscene pSexThree
             with hpunch
-            p nakedsmile "FUCK ME!"
-            p nakedsmile "Oh my god oh my god!"
+            p nakedcum "FUCK ME!"
+            p nakedcum "Oh my god oh my god!"
             e smile "Fuck this is some good pussy."
-            p nakedsmile "Oh my god! I can’t!"
+            p nakedyell "Oh my god! I can’t!"
             e smile "Can’t what?"
-            p nakedsurprised "I can’t take this your cock is too good! I’m gonna-"
-            p nakedsmile "AHHH!"
+            p nakedyell "I can’t take this your cock is too good! I’m gonna-"
+            p nakedcum "AHHH!"
             with hpunch
             "Tears streaming down her face she makes an expression that is a combination of utter ecstasy and extreme shame"
             "The thief bites her lip as if to subdue her moaning, but cannot hide the fact that she’s enjoying herself"
-            p nakedsmile "Al..most..."
+            p nakedyell "Al..most..."
             "Suddenly you hear someone yell out at the opposite corner of the alleyway"
             show sscene pSexFour
             with Dissolve(0.5)
@@ -9802,17 +11058,17 @@ label yourRoom:
             show sscene pSexFive
             with vpunch
             "You grab the thief's tits as she turns her head to look at the little girl that stood there"
-            p nakedsurprised "Oh Gods L-Lilly!"
+            p nakedcry "Oh Gods L-Lilly!"
             show sscene pSexFour
             with hpunch
             "Despite the interruption your body continues it’s thrusting rhythm, filling the alley with a fleshy SMACK sound every second"
             l confused "Who is that? W-What is he doing to you?"
             with hpunch
-            p nakedsmile "AHH!"
+            p nakedcry "AHH!"
             "You can’t help but smile"
             show sscene pSexFive
             with Dissolve(0.5)
-            p nakedsurprised "LILLY DON’T LOOK! DON’T LOOK AT ME!"
+            p nakedcry "LILLY DON’T LOOK! DON’T LOOK AT ME!"
             "You didn’t think it possible but your cock grew even harder as you really picked up speed"
             show sscene pSexFour
             with hpunch
@@ -9821,14 +11077,14 @@ label yourRoom:
             with Dissolve(0.5)
             "Pacifica looks at you in desperation, unable to speak properly"
             l confused "What’s going on?! Why are you making those sounds sis!? Why are you naked?"
-            p nakedsurprised "L-Lilly Please! I c-can’t hold much lon-"
+            p nakedyell "L-Lilly Please! I c-can’t hold much lon-"
             show sscene pSexFour
             with hpunch
             "You feel her pussy squeeze your cock as you were balls deep inside her, then her whole body quivers as she starts to orgasm"
             "She was cumming in front of her little sister and she couldn’t stop it, her back archs up violently as she moans loudly"
             p nakedsmile "AHHHHHHH"
             with hpunch
-            p nakedsmile "YESSS!"
+            p nakedcum "YESSS!"
             show sscene pSexSeven
             with Dissolve(0.5)
             "You release a burst of cum deep inside her pussy, you can feel it quickly fill her up as it drips out"
@@ -9836,10 +11092,10 @@ label yourRoom:
             pause
             with hpunch
             with flash
-            p nakedsmile "Oh my gods there’s so much..."
+            p nakedcum "Oh my gods there’s so much..."
             "Her little sister starts crying"
             l confused "W-why are you doing this?!"
-            p nakedsmile "It’s so warm..I.."
+            p nakedcum "It’s so warm..I.."
             "She whispers something else but it becomes inaudible as she passes out, eyes rolling to the back of her head"
             "Your cock springs up a bit as you pull out, cum still dripping out of her pussy"
             show townsquare blur1
@@ -10208,12 +11464,12 @@ label yourRoom:
         python:
             blackAndDecker1 = renpy.input("Please enter the cheatcode")
 
-        if blackAndDecker1 == "BatteryPower":
+        if blackAndDecker1 == "Pronebonebestbone":
             "Input Correct, who would you like to change?"
             jump cheatcodecorrect
-        elif blackAndDecker1 == "3thousand" and checkNINETEEN == 0:
+        elif blackAndDecker1 == "3thousand" and threethousandcheck == 0:
             $ gold += 3000
-            $ checkNINETEEN = 1
+            $ threethousandcheck = 1
             "Input correct, here's 3000 gold coins (just this once)"
             jump yourRoom
         else:
@@ -10397,7 +11653,7 @@ label yourRoom:
             e neutral "Mary's working during the day I should probably just leave her be."
             jump yourRoom
         else:
-            if checkONE == 0:
+            if maryRomanceRoomLevel == 0:
                 e neutral "I could summon Mary here but...I don't think she likes me enough right now to show.."
                 jump yourRoom
             else:
@@ -10419,7 +11675,7 @@ label yourRoom:
                         jump thatbeit
 
                 label holdhercheek:
-                    if checkONE == 1:
+                    if maryRomanceRoomLevel == 1:
                         jump ftmaryholdcheek
                     else:
                         jump maryholdcheek
@@ -10442,7 +11698,7 @@ label yourRoom:
                         "Mary gingerly places her hand over yours and smiles"
 
                         r smile "I’m really glad to have met you as well…"
-                        $ checkONE = 2
+                        $ maryRomanceRoomLevel = 2
                         jump thatbeit
                 label maryholdcheek:
                         e smile "I am now Mary thank you, come here."
@@ -10456,9 +11712,9 @@ label yourRoom:
                         "She holds your arm and the two of you just enjoy being so close to one other for a while"
                         window hide
                         pause
-                        if checkONE == 2:
+                        if maryRomanceRoomLevel == 2:
                             jump thatbeit
-                        elif checkONE == 3:
+                        elif maryRomanceRoomLevel == 3:
                             jump ftmarymakeout
                         else:
                             jump marymakeout
@@ -10496,7 +11752,7 @@ label yourRoom:
                         e smile "Please come again?"
                         r smile "....Of course [marychoosename]."
                         "Mary walks off briskly, trying to contain her giddyness"
-                        $ checkONE = 4
+                        $ maryRomanceRoomLevel = 4
                         $ haveIcalledMary = 1
                         jump yourRoom
 
@@ -10509,7 +11765,7 @@ label yourRoom:
                         "She leans closer to you and collides her lips with yours"
                         scene sscene marymakeout3
                         r blush "mmmm"
-                        "her tounge tasted like mint leafs and berries, it swirled around yours in a passionate dance"
+                        "her tounge tasted like mint leaves and berries, it swirled around yours in a passionate dance"
                         scene sscene marymakeout1
                         with Dissolve(0.5)
                         e smile "Wow you really..you're kinda good at that."
@@ -10517,9 +11773,9 @@ label yourRoom:
                         e smile "I get real motivated when I'm around beautiful elves."
                         r blush "Teehee."
 
-                        if checkONE == 4:
+                        if maryRomanceRoomLevel == 4:
                             jump thatbeit
-                        elif checkONE == 5:
+                        elif maryRomanceRoomLevel == 5:
                             jump ftmaryfeelup
                         else:
                             jump maryfeelup
@@ -10589,7 +11845,7 @@ label yourRoom:
                         r blush "...."
                         "Mary gets up and leaves you satisfied....for now"
 
-                        $ checkONE = 6
+                        $ maryRomanceRoomLevel = 6
                         $ haveIcalledMary = 1
                         jump yourRoom
 
@@ -10627,9 +11883,187 @@ label yourRoom:
                         e smile "I am quite lucky aren't I?"
                         scene sscene maryfinger6
                         with Dissolve(1.0)
-                        "The two of you continue to make out for a little bit longer before Mary leaves"
-                        $ haveIcalledMary = 1
-                        jump yourRoom
+                        r blush "mmphm..."
+                        pause
+
+                        if maryRomanceRoomLevel == 6:
+                            "The two of you continue to make out for a little bit longer before Mary leaves"
+                            $ haveIcalledMary = 1
+                            jump thatbeit
+                        elif maryRomanceRoomLevel == 7:
+                            jump ftmary69
+                        else:
+                            jump mary69
+
+
+                label ftmary69:
+                    image sscene maryfinger8 = "maryfeeluponbedaddonfix.png"
+                    image sscene mary691 = "69scene1-1.png"
+                    image sscene mary692 = "69scene1-2.png"
+                    image sscene mary693 = "69scene1-3.png"
+                    image sscene mary694 = "69scene1-4.png"
+                    image sscene mary695 = "69scene1-5.png"
+                    image sscene mary696 = "69scene1-6.png"
+                    image sscene mary697 = "69scene1-7.png"
+                    image sscene mary698 = "69scene1-8.png"
+                    image sscene mary699 = "69scene2-1.png"
+                    image sscene mary6910 = "69scene2-2.png"
+                    image sscene mary6911 = "69scene2-3.png"
+                    image sscene mary6912 = "69scene1-9.png"
+                    scene sscene maryfinger8
+                    r smile "hah...hah...okay that's enough, you are severely overdressed for this occasion."
+                    e smile "I think you're right, let's take care of that huh?"
+                    scene blank darkness
+                    with Dissolve(0.8)
+                    "Mary helps you take of your clothes then readies herself to get on top of you"
+                    e smile "Wait turn around I wanna try something."
+                    scene sscene mary691
+                    with Dissolve(0.5)
+                    r blush "\[Wow it's so...thick\]"
+                    r blush "\[I just want to...do everything with it!\]"
+                    e smile "Everything alright down there?"
+                    scene sscene mary692
+                    r smile "mmmm everything's just fine [marychoosename]."
+                    scene sscene mary693
+                    with hpunch
+                    r smile "Oh my! Y-You really know your way around a....well..."
+                    scene sscene mary6910
+                    pause
+                    scene sscene mary699
+                    with Dissolve(0.7)
+                    e smile "gods that's such a cute pussy, your body is amazing Mary"
+                    scene sscene mary691
+                    with Dissolve(0.5)
+                    r blush "Well I should probably..."
+                    scene sscene mary694
+                    pause
+                    e smile "Oh yeah..."
+                    scene sscene mary695
+                    pause
+                    scene sscene mary696
+                    pause
+                    scene sscene mary697
+                    e smile "Holy shit Mary yes take it all!"
+
+                    scene sscene mary696
+                    r blush "UGHK."
+                    scene sscene mary697
+                    r blush "UGHNNN!"
+                    scene sscene mary696
+                    e smile "My cock feels amazing right now fuck me..."
+                    scene sscene mary699
+                    pause
+                    scene sscene mary6910
+                    "You resume attending to Mary's pussy, sucking and flicking her clit with your tongue"
+                    pause
+                    scene sscene mary696
+                    r blush "oh gods hes so good he's so good."
+                    scene sscene mary697
+                    r blush "\[His cock is so good it's so good! I can b-barely...\]"
+                    scene sscene mary6910
+                    pause
+                    scene sscene mary6911
+                    with vpunch
+                    "You push your face hard into Mary's pusy, diving deep inside her with your tongue"
+                    scene sscene mary697
+                    r blush "MMMMMHHHPH!!!"
+                    with hpunch
+                    scene sscene mary6911
+                    r blush "\[I'm gonna cum he's gonna make me cum!\]"
+                    scene sscene mary697
+                    e smile "\[Oh man I can't hold it any longer I'm cumming...\] "
+                    scene sscene mary696
+                    pause
+                    scene sscene mary697
+                    with vpunch
+                    with flash
+                    e smile "\[Fuck yeah there is goes shit she's sucking me so hard!\]"
+                    scene sscene mary6911
+                    scene sscene mary6910
+                    pause
+                    scene sscene mary6911
+                    with vpunch
+                    with flash
+                    r blush "\[C-Cumming! I...oh gods his face is so c-close...goddess forgive me...his tongue is so good..\]"
+                    scene sscene mary697
+                    pause
+                    scene sscene mary698
+                    with flash
+                    pause
+                    with flash
+                    "You finish filling Mary's mouth with your sperm as she finishes cumming all over your face at about the same time"
+                    scene blank darkness
+                    with Dissolve(1.5)
+                    r blush "[marychoosename]....I..."
+                    e smile "That was..."
+                    r blush "I think I love you."
+                    e neutral ".....me too."
+                    "The two of you cuddle naked on the bed, your both sweaty hot messes"
+                    "But you didn't care...you just stared into eachothers eyes and fell asleep"
+
+                    $ maryRomanceRoomLevel = 8
+                    $ haveIcalledMary = 1
+                    call screen lobbycastlenight
+
+
+                label mary69:
+                    image sscene mary6912 = "69scene1-9.png"
+                    scene sscene maryfinger8
+                    r smile "You need to get rid of these right this very moment."
+                    e smile "Your wish is my command madam elf."
+                    scene blank darkness
+                    with Dissolve(1.0)
+                    "The two of you once again have fun taking off your clothes"
+                    "Then Mary assumes the position, ass above your face and lips inches from your cock..."
+                    scene sscene mary691
+                    r smile "hmmmm.."
+                    scene sscene mary692
+                    e smile "Your hands are so soft I love it..."
+                    r smile "Teehee unlike your cock here which is very...very hard.."
+                    e smile "You like my hard cock?"
+                    r smile "...."
+                    scene sscene mary694
+                    r blush "Tastes so good.."
+                    scene sscene mary695
+                    e smile "mmmmm"
+                    scene sscene mary696
+                    e smile "Fuck me you are good at-"
+                    scene sscene mary697
+                    e smile "ooooooh sheeeeet."
+                    window hide
+                    pause
+                    "Mary stays near the base of your cock, her mouth barely containing you as her throat squeezes and warms your dick with immaculate sensations"
+                    scene sscene mary6910
+                    with Dissolve(0.5)
+                    "You start using your own mouth to pleasure her as well, by now you knew all the right places to get her to cum"
+                    scene sscene mary6911
+                    with vpunch
+                    "Your tongue dives once again into her as Mary moans in muffled pleasure"
+                    scene sscene mary697
+                    with Dissolve(0.5)
+                    r blush "Uhgn...."
+                    scene sscene mary698
+                    with hpunch
+                    with flash
+                    "You cum simultaneously once again, the two of you obviously were on the same beat"
+                    with flash
+                    "The elf girl enjoys the taste of your cum as you explode down her throat and fill her mouth"
+                    window hide
+                    pause
+                    scene sscene mary696
+                    pause
+                    scene sscene mary6912
+                    "The two of you take a few minutes to bask in post-orgasm bliss"
+                    window hide
+                    pause
+                    scene blank darkness
+                    with Dissolve(1.0)
+                    r blush "Hah...I-I think I'm addicted.."
+                    e smile "Good problems?"
+                    r blush "Hehe, yes good problems."
+                    "The two of you end the night cuddling close together underneath the sheets"
+                    $ haveIcalledMary = 1
+                    call screen lobbycastlenight
 
 
                 label thatbeit:
@@ -10678,6 +12112,9 @@ label yourRoom:
             elif elizabethOutfit == 3:
                 show fullBodyZ currentOutfit3:
                     xalign 0.5 yalign 0.5
+            elif elizabethOutfit == 4:
+                show fullBodyZ eliNaked:
+                    xalign 0.5 yalign 0.5
 
             show screen love_bar(elizabethlove)
             show screen cor_bar(elizabethcorruption)
@@ -10721,6 +12158,9 @@ label yourRoom:
             elif sarahOutfit == 3:
                 show fullBodyS xmasdress:
                     xalign 0.5 yalign 0.5
+            elif sarahOutfit == 4:
+                show fullBodyS sarahNaked:
+                    xalign 0.5 yalign 0.5
 
 
             show screen love_bar(sarahLoveLevel)
@@ -10753,6 +12193,9 @@ label yourRoom:
                     xalign 0.5 yalign 0.5
             elif pacificaOutfit == 6:
                 show fullBodyP pajamas:
+                    xalign 0.5 yalign 0.5
+            elif pacificaOutfit == 7:
+                show fullBodyP naked:
                     xalign 0.5 yalign 0.5
 
 
@@ -10796,6 +12239,9 @@ label yourRoom:
                     xalign 0.5 yalign 0.5
             elif melonyOutfit == 1:
                 show fullBodyN bikini:
+                    xalign 0.5 yalign 0.5
+            elif melonyOutfit == 2:
+                show fullBodyN swimsuit:
                     xalign 0.5 yalign 0.5
 
             show screen melony_bar(melonyResistLevel)
@@ -10994,11 +12440,79 @@ label dinningHall:
             call screen lobbycastlenight
 
 label castleGrounds:
+    jump thegarden
+
+label thetraininghall:
+    if isitdaytime == 0:
+        scene ow nighttime
+        "There's nobody here"
+        call screen nightmap
+    elif unlockLiana == 0:
+        scene ow default
+        "There's no reason to visit the training hall right now."
+        call screen worldmap
+    else:
+        scene castle traininghall
+        "You through the doors into the Training Hall and see a couple young men practicing their stances"
+        show lianaO current at right
+        with moveinright
+        li neutral "Hello [lianachoosename]."
+
+        if playerOutfit == 0:
+            show fullbodyE neutralArmsCrossed at left
+            with moveinleft
+        elif playerOutfit == 1:
+            show fullbodyE neutralArmour1 at left
+            with moveinleft
+        elif playerOutfit == 2:
+            show fullbodyE bloodyArmour1 at left
+            with moveinleft
+        elif playerOutfit == 3:
+            show fullbodyE playersuit at left
+            with moveinleft
+
+        e smile "You're acting quite differently from when we first met huh."
+        li blush "Strength is everything to my people, since you defeated me I have nothing but respect for you."
+        e neutral "Fair enough, how are things going?"
+        li neutral "Pretty well. There isn't really anything to report...no content if you will, not until another build at least."
+        e neutral "Ah damn."
+        li neutral "I could get naked if you like though."
+        menu:
+            "Yes":
+                jump liananaked
+            "No":
+                jump noliananaked
+
+        label liananaked:
+            "Sure why not?"
+            $ lianaOutfit = 1
+            with Dissolve(0.8)
+            window hide
+            pause
+            e smile "Noice."
+            "You thank the Orc and head back to the lobby, this is all the Liana content in the current version of the game (v0.8)"
+            if isitdaytime == 1:
+                call screen worldmap
+            else:
+                call screen nightmap
+
+        label noliananaked:
+            "Kyle Mercury" "Back to the map you go!"
+            if isitdaytime == 1:
+                call screen worldmap
+            else:
+                call screen nightmap
+
+label thegarden:
     scene castle gardenDay
+
     if isCleaUnlocked < 3:
-        "You take a quick peek outside, you can see a barren garden and an empty training hall."
-        call screen lobbycastle
-    elif isCleaUnlocked == 3:
+        "You take a quick peek outside, you can see a barren garden and an empty training area on the other side of the wall."
+        if isitdaytime == 1:
+            call screen lobbycastle
+        else:
+            call screen lobbycastlenight
+    elif isCleaUnlocked == 3 or isCleaUnlocked == 5:
         $ cleadaytoggle = 1
         "You bring Clea through the castle lobby and to the garden"
         "It doubled as a greenhouse with a glass ceiling and high open windows to let in sunlight and fresh air"
@@ -11035,6 +12549,12 @@ label castleGrounds:
         e neutral "Well either way as long as you can help me produce ingredients for potions and other ways to gain some gold I really don't care."
 
         c smile "Hmph. What a greedy soul you have."
+
+
+        $ renpy.notify("Quest completed: Tsundere? I Don't Even Know Herdere")
+        $ check_listTwo.append("Tsundere? I Don't Even Know Herdere")
+        $ check_listOne.remove("Tsundere? I Don't Even Know Herdere")
+        $ checkTWO = 3
 
         menu:
             "Indulge her":
@@ -11148,9 +12668,19 @@ label castleGrounds:
             if playerOutfit == 0:
                 show fullbodyE neutralArmsCrossed at left
 
+            transform v_shakenup:
+                xalign 1.0
+                linear 0.1 yoffset -10
+                linear 0.1 yoffset 0
+                linear 0.1 yoffset -6
+                linear 0.1 yoffset 0
+                linear 0.1 yoffset -3
+                linear 0.1 yoffset 0
+
+            show fullBodyC neutral at v_shakenup
             c yelling "AHHH!"
-            show fullBodyC neutral at right
-            with moveinright
+
+
             "Blue sparks stutter aross your arm in the afterglow of what just happened"
 
             e smile "Would your Mother Gaia lie to you?"
@@ -12555,19 +14085,80 @@ label bedrooms:
                 call screen lobbycastle
     elif elizabethroom == 1:
         if dowehavesarah >= 1:
-             menu:
-                "Elizabeth's room":
-                    jump choice_castle_3
-                "Sarah's room":
-                    jump choice_castle_4
-                "Back":
-                    jump backtocastlelobby
+            if isPacificaUnlocked >= 2:
+                if isMelonyUnlocked >= 3:
+
+                    menu:
+                        "Elizabeth's room":
+                            jump choice_castle_3
+                        "Sarah's room":
+                            jump choice_castle_4
+                        "Pacifica and Lilly's room":
+                            jump pacificaAndLillysRoom
+                        "Melony's room":
+                            jump melonyRoom
+                        "Back":
+                            jump backtocastlelobby
+                else:
+
+                    menu:
+                        "Elizabeth's room":
+                            jump choice_castle_3
+                        "Sarah's room":
+                            jump choice_castle_4
+                        "Pacifica and Lilly's room":
+                            jump pacificaAndLillysRoom
+                        "Back":
+                            jump backtocastlelobby
+            else:
+                if isMelonyUnlocked >=3:
+
+                    menu:
+                        "Elizabeth's room":
+                            jump choice_castle_3
+                        "Sarah's room":
+                            jump choice_castle_4
+                        "Melony's room":
+                            jump melonyRoom
+                        "Back":
+                            jump backtocastlelobby
+                else:
+                    menu:
+                        "Elizabeth's room":
+                            jump choice_castle_3
+                        "Sarah's room":
+                            jump choice_castle_4
+                        "Back":
+                            jump backtocastlelobby
         else:
-            menu:
-                "Elizabeth's room":
-                    jump choice_castle_3
-                "Back":
-                    jump backtocastlelobby
+            if isPacificaUnlocked >= 2:
+                if isMelonyUnlocked >= 3:
+                    menu:
+                        "Elizabeth's room":
+                            jump choice_castle_3
+                        "Pacifica and Lilly's room":
+                            jump pacificaAndLillysRoom
+                        "Melony's room":
+                            jump melonyRoom
+                        "Back":
+                            jump backtocastlelobby
+
+
+                else:
+                    menu:
+                        "Elizabeth's room":
+                            jump choice_castle_3
+                        "Pacifica and Lilly's room":
+                            jump pacificaAndLillysRoom
+                        "Back":
+                            jump backtocastlelobby
+
+            else:
+                menu:
+                    "Elizabeth's room":
+                        jump choice_castle_3
+                    "Back":
+                        jump backtocastlelobby
 
 
 label backtocastlelobby:
@@ -12579,19 +14170,24 @@ label backtocastlelobby:
 
 
     label choice_castle_1:
-        scene castle throneRoom
+        image castle throneRoomNight = "throneroomnight.png"    #get rid of these when time is right
+        image castle throneRoomZoomNight = "throneroomZoomnight.png"
+        if isitdaytime == 1:
+            scene castle throneRoom
+        else:
+            scene castle throneRoomNight
         if theballinfotoggle == 0 and dayNumber >= 25:
             $ theballinfotoggle = 1
 
             if maryOutfit == 0:
                 show fullBodyR neutralArmsSide at right
-                with moveinright
+                with Dissolve(0.5)
             elif maryOutfit == 1:
                 show fullBodyR currentOutfit1 at right
-                with moveinright
+                with Dissolve(0.5)
             elif maryOutfit == 2:
                 show fullBodyR currentOutfit2 at right
-                with moveinright
+                with Dissolve(0.5)
 
             r neutral "[marychoosename], a moment of your time please."
 
@@ -12653,6 +14249,9 @@ label backtocastlelobby:
                 "Mary runs off somewhere quickly"
                 e neutral "……."
                 e neutral "'Tata'?"
+                $ renpy.notify("Quest Added: Fantasy Traner: Endgame")
+                $ check_listOne.append("Fantasy Trainer: Endgame")
+                $ checkFIVE = 1
                 "Kyle Mercury" "The Ball is planned to be the final event of the game and is currently not implemented, so don't worry about it for now. (it's gonna be awesome though)"
                 jump choice_castle_1
 
@@ -12742,7 +14341,7 @@ label backtocastlelobby:
             l smile "Everywhere I've seen in the castle is so clean! You're amazing!"
             l confused "Big sis and I always tried to keep ourselves clean but...it...it was hard."
 
-            "A gentle sigh escapes Mary'slips as she smiles sweetly"
+            "A gentle sigh escapes Mary's lips as she smiles sweetly"
 
             r smile "[marychoosename], is it alright if I guide Lilly through the rest of the castle?"
 
@@ -13224,13 +14823,13 @@ label backtocastlelobby:
                 $ elizabethalreadydungeon = 1
                 "You enter the dungeon greeted by a chilly sensation on your skin. It was colder here than the rest of the castle."
                 "That was good."
-                #"marydungeon level [maryDungeonLevel], [checkFOURTEEN]"
+
                 if  elizabethcorruption <= 10:
                     if maryDungeonLevel == 0:
                         menu:
                             "Spank Elizabeth":
                                 jump soloSpank
-                    elif maryDungeonLevel == 1:
+                    else:
                         menu:
                             "Spank Elizabeth":
                                 jump soloSpank
@@ -13278,142 +14877,724 @@ label backtocastlelobby:
                             "Bring in the girl":
                                 jump orgasmtorture
 
+                    elif maryDungeonLevel == 4:
+                        if firsttimelastdungeonscene == 0:
+                            menu:
+                                "Spank Elizabeth":
+                                    jump soloSpank
+                                "Have Mary Spank Elizabeth":
+                                    jump marySpank
+                                "Finger Elizabeth":
+                                    jump soloFinger
+                                "Have Mary Finger Elizabeth":
+                                    jump maryFinger
+                                "Bring in the girl":
+                                    jump orgasmtorture
+                                "???":
+                                    jump jealousfuck
+                        else:
+                            menu:
+                                "Spank Elizabeth":
+                                    jump soloSpank
+                                "Have Mary Spank Elizabeth":
+                                    jump marySpank
+                                "Finger Elizabeth":
+                                    jump soloFinger
+                                "Have Mary Finger Elizabeth":
+                                    jump maryFinger
+                                "Bring in the girl":
+                                    jump orgasmtorture
+                                "Fuck Mary On Top Of Elizabeth":
+                                    jump jealousfuck
+
+
+                label jealousfuck:
+                    $ firsttimelastdungeonscene = 1
+                    image sscene elimaryfuckpov1 = "Elizpovdungo.png"
+                    image sscene elimaryfuckpov2 = "Elizpovdungo2.png"
+                    image sscene elimaryfuckpov3 = "Elizpovdungo3.png"
+                    image sscene elimaryfuckpov4 = "Elizpovdungo4.png"
+                    image sscene elimaryfuckpov5 = "Elizpovdungo5.png"
+                    image sscene elimaryfuckpov6 = "Elizpovdungo6.png"
+                    image sscene elimaryfuckpov7 = "Elizpovdungo7.png"
+                    image sscene elimaryfuckpov8 = "Elizpovdungo8.png"
+                    image sscene elimaryfuckpov9 = "Elizpovdungo9.png"
+                    image sscene elimaryfuckpov10 = "Elizpovdungo10.png"
+                    image sscene elimaryfuckpov11 = "Elizpovdungo11.png"
+
+                    image sscene elimarysidefuck1 = "elizdungoside1.png"
+                    image sscene elimarysidefuck2 = "elizdungoside2.png"
+                    image sscene elimarysidefuck3 = "elizdungoside3.png"
+                    image sscene elimarysidefuck4 = "elizdungoside4.png"
+                    image sscene elimarysidefuck5 = "elizdungoside5.png"
+                    image sscene elimarysidefuck5b = "elizdungoside5b.png"
+                    image sscene elimarysidefuck6 = "elizdungoside6.png"
+                    image sscene elimarysidefuck7 = "elizdungoside7.png"
+                    image sscene elimarysidefuck8 = "elizdungoside8.png"
+                    image sscene elimarysidefuck9 = "elizdungoside9.png"
+
+                    scene blank darkness
+                    scene sscene elimaryfuckpov1
+                    with Dissolve(3.0)
+                    "The princess awakes completely naked, once again magically chained, but this time it was to the middle of the dungeon's floor"
+                    z nakedangry "W-What's going on? I'm in the dungeon?"
+                    z nakedangry "Was it always so dark in here? Oh gods my clothes are missing again..."
+                    scene sscene elimaryfuckpov2
+                    with Dissolve(1.0)
+                    r smile "Good morning Princess!"
+                    z nakedangry "Mary? What's going on?"
+                    scene sscene elimaryfuckpov3
+                    with Dissolve(1.0)
+                    e smile "Nothing really, we've made a decision you see, it seems you've won, you aren't going to submit the city to me."
+                    r neutral "And while it's quite obvious by now you're a slutty, nympho, whore of a princess.."
+                    z nakedblush "...."
+                    r smile "You're not going to admit it are you? Not to the people at least."
+                    z nakedblush "I will never tell a soul about what you two did to me here, m-my image would be ruined!"
+                    z nakedangry "No one will belive you! I admit my body has...has betrayed me...but I can never betray my dead father!"
+                    e smile "Yes yes like we said you've beaten us, we've given up. Only thing we can do now is put you in here for spite..."
+                    z nakedangry "F-For spite?"
+                    scene sscene elimaryfuckpov4
+                    z nakedblush "Wait w-what are you doing?"
+                    scene sscene elimaryfuckpov5
+                    with Dissolve(1.5)
+                    "With a snap of your finger, both yours and Mary's clothes begin to burn up with magical fire, leaving the two of you naked"
+                    scene sscene elimaryfuckpov6
+                    with Dissolve(1.0)
+                    z nakedblush "I said what are you doing?!!"
+                    scene sscene elimaryfuckpov7
+                    r smile "Oh don't mind us Princess we're just going to have some fun."
+                    z nakedangry "G-Get off me! Do it somewhere else!"
+                    e smile "Personally I think this is a perfect place to fuck, don't you Mary?"
+                    r smile "Oh yes [marychoosename], it's very private and comfortable here"
+                    z nakedhappy "What? Y-Your not going to have s-sex on top of me are you?..."
+                    "You slip your cock easily inside of Mary"
+                    scene sscene elimaryfuckpov8
+                    r smile "Ahhhh yes there we go..."
+                    e smile "Fuck you're so wet Mary, excited are you?"
+                    z nakedangry "GET OFF OF M-"
+                    scene sscene elimaryfuckpov9
+                    with vpunch
+                    r smile "AHN!"
+                    scene sscene elimaryfuckpov8
+                    z nakedcry "No!"
+                    scene sscene elimaryfuckpov9
+                    with vpunch
+                    scene sscene elimaryfuckpov8
+                    r smile "Yes [marychoosename]! F-Fuck me!"
+
+                    image maryfuckpov:
+                        "Elizpovdungo9.png"
+                        0.7
+                        "Elizpovdungo8.png"
+                        0.7
+                        repeat
+
+                    transform maryfuckshake:
+                        linear 0.1 yoffset -5
+                        linear 0.1 yoffset 3
+                        linear 0.1 yoffset -2
+                        linear 0.1 yoffset 0
+                        pause 1.0
+                        repeat
+
+                    show maryfuckpov at maryfuckshake
+                    window hide
+                    pause
+                    "You continue to pound Mary doggystyle as she moans and pants inches from Elizabeth's face"
+                    "Both of you were really getting off on how flustered she was"
+                    z nakedcry "No No No! S-Stop!"
+                    e smile "Just ignore us princess it's not like we're doing anything to you."
+                    r smile "Y-Yes just lie there and watch [marychoosename] pound my p-pussy!"
+                    e smile "Oh Mary, you dirty talker you."
+                    "Mary smiles as the princess continues to flinch at every thrust you make"
+
+
+                    image maryfuckside:
+                        "elizdungoside1.png"
+                        0.7
+                        "elizdungoside2.png"
+                        0.7
+                        repeat
+
+                    transform maryfucksideshake:
+                        pause 0.7
+                        linear 0.1 xoffset -5
+                        linear 0.1 xoffset 3
+                        linear 0.1 xoffset -2
+                        linear 0.1 xoffset 0
+                        pause 0.3
+                        repeat
+
+                    show maryfuckside at maryfucksideshake
+                    with Dissolve(1.0)
+                    window hide
+                    pause
+                    "Even after some time the two of you don't show any signs of stopping, Mary was revelling in Elizabeth's distorted expression of sadness and lust"
+                    scene sscene elimarysidefuck2
+                    "You pause for a moment..."
+                    scene sscene elimarysidefuck3
+                    with vpunch
+                    "And shove Mary downwards right onto the Princess, squishing their tits together"
+                    r smile "OHHH! [marychoosename] Give it to me!"
+
+                    image maryfucksidepush:
+                        "elizdungoside3.png"
+                        0.7
+                        "elizdungoside4.png"
+                        0.7
+                        repeat
+
+                    transform maryfucksideshakepush:
+                        pause 0.7
+                        linear 0.1 xoffset -5
+                        linear 0.1 xoffset 3
+                        linear 0.1 xoffset -2
+                        linear 0.1 xoffset 0
+                        pause 0.3
+                        repeat
+
+                    show maryfucksidepush at maryfucksideshakepush
+                    z nakedcry "No stop! Please I can't!"
+                    "Mary was totally out of it now, so physically close to eachother but it was like the princess wasn't even there to her"
+                    z nakedhappy "Mary I'm sorry! I'm sorry for everything I was wrong!"
+                    scene sscene elimarysidefuck1
+                    "Mary gathers herself for a moment, finally looking at Elizabeth again, covered in sweat and tears"
+                    r smile "....."
+                    scene sscene elimarysidefuck5b
+                    "She suddenly begins to rub her face and tongue along Elizabeth's."
+                    r smile "mmmmm yeeeeesss"
+                    z nakedcry "Oh gods forgive me..."
+
+                    image maryfucklick:
+                        "elizdungoside5b.png"
+                        0.3
+                        "elizdungoside5.png"
+                        0.3
+                        repeat
+
+                    transform maryfucknlickshake:
+                        pause 0.3
+                        linear 0.06 xoffset -5
+                        linear 0.06 xoffset 0
+                        pause 0.18
+                        repeat
+
+                    show maryfucklick at maryfucknlickshake
+                    "You hold down Mary firmly and quicken the pace, slaming her without stopping"
+                    "Elizabeth begins to cry, you were so close to breaking her"
+                    jump maryelidungeonmenu1
+
+                    label maryelidungeonmenu1:
+                        if elizabethcorruption >= 55:
+
+                            menu:
+                                "Continue":
+                                    jump continuefuckingmary
+                                "Switch angles":
+                                    jump fuckmarypovtho
+                                "Cum Inside Mary":
+                                    jump cuminsidemaryside1
+                                "Fuck Elizabeth":
+                                    jump timetofuckeli0
+
+                        else:
+
+                            menu:
+                                "Continue":
+                                    jump continuefuckingmary
+                                "Switch angles":
+                                    jump fuckmarypovtho
+                                "Cum Inside Mary":
+                                    jump cuminsidemaryside1
+
+                    label maryelidungeonmenu2:
+                        if elizabethcorruption >= 55:
+
+                            menu:
+                                "Continue":
+                                    jump fuckmarypovtho
+                                "Switch angles":
+                                    jump continuefuckingmary
+                                "Cum Inside Mary":
+                                    jump cuminsidemaryside2
+                                "Fuck Elizabeth":
+                                    jump timetofuckeli0
+
+                        else:
+
+                            menu:
+                                "Continue":
+                                    jump fuckmarypovtho
+                                "Switch angles":
+                                    jump continuefuckingmary
+                                "Cum Inside Mary":
+                                    jump cuminsidemaryside2
+
+
+                    label cuminsidemaryside2:
+                        "Mary's warmth, her wet pussy, Elizabeth's legs hitting yours every second, the moans, the juices,"
+                        "Everything about the situation was turning you on, you felt hot as a pressure began to build at the base of your cock"
+                        e smile "Fuck Mary I'm close!"
+                        r smile "Oh cum inside me! Cum inside me please [marychoosename]!"
+                        r smile "I want her to watch as you fill me up with your seed!"
+                        z nakedcry "No please don't! Not on top of me i-it's not fair!"
+                        "You grab Mary's arms and hold them back just in time"
+                        scene sscene elimaryfuckpov10
+                        with vpunch
+                        with flash
+                        r smile "AHHHHNNNYYYYYEEEESSS!"
+                        r smile "I can f-feel iiiit! it's filling me up oh gods..."
+                        with vpunch
+                        with flash
+                        "As your cock releases load after load of your seed inside of the elf, Elizabeth's unfulfilled body twitched in what could only be called female blueballs"
+                        z nakedcry "No...N-No..."
+                        with vpunch
+                        "After several more moments you let go of Mary's arms and she falls onto Elizabeth's tits completely passed out"
+                        scene sscene elimaryfuckpov11
+                        with Dissolve(3.5)
+                        "You enjoy a relaxing and deserved smoke break before eventually heading out"
+                        window hide
+                        pause
+
+                        $ elizabethInDungeon = 0
+                        $ elizabethdungeonalready = 1
+                        if isitdaytime == 1:
+                            call screen lobbycastle
+                        else:
+                            call screen lobbycastlenight
+
+                    label cuminsidemaryside1:
+
+                        image maryfuckside2:
+                            "elizdungoside1.png"
+                            0.3
+                            "elizdungoside2.png"
+                            0.3
+                            repeat
+
+                        transform maryfucksideshake:
+                            pause 0.7
+                            linear 0.1 xoffset -5
+                            linear 0.1 xoffset 3
+                            linear 0.1 xoffset -2
+                            linear 0.1 xoffset 0
+                            pause 0.3
+                            repeat
+
+                        show maryfuckside2
+                        "You were feeling good, Mary's moans and the sound of flesh slapping together filled the room"
+                        "Even the princess's continued crys of rejection were turning you on....well they played a big part actually"
+                        e smile "Oh fuck I'm getting close Mary!"
+                        r smile "Y-Yeah?"
+                        e smile "Yeah!"
+                        r smile "YEAH?? You're g-gonna fill me up?"
+                        e smile "I'm gonna fucking fill up your slutty elf pussy!"
+                        z nakedangry "Don't fucking cum on top of m-"
+
+
+                        image maryfuckside3:
+                            "elizdungoside1.png"
+                            0.2
+                            "elizdungoside2.png"
+                            0.2
+                            repeat
+
+                        image maryfuckside4:
+                            "elizdungoside3.png"
+                            0.15
+                            "elizdungoside4.png"
+                            0.15
+                            repeat
+
+                        show maryfuckside3
+                        r smile "OHGODSOHGODSOHGODS"
+                        show maryfuckside4
+                        r smile "OHFUCKOHFUCKOHFUCKOHFUCK!"
+                        e smile "YESSSSSS"
+                        e smile "FUCKING TAKE IT!"
+                        scene sscene elimarysidefuck4
+                        with hpunch
+                        with flash
+                        r smile "Ah....s-so much....yess..."
+                        with hpunch
+                        "As promised you quickly fill up Mary's pussy with your seed, basking in your orgasm and Elizabeth's sadness"
+                        z nakedcry "{size=-6}Not fair....i-it's not fair..{/size}"
+                        scene blank darkness
+                        with Dissolve(1.5)
+                        "You get up and magic your clothes back on, Mary slowly follows behind, as you leave the princess and go back up the stairs"
+                        $ elizabethInDungeon = 0
+                        $ elizabethdungeonalready = 1
+                        if isitdaytime == 1:
+                            call screen lobbycastle
+                        else:
+                            call screen lobbycastlenight
+
+
+
+                    label timetofuckeli0:
+                        z nakedcry "....."
+                        r smile "Ohhh yess..."
+                        z nakedcry "....."
+                        r smile "Right there, RIGHT THERE!"
+                        z nakedyell "O-Okay!"
+                        scene sscene elimarysidefuck6
+                        with Dissolve(1.5)
+                        r smile "Hmmm? Okay what?"
+                        z nakedcry "I-I'll do it!"
+                        e smile "Do what?"
+                        z nakedyell "Anything! I'll do anything you want me to just...just.."
+                        e smile "Just what Elizabeth?"
+                        z nakedcry "Fuck me! Please fuck me! I'll give you anything, everything! The city's yours just fuck my pussy!"
+                        scene sscene elimarysidefuck7
+                        r smile "Aww look at that face [marychoosename], maybe we've been a bit mean to her lately.."
+                        scene sscene elimarysidefuck8
+                        "You place your hardened cock against Elizabeth's sex, she starts hyperventilating"
+                        z nakedcry "Please please please please..."
+                        scene sscene elimarysidefuck9
+                        "You thrust forward and penetrate her"
+                        z nakedyell "*Gasp*"
+                        "She almost immediately begins to orgasm"
+                        with hpunch
+                        z nakedhappy "AHHHHHH!"
+                        scene sscene elimarysidefuck8
+                        r smile "Haha wow are you c-"
+                        scene sscene elimarysidefuck9
+                        z nakedyell "CUMMING!!"
+                        with hpunch
+                        image elisidewaysfuck0:
+                            "elizdungoside8.png"
+                            0.7
+                            "elizdungoside9.png"
+                            0.7
+                            repeat
+
+                        transform elifucksideshakepush:
+                            pause 0.7
+                            linear 0.1 xoffset -5
+                            linear 0.1 xoffset 3
+                            linear 0.1 xoffset -2
+                            linear 0.1 xoffset 0
+                            pause 0.3
+                            repeat
+
+                        show elisidewaysfuck0 at elifucksideshakepush
+                        "Switching from Mary's tight pussy to Elizabeth's wet cunt was so hot to you, that combined with Elizabeth squeezing onto your cock with everything she had"
+                        "You could feel your own orgasm approaching fast"
+                        e smile "Oh fuck I hope you're ready princess."
+                        z nakedblush "Wha-"
+                        e smile "HERE IT COMES!"
+                        scene sscene elimarysidefuck9
+                        with hpunch
+                        with flash
+                        z nakedyell "AHN!!! I-IT'S INSIDE ME!"
+                        z nakedhappy "Y-Your dirty thick cum is inside of m-me...."
+                        with flash
+                        "Your eyes roll up and your body shakes as you release your sperm inside the princess's sex, blasting load after load"
+                        r smile "That's it [marychoosename] fill her all up! Gods you're so lucky princess!"
+                        "You release one last stream"
+                        with flash
+                        scene sscene elimarysidefuck7
+                        "And with that you bend back down"
+                        scene blank darkness
+                        with Dissolve(3.0)
+                        "You slowly pull out of Elizabeth, spilling cum on the ground, then you and Mary stand up and magically put back your clothes"
+                        "The princess lies there, like an addict who just had their fix. Aftershocks rocked her body every few moments as her eyes rolled up"
+                        "You felt a sense of accomplishment, finally getting her to fully submit, you'll make sure to make use of her promise another time."
+                        "You leave the dungeon."
+                        $ elizabethInDungeon = 0
+                        $ elizabethdungeonalready = 1
+                        if isitdaytime == 1:
+                            call screen lobbycastle
+                        else:
+                            call screen lobbycastlenight
+
+
+
+
+
+
+
+                    label fuckmarypovtho:
+                        hide maryfucksidepush
+                        show maryfuckpov at maryfuckshake
+                        window hide
+                        pause
+                        "You continue pounding the princess who would twitch every other moment, her body eager to receive what Mary was getting"
+                        r smile "Oh sorry pr-AHN princess. I'm getting my juices all over your pussy, hope yo-AHN d-don't mind!"
+                        z nakedcry "\[I-I can't take much more of this, my mind's going to break....\]"
+                        window hide
+                        pause
+                        jump maryelidungeonmenu2
+
+                    label continuefuckingmary:
+                        hide maryfuckside2
+                        hide maryfuckside3
+                        hide maryfuckside4
+                        hide maryfucksidepush
+                        hide maryfuckpov
+                        show maryfuckside at maryfucksideshake
+                        with Dissolve(1.0)
+                        window hide
+                        pause
+                        r smile "Oh yes yes [marychoosename] yes! Fuck my tiny elf pussy!"
+                        e smile "You're so fucking tight Mary I love it!"
+                        z nakedcry "I hate you! I hate you both!"
+                        show maryfucksidepush at maryfucksideshakepush
+                        with hpunch
+                        r smile "AHN AHN!"
+                        r smile "Oh goddess his cock is so good princess you have n-no ide-AHN!"
+                        e smile "Haha you should see her pussy Mary she's dripping everywhere back here."
+                        r smile "AH AH AH AH"
+                        jump maryelidungeonmenu1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 label orgasmtorture:
+                    if orgasmtorture2nddialoguecheck == 1:
+                        scene sscene dungeonshock0
+                        with Dissolve(1.5)
+                        r smile "Hello again princess. You're looking like quite the slut today."
+                        z nakedangry "You bitch this is...this is torture you know!"
+                        r smile "Well we are in a dungeon, and you can call it torture but last time your body severely dissagreed."
+                        z nakedblush "That's not...y-you or [elichoosename] must've used magic on me!"
+                        r smile "Come now Elizabeth don't be pathetic."
+                        scene sscene dungeonshock1
+                        with Dissolve(1.0)
+                        o girlneutral "H-Here again?"
+                        e neutral "Yes I'm afraid so."
+                        "The girl looks up at the princess"
+                        o girlneutral "You! You monster!"
+                        z nakedblush "Listen! Last time wasn't my fau-"
+                        o girlneutral "Save it you whore! I bet you can't wait to watch me writhe in pain again."
+                        e smile "\[god damn I may need to get the popcorn.\]"
+                        e smile "Well Mary you can go ahead and-"
+                        scene sscene dungeonshock2
+                        r smile "mmmmmm"
+                        z nakedcry "Oooh gods..."
+                        o girlneutral "Look at you! Already you're moaning you filthy slut!"
+                        z nakedyell "N-No I...I uhn!"
+                        scene sscene dungeonshock3
+                        e smile "I don't know if you should insult her like that, it seems to turn her on even more.."
+                        o girlneutral "What? Really?"
+                        z nakedcry "nononono uhhhnnnnnn..."
+                        e smile "Only one way to find out."
+                        o girlneutral "Pleas-"
+                        e yell "Filthy slutty whore! Your cunt's drenched already. You don't even like Mary and you're so turned on, or is it this girl?"
+                        scene sscene dungeonshock4
+                        e yell "Her pain only makes you cum quicker doesn't it? You're just that fucked up! You're fucking pathetic!"
+                        z nakedyell "Please please please I c-can't AHHHHHHHN!!"
+                        with hpunch
+                        scene sscene dungeonshock4b
+                        with flash
+                        o girlshock "AHHHHH!"
+                        pause
+                        with hpunch
+                        scene sscene dungeonshock5b
 
-                    image sscene dungeonshock0 = "maryeatingout1.png"
-                    image sscene dungeonshock1 = "maryeatingout2.png"
-                    image sscene dungeonshock2 = "maryeatingout3.png"
-                    image sscene dungeonshock3 = "maryeatingout4.png"
-                    image sscene dungeonshock4 = "maryeatingout5.png"
-                    image sscene dungeonshock4b = "maryeatingout5b.png"
-                    image sscene dungeonshock4c = "maryeatingout5c.png"
-                    image sscene dungeonshock5 = "maryeatingout6.png"
-                    image sscene dungeonshock5b = "maryeatingout6b.png"
-                    image sscene dungeonshock6 = "maryeatingout7.png"
-                    image sscene dungeonshock7 = "maryeatingout8.png"
+                        o girlcry "I hate you! I hate you Princess!"
+                        z nakedcry "I'm so sorry...I..I can't help it's not my fault!"
+                        e smile "Make her tell the truth Mary."
+                        z nakedcry "What?"
+                        scene sscene dungeonshock1
+                        with Dissolve(1.0)
+                        r smile "[marychoosename] is right Princess, you're not being very truthful."
+                        z nakedcry "What the hell are you talking about?"
+                        r smile "If you tell this poor girl how you really feel I may stop all this, if [marychoosename] allows it."
+                        e smile "I allow it."
+                        z nakedcry "I don't understand you're forcing me to-"
+                        scene sscene dungeonshock3
+                        with Dissolve(1.0)
+                        e smile "You keep telling us it's not your fault. That you don't like this. Is that really how you feel?"
+                        scene sscene dungeonshock4
+                        z nakedyell "Yes! AHHHH!"
+                        e smile "Don't tell me, look her in the eyes and say it."
+                        scene sscene dungeonshock3
+                        "The girl's eyes and Elizabeth's lock on to eachother"
+                        z nakedyell "I....I UHN!...It's...fuckfuckfuck!"
+                        scene sscene dungeonshock4
+                        o girlcry "SAY IT!"
+                        "You knew what was coming and start shocking the girl with your magic anyways, she screams in pleasure and pain befo-"
+                        scene sscene dungeonshock4b
+                        z nakedcry "AHHHHH! I LOVE IT!"
+                        with hpunch
+                        "The princess begins to cum violently again, she shakes more than ever before as she squirts her juices everywhere"
+                        scene sscene dungeonshock5b
+                        z nakedhappy "I love it I love it! Your pain makes me cum! I love it when you watch me cum as you get hurt!"
+                        z nakedhappy "I even love Mary's tongue inside of me!"
+                        scene sscene dungeonshock7
+                        o girlcry "You whoreAAAHAHHHH!"
+                        scene sscene dungeonshock5b
+                        z nakedhappy "YES!! I'm a slutty princess whore!!"
+                        scene sscene dungeonshock7
+                        with hpunch
+                        o girlshock "UHHHHN!"
+                        scene sscene dungeonshock6
+                        z nakedhappy "YEEESS!!!"
+                        scene sscene dungeonshock5b
+                        scene blank darkness
+                        with Dissolve(2.0)
+                        "Finally after several minutes of moaning, cumming, and screaming it gets quiet"
+                        "Mary and you stand there eyes wide open just taking it all in, as the princess and the girl both lie passed out"
+                        e smile "Fuck Mary how are we gonna top this?"
+                        r smile "....I think you may have answered your own question [marychoosename]."
+                        "The two of you once again just leave them there in their own filth for several hours"
+                        $ elizabethInDungeon = 0
+                        $ elizabethdungeonalready = 1
 
-                    define o = Character("Peasant Girl", image= "girl")
+                        if isitdaytime == 1:
+                            call screen lobbycastle
+                        else:
+                            call screen lobbycastlenight
 
-                    image side girl girlneutral = "peasentneutral.png"
-                    image side girl girlcry = "peasentcry.png"
-                    image side girl girlshock = "peasentshock.png"
 
-                    scene sscene dungeonshock0
-                    with Dissolve(2.0)
-                    z angry "Ugh here we go again."
-                    r smile "Oh I assure you this will very different from our previous....times."
-                    z angry "Shut up you skank. There's no way you can embarrass me more than I already have."
-                    r smile "Hehe."
-                    z angry "Wipe that smile off your face too! Why am I hooked up to the wall like this anyways?"
-                    r smile "Youuu'll seeee."
-                    "Your footsteps start to echo as you approach Mary and the princess, but it wasn't just one set of footprints that could be heard."
-                    scene sscene dungeonshock1
-                    with Dissolve(1.0)
-                    o girlneutral "Y-Your highness where are you taking m-"
-                    z angry "What's going on who is this girl??!"
-                    o girlneutral "P-P-Princess! What have they done to you why are you naked??!"
-                    "Mary kneels down while the two fumble with their words"
-                    e neutral "Ahem, princess this is...well it doesnt matter. She's one of the commonfolk."
-                    o girlneutral "My name is-"
-                    e neutral "A criminal actually."
-                    o girlneutral "I-It was just an apple..."
-                    e smile "She has commited the crime of thievery. No matter how small if everyone stole something as basic as an apple nobody would have them to sell."
-                    e smile "Chaos would rain. As the new king I can't such a thing happen examples must be set, I don't WANT to do this, I have to."
-                    e neutral "You understand?"
-                    o girlneutral "Y-Yes..."
-                    z angry "Why. Have. You. Brought her here??"
-                    e smile "To be judged!"
-                    o girlneutral "What?"
-                    e smile "All is not lost my dear, your beloved, adoring princess here is going to decide your appropriate punishment."
-                    z sad "What? Why would you-"
-                    o girlneutral "Oh blessed be the goddess! Thank you princess I know that your judgement will be fair and righteous!"
-                    z sad "U-Um..."
-                    "Suddenly, Mary moves her head towards the princess's crotch and begins licking slowly"
-                    scene sscene dungeonshock2
-                    o girlneutral "Oh my!"
-                    z angry "What the fuck do you think yo-"
-                    e smile "SO."
-                    e smile "This is how this is gonna work. The princess here will enjoy a nice...session."
-                    e smile "Everytime she cums, I will shock our dear guest here with my magic."
-                    z angry "Y-You've got to be kidding me that's the...the..."
-                    e smile "The what?"
-                    o girlneutral "You highness I don't understand why such a-a.."
-                    e smile "In the end my dear, your fate is up to your princess, only a shameful slut could succumb to such disgusting tactics don't you think?"
-                    o girlneutral "....yes..I suppose so."
-                    z blush "H-Hold on now I-I'm nnnot..."
-                    o girlneutral "I believe in you princess! Show them that you're not a sinful whore!"
-                    z blush "O-Of course! Who...would get t-turned on by this?"
-                    "Mary spends a few more moments going down on elizabeth, moaning quietly"
-                    r blush "mmmm"
-                    scene sscene dungeonshock3
-                    z blush "\[Shit shit shit! WHY is she so good at this is she a lesbian for gods sake??!\]"
-                    "Mary continues to expertly use her tounge to stimulate Elizabeth's sex, you could see she was getting more turned on by the second"
-                    z blush "\[God dammit they're watching me! That poor girl is watching my pussy getting eaten out! Oh no I shouldn't have thought that now I'm even more...\]"
-                    scene sscene dungeonshock4
-                    "Mary begins to finger Elizabeth as well, uping her game"
-                    z blush "F-Fuck gods!"
-                    o girlneutral "Resist Princess! You can do it I know you c-"
-                    z blush "AHHHHH"
-                    scene sscene dungeonshock4c
-                    with hpunch
-                    with flash
-                    e smile "And there she goes."
-                    "Mary moves out of the way just as Elizabeth squirts over her and the ground"
-                    o girlneutral "Wha-"
-                    scene sscene dungeonshock5
-                    with flash
-                    o girlshock "AHHHHH!"
-                    "You send a current electricity down the magic chain into the girl giving her a shock"
-                    scene sscene dungeonshock6
-                    o girlcry "It huuurts it hurrrts princess!"
-                    scene sscene dungeonshock5b
-                    z sad "I'm sorry! I-I couldn't help it!"
-                    o girlcry "I thought you were...a g-good-"
-                    z blush "Oh gods oh gods!"
-                    z blush "FUUUCK AHHHH I'm CUMMING!!"
-                    scene sscene dungeonshock4b
-                    with hpunch
-                    with flash
-                    "You send another shock through the girl"
-                    o girlshock "AHHH OW OW OWW PLEASE NO MORE!"
-                    scene sscene dungeonshock6
-                    o girlcry "Princess please! Please stop this!"
-                    z blush "I....I..."
-                    r smile "I gotta say I didn't know I was this good, your pussy's a waterfall right now princess."
-                    r smile "Or maybe you're just such a massive slut, that the sight of your people getting tortured while watching you makes you cum?"
-                    scene sscene dungeonshock2
-                    o girlcry "What? Y-You like this?! YOU ENJOY WATCHING ME SUFFER??!"
-                    z cry "N-No! No I'm nnnnn!"
-                    "Mary must've found the g spot"
-                    scene sscene dungeonshock4
-                    z cry "OH gods oh gods!"
-                    o girlcry "Look at yourself! You're filth you monster! You're killing me while you cum!"
-                    scene sscene dungeonshock6
-                    "The girl falls to the ground from the pain"
-                    e smile "Hmmm"
-                    "Preemtively, you send another shock through the chain to see how the princess will react"
-                    scene sscene dungeonshock7
-                    with hpunch
-                    with flash
-                    o girlshock "UHHHN! Oh GODS IT HUUUUURTS!"
-                    "The girl did seem to be suffering, but you could've sworn you caught a glimpse of a lustful smirk at the last moment.."
-                    z blush "UHHNNN!! UHN!!"
-                    "Elizabeth wasn't even trying to stop herself anymore, she just stared at the girl in pain, squirting again uncontrollably."
-                    r smile "Wow I...heh just wow. I mean I always knew you were a...but princess have you just have no shame at all?"
-                    z cry "......"
-                    "The girl lies on the ground passed out, Elizabeth no longer responding, every now and then aftershocks from her orgasms move her body"
-                    scene blank darkness
-                    with Dissolve(1.5)
-                    r smile "Wow [marychoosename]. I uh..think the plan worked."
-                    e neutral "Maybe a little too well Mary...anyways good job."
-                    "You leave the dungeon with Mary and tell Mary to deal with the two girls left behind at some point."
-
-                    $ elizabethInDungeon = 0
-                    if isitdaytime == 1:
-                        call screen lobbycastle
                     else:
-                        call screen lobbycastlenight
+                        $ orgasmtorture2nddialoguecheck = 1
+                        image sscene dungeonshock0 = "maryeatingout1.png"
+                        image sscene dungeonshock1 = "maryeatingout2.png"
+                        image sscene dungeonshock2 = "maryeatingout3.png"
+                        image sscene dungeonshock3 = "maryeatingout4.png"
+                        image sscene dungeonshock4 = "maryeatingout5.png"
+                        image sscene dungeonshock4b = "maryeatingout5b.png"
+                        image sscene dungeonshock4c = "maryeatingout5c.png"
+                        image sscene dungeonshock5 = "maryeatingout6.png"
+                        image sscene dungeonshock5b = "maryeatingout6b.png"
+                        image sscene dungeonshock6 = "maryeatingout7.png"
+                        image sscene dungeonshock7 = "maryeatingout8.png"
+
+                        define o = Character("Peasant Girl", image= "girl")
+
+                        image side girl girlneutral = "peasentneutral.png"
+                        image side girl girlcry = "peasentcry.png"
+                        image side girl girlshock = "peasentshock.png"
+
+                        scene sscene dungeonshock0
+                        with Dissolve(2.0)
+                        z nakedangry "Ugh here we go again."
+                        r smile "Oh I assure you this will very different from our previous....times."
+                        z nakedangry "Shut up you skank. There's no way you can embarrass me more than I already have."
+                        r smile "Hehe."
+                        z nakedangry "Wipe that smile off your face too! Why am I hooked up to the wall like this anyways?"
+                        r smile "Youuu'll seeee."
+                        "Your footsteps start to echo as you approach Mary and the princess, but it wasn't just one set of footprints that could be heard."
+                        scene sscene dungeonshock1
+                        with Dissolve(1.0)
+                        o girlneutral "Y-Your highness where are you taking m-"
+                        z nakedangry "What's going on who is this girl??!"
+                        o girlneutral "P-P-Princess! What have they done to you why are you naked??!"
+                        "Mary kneels down while the two fumble with their words"
+                        e neutral "Ahem, princess this is...well it doesnt matter. She's one of the commonfolk."
+                        o girlneutral "My name is-"
+                        e neutral "A criminal actually."
+                        o girlneutral "I-It was just an apple..."
+                        e smile "She has commited the crime of thievery. No matter how small if everyone stole something as basic as an apple nobody would have them to sell."
+                        e smile "Chaos would rain. As the new king I can't such a thing happen examples must be set, I don't WANT to do this, I have to."
+                        e neutral "You understand?"
+                        o girlneutral "Y-Yes..."
+                        z nakedangry "Why. Have. You. Brought her here??"
+                        e smile "To be judged!"
+                        o girlneutral "What?"
+                        e smile "All is not lost my dear, your beloved, adoring princess here is going to decide your appropriate punishment."
+                        z nakedblush "What? Why would you-"
+                        o girlneutral "Oh blessed be the goddess! Thank you princess I know that your judgement will be fair and righteous!"
+                        z nakedblush "U-Um..."
+                        "Suddenly, Mary moves her head towards the princess's crotch and begins licking slowly"
+                        scene sscene dungeonshock2
+                        o girlneutral "Oh my!"
+                        z nakedangry "What the fuck do you think yo-"
+                        e smile "SO."
+                        e smile "This is how this is gonna work. The princess here will enjoy a nice...session."
+                        e smile "Everytime she cums, I will shock our dear guest here with my magic."
+                        z nakedblush "Y-You've got to be kidding me that's the...the..."
+                        e smile "The what?"
+                        o girlneutral "You highness I don't understand why such a-a.."
+                        e smile "In the end my dear, your fate is up to your princess, only a shameful slut could succumb to such disgusting tactics don't you think?"
+                        o girlneutral "....yes..I suppose so."
+                        z nakedyell "H-Hold on now I-I'm nnnot..."
+                        o girlneutral "I believe in you princess! Show them that you're not a sinful whore!"
+                        z nakedhappy "O-Of course! Who...would get t-turned on by this?"
+                        "Mary spends a few more moments going down on elizabeth, moaning quietly"
+                        r blush "mmmm"
+                        scene sscene dungeonshock3
+                        z nakedblush "\[Shit shit shit! WHY is she so good at this is she a lesbian for gods sake??!\]"
+                        "Mary continues to expertly use her tounge to stimulate Elizabeth's sex, you could see she was getting more turned on by the second"
+                        z nakedblush "\[God dammit they're watching me! That poor girl is watching my pussy getting eaten out! Oh no I shouldn't have thought that now I'm even more...\]"
+                        scene sscene dungeonshock4
+                        "Mary begins to finger Elizabeth as well, uping her game"
+                        z nakedyell "F-Fuck gods!"
+                        o girlneutral "Resist Princess! You can do it I know you c-"
+                        z nakedyell "AHHHHH"
+                        scene sscene dungeonshock4c
+                        with hpunch
+                        with flash
+                        e smile "And there she goes."
+                        "Mary moves out of the way just as Elizabeth squirts over her and the ground"
+                        o girlneutral "Wha-"
+                        scene sscene dungeonshock5
+                        with flash
+                        o girlshock "AHHHHH!"
+                        "You send a current electricity down the magic chain into the girl giving her a shock"
+                        scene sscene dungeonshock6
+                        o girlcry "It huuurts it hurrrts princess!"
+                        scene sscene dungeonshock5b
+                        z nakedcry "I'm sorry! I-I couldn't help it!"
+                        o girlcry "I thought you were...a g-good-"
+                        z nakedyell "Oh gods oh gods!"
+                        z nakedyell "FUUUCK AHHHH I'm CUMMING!!"
+                        scene sscene dungeonshock4b
+                        with hpunch
+                        with flash
+                        "You send another shock through the girl"
+                        o girlshock "AHHH OW OW OWW PLEASE NO MORE!"
+                        scene sscene dungeonshock6
+                        o girlcry "Princess please! Please stop this!"
+                        z nakedhappy "I....I..."
+                        r smile "I gotta say I didn't know I was this good, your pussy's a waterfall right now princess."
+                        r smile "Or maybe you're just such a massive slut, that the sight of your people getting tortured while watching you makes you cum?"
+                        scene sscene dungeonshock2
+                        o girlcry "What? Y-You like this?! YOU ENJOY WATCHING ME SUFFER??!"
+                        z nakedcry "N-No! No I'm nnnnn!"
+                        "Mary must've found the g spot"
+                        scene sscene dungeonshock4
+                        z nakedyell "OH gods oh gods!"
+                        o girlcry "Look at yourself! You're filth you monster! You're killing me while you cum!"
+                        scene sscene dungeonshock6
+                        "The girl falls to the ground from the pain"
+                        e smile "Hmmm"
+                        "Preemtively, you send another shock through the chain to see how the princess will react"
+                        scene sscene dungeonshock7
+                        with hpunch
+                        with flash
+                        o girlshock "UHHHN! Oh GODS IT HUUUUURTS!"
+                        "The girl did seem to be suffering, but you could've sworn you caught a glimpse of a lustful smirk at the last moment.."
+                        z nakedcry "UHHNNN!! UHN!!"
+                        "Elizabeth wasn't even trying to stop herself anymore, she just stared at the girl in pain, squirting again uncontrollably."
+                        r smile "Wow I...heh just wow. I mean I always knew you were a...but princess have you just have no shame at all?"
+                        z nakedcry "......"
+                        "The girl lies on the ground passed out, Elizabeth no longer responding, every now and then aftershocks from her orgasms move her body"
+                        scene blank darkness
+                        with Dissolve(1.5)
+                        r smile "Wow [marychoosename]. I uh..think the plan worked."
+                        e neutral "Maybe a little too well Mary...anyways good job."
+                        "You leave the dungeon with Mary and tell her to deal with the two girls left behind at some point."
+
+                        $ elizabethInDungeon = 0
+                        $ elizabethdungeonalready = 1
+                        if isitdaytime == 1:
+                            call screen lobbycastle
+                        else:
+                            call screen lobbycastlenight
 
 
 
@@ -13454,18 +15635,18 @@ label backtocastlelobby:
                     with Dissolve(0.5)
                     pause
                     e smile "Ah finally, fully naked in all your glory."
-                    z blush "....."
+                    z nakedblush "....."
                     "You grab Elizabeth's breast and softly squeeze and massage it"
                     scene sscene dungeoneli1boob
                     with Dissolve(0.5)
                     e neutral "Damn and what a body too, such large tits but still firm and shapely."
-                    z blush "...."
+                    z nakedblush "...."
                     e neutral "Where was I? Ah yes so here's the thing, you won't submit to the new rule and you won't submit to me."
                     e smile "Yah gotta choose one princess there's no in between here. If not then both options will be taken by force."
                     scene sscene dungeoneli1finger
                     with Dissolve(0.5)
                     "You remove your hand from her tits and start rubbing her clit"
-                    z blush "Ah..."
+                    z nakedblush "Ah..."
                     "Elizabeth starts moaning very quietly"
                     e smile "Personally, I know which option I want you to take."
                     "You find her entrance and slip your finger inside, then begin to finger her pussy"
@@ -13480,9 +15661,9 @@ label backtocastlelobby:
                         repeat
 
                     scene sscene dungeoneli1finger at shake_vertical
-                    z blush "Ohhhh!"
+                    z nakedyell "Ohhhh!"
                     e smile "Oh? Maybe you'd like that option as well?"
-                    z blush "N-No!"
+                    z nakedblush "N-No!"
                     scene sscene dungeoneli1fingerheadturn at shake_vertical
                     "She turns her head, unable to look you in the eyes any longer"
                     e smile "Alright."
@@ -13500,12 +15681,12 @@ label backtocastlelobby:
                     "You slip a second finger inside her and pick up the pace"
                     window hide
                     pause
-                    z blush "Ahhh F....{size=-6}fuck{/size}..."
+                    z nakedyell "Ahhh F....{size=-6}fuck{/size}..."
                     scene sscene dungeoneli1fingerheadturnwet at shake_verticalFaster
 
                     "You continue to finger her, after several minutes you start noticing a slopping sound comming from her pussy everytime you penetrated her"
                     e smile "You're getting wet princess."
-                    z blush "N-No I'm no-AHH!"
+                    z nakedblush "N-No I'm no-AHH!"
                     transform shake_verticalEvenFaster:
                         linear 0.05 yoffset -3
                         linear 0.05 yoffset 2
@@ -13521,35 +15702,36 @@ label backtocastlelobby:
                     window hide
                     pause
                     e smile "My hand is soaked princess, so are your thighs. You can't deny that now can you?"
-                    z blush "Fuck you just...just s-shut upAH!!"
+                    z nakedblush "Fuck you just...just s-shut upAH!!"
                     e neutral "Are you gonna-"
                     scene sscene dungeoneli2handsorgasm
                     define flash = Fade(0.1, 0.0, 0.5, color="#fff")
                     with flash
-                    z blush "AHHHHH"
+                    z nakedyell "AHHHHH"
                     "Elizabeth's pussy clamps onto your fingers as well as her legs as she begins to orgasm"
                     with hpunch
                     with flash
-                    z blush "F-Fuck Fuck me oh gods..."
+                    z nakedyell "F-Fuck Fuck me oh gods..."
                     with flash
                     pause
                     with flash
                     e neutral "....."
                     scene sscene dungeonelinakedwet
                     with Dissolve(0.5)
-                    z blush "hah...hah....hah.."
+                    z nakedblush "hah...hah....hah.."
                     e smile "Well I think that was a satisfactory visit to the dungeon....see you later."
                     "You walk off and exit the dungeon"
-                    z blush "How...how could I let that happen...what's wrong with me?"
-                    z blush "'The princess who let her captor make her cum'"
+                    z nakedblush "How...how could I let that happen...what's wrong with me?"
+                    z nakedblush "'The princess who let her captor make her cum'"
                     $ elizabethcorruption += corMul
                     show text "{b}{color=#dc143c} Corruption Increased {/color}{/b}" at loveLocationBottomLeft
-                    z cry ""
+                    z nakedcry ""
                     hide text
                     with Dissolve(1.0)
-                    z cry "I-I'm pathetic..."
+                    z nakedcry "I-I'm pathetic..."
 
                     $ elizabethInDungeon = 0
+                    $ elizabethdungeonalready = 1
                     if isitdaytime == 1:
                         call screen lobbycastle
                     else:
@@ -13598,16 +15780,16 @@ label backtocastlelobby:
                     "You snap your fingers and Elizabeth's clothes begin to burn up and dissapear"
                     scene sscene dungeonelinaked
                     with Dissolve(0.5)
-                    z blush "H-Hey!"
+                    z nakedangry "H-Hey!"
                     r smile "No need to be embarassed princess we're both women, and I doubt [marychoosename] hasn't seen you naked before."
                     r smile "Well let's just get right to it shall we?"
                     scene sscene dungeonfingermary
                     with Dissolve(0.5)
                     "Mary pushes herself against Elizabeth and starts rubbing her crotch"
                     scene sscene dungeonfingermary at shake_vertical
-                    z blush "S-Stop that what are you doing?!"
+                    z nakedangry "S-Stop that what are you doing?!"
                     r smile "You said you're not a dirty slut right? So there's no way you'll get turned on by me, or by [marychoosename] watching. You hate us both right?"
-                    z blush "Ugggh..."
+                    z nakedblush "Ugggh..."
                     window hide
                     pause
                     r smile "Wow I must say you always did have amazing tits princess, I was always jealous. What do you think of her tits [marychoosename]?"
@@ -13621,10 +15803,10 @@ label backtocastlelobby:
                         e smile "Yeah they're amazing, takes all I have to not just constantly grab them."
                         $ elizabethcorruption += corMul
                         show text "{b}{color=#dc143c}Corruption Increased{/color}{/b}" at loveLocationBottomLeft
-                        z blush ""
+                        z nakedblush ""
                         hide text
                         r smile "OH ho! I think she liked that, must make you happy huh princess?"
-                        z blush "What? O-Of course not!"
+                        z nakedblush "What? O-Of course not!"
                         jump continuefinger
 
                     label ilikemarystits:
@@ -13635,7 +15817,7 @@ label backtocastlelobby:
                         r blush "Hahahaha! Did you hear that princess?!"
                         hide text
                         r smile "The only thing you're good for is your body and [marychoosename] STILL prefers mine over yours!"
-                        z blush "I-I don't care about that!"
+                        z nakedangry "I-I don't care about that!"
                         r smile "I don't know princess..."
                         jump continuefinger
 
@@ -13647,16 +15829,16 @@ label backtocastlelobby:
                         r blush "MMMM there is it, don't you just love that sound [marychoosename], are you as turned on as she is?"
                         e smile "I'm rock hard Mary."
                         r smile "Princess aren't you happy about turning him on? You're leaking everywhere."
-                        z blush "Shut up! Just s...shu..{size=-5}fuck{/size}..."
+                        z nakedblush "Shut up! Just s...shu..{size=-5}fuck{/size}..."
                         r smile "What was that?"
-                        z blush "I said shut u-AHHHHFUUUCK!"
+                        z nakedyell "I said shut u-AHHHHFUUUCK!"
                         with hpunch
                         scene sscene dungeonfingermaryorgasm
                         with flash
                         "The princess screams in ecstasy as her body convulses and she cums all over Mary's hand"
                         with flash
                         r blush "I KNEW IT I TOLD YOU YOU WERE A SLUT!"
-                        z cry "Okay just stop please!..I'm begging you."
+                        z nakedcry "Okay just stop please!..I'm begging you."
                         "Mary looks to you"
                         menu:
                             "Make her say it":
@@ -13668,16 +15850,16 @@ label backtocastlelobby:
                         "With a smile you shake your head"
                         scene sscene dungeonfingermarywet at shake_verticalEvenFaster
                         "Instead of stopping she increases speed"
-                        z blush "OH GODS!! AHHHHHH STOP!!"
+                        z nakedblush "OH GODS!! AHHHHHH STOP!!"
                         #superfast finger
                         r blush "SAY IT!"
-                        z blush "MMMMMMM"
+                        z nakedblush "MMMMMMM"
                         r blush "WHAT ARE YOU?!"
-                        z blush "I'M A SLUT! I'm a princess slut okay?!"
+                        z nakedyell "I'M A SLUT! I'm a princess slut okay?!"
                         r blush "What else?!"
-                        z blush "I-I get off to [elichoosename] watching you finger me, OH GODS PLEASE IT'S GONNA HAPPEN AGAIN!"
+                        z nakedyell "I-I get off to [elichoosename] watching you finger me, OH GODS PLEASE IT'S GONNA HAPPEN AGAIN!"
                         r neutral "Wha-"
-                        z blush "CUMMING!!!"
+                        z nakedyell "CUMMING!!!"
                         with flash
                         scene dungeonfingermaryorgasm
                         with flash
@@ -13687,13 +15869,14 @@ label backtocastlelobby:
                         "Mary soon removes her hand, which was soaking wet"
                         $ elizabethcorruption += corMul
                         show text "{b}{color=#dc143c} Corruption Increased {/color}{/b}" at loveLocationBottomLeft
-                        z cry "...."
+                        z nakedcry "...."
                         hide text
                         with Dissolve(1.0)
                         r smile "I think we're done for now [marychoosename]."
                         e smile "I would agree my dear, she looks like she needs a rest so we'll leave her here for now."
                         "The two of you leave the exhausted princess naked and alone, covered in her own juices"
                         $ elizabethInDungeon = 0
+                        $ elizabethdungeonalready = 1
                         if isitdaytime == 1:
                             call screen worldmap
                         else:
@@ -13703,7 +15886,7 @@ label backtocastlelobby:
                             e smile "It's fine I think she's had enough."
                             $ elizabethlove += loveMul
                             show text "{b}{color=#00fa9a}love Increased{/color}{/b}" at loveLocationMiddle
-                            z cry "T-Thank you...{size=-5}thank you{/size}..."
+                            z nakedcry "T-Thank you...{size=-5}thank you{/size}..."
                             hide text
                             "Elizabeth's eyes roll up and she passes out"
                             e smile "Well I think we got our point across, good job Mary"
@@ -13712,6 +15895,7 @@ label backtocastlelobby:
                             r neutral "Very well."
                             "The two of you leave the dungeon"
                             $ elizabethInDungeon = 0
+                            $ elizabethdungeonalready = 1
                             if isitdaytime == 1:
                                 call screen worldmap
                             else:
@@ -13837,6 +16021,7 @@ label backtocastlelobby:
                     hide text
 
                     $ elizabethInDungeon = 0
+                    $ elizabethdungeonalready = 1
                     if isitdaytime == 1:
                         call screen worldmap
                     else:
@@ -13993,6 +16178,9 @@ label backtocastlelobby:
             elif elizabethOutfit == 3:
                 show fullBodyZ currentOutfit3 at right
                 with moveinright
+            elif elizabethOutfit == 4:
+                show fullBodyZ eliNaked at right
+                with moveinright
 
             label ellie0:
                 $ eligreeting = renpy.random.randint(0, 2)
@@ -14039,6 +16227,8 @@ label backtocastlelobby:
                         show fullBodyZ currentOutfit2 at right
                     elif elizabethOutfit == 3:
                         show fullBodyZ currentOutfit3 at right
+                    elif elizabethOutfit == 4:
+                        show fullBodyZ eliNaked at right
 
                     menu:
                         "Sexual Actions":
@@ -14135,6 +16325,25 @@ label backtocastlelobby:
                             pause
                             hide showoff
                             show fullBodyZ currentOutfit3:
+                                xalign 0.5 yalign 0.5
+                            window hide
+                            pause
+
+                        elif elizabethOutfit == 4:
+                            image showoff elinakedZOOM = "eliznudeZOOM.png"
+                            show showoff elinakedZOOM:
+                                xalign 0.5 yalign 0.5
+
+                                xpos 1 ypos -900 xanchor 0 yanchor 0
+                                linear 13.0 xpos 1 ypos -125
+
+                                xpos 1 ypos -125 xanchor 0 yanchor 0
+                                linear 13.0 xpos 1 ypos -900
+                                repeat
+
+                            pause
+                            hide showoff
+                            show fullBodyZ eliNaked:
                                 xalign 0.5 yalign 0.5
                             window hide
                             pause
@@ -14250,6 +16459,19 @@ label backtocastlelobby:
                             show fullBodyZ currentOutfit1 at right
                             with Dissolve(1.2)
                             pause
+                        elif chosen_outfit == "Naked":
+                            image fullBodyZ eliNaked = "eliznude.png"
+                            $ elizabethOutfit = 4
+                            e neutral "Take off all your clothes, I want you totally naked."
+                            if elizabethlove >= elizabethcorruption:
+                                "Of course darling it...it makes me happy to know you want to see my body."
+                            else:
+                                z happy "MMMM I love the way you order me around, this is what you want right? You want to see my tits, my body?"
+
+                            show fullBodyZ eliNaked at right
+                            with Dissolve(0.5)
+                            pause
+
                         elif chosen_outfit == "White Princess Gown":
                             $ elizabethOutfit = 0
                             e neutral "I'd like you in your white gown. Sometimes you can't just beat the classics."
@@ -14402,6 +16624,10 @@ label backtocastlelobby:
                                     with flash
                                     "You shoot your cum all over elizabeth again, hitting her face and her tits"
                                     with flash
+                                    if titsout2 == 0:
+                                        scene sscene elihjob5
+                                    else:
+                                        scene sscene elinakedhjob5
                                     e smile "Gods be damned you are so good at that, everytime."
                                     e smile "Elizabeth I mean this honestly, thank you holy shit."
                                     z blush "I...okay."
@@ -14420,11 +16646,14 @@ label backtocastlelobby:
                                 image sscene elihjob2 = "elizhandjob2.png"
                                 image sscene elihjob3 = "elizhandjob3.png"
                                 image sscene elihjob4 = "elizhandjob4.png"
+                                image sscene elihjob5 = "elizhandjob5.png"
 
                                 image sscene elinakedhjob1 = "elizhandjobtopless1.png"
                                 image sscene elinakedhjob2 = "elizhandjobtopless2.png"
                                 image sscene elinakedhjob3 = "elizhandjobtopless3.png"
                                 image sscene elinakedhjob4 = "elizhandjobtopless4.png"
+                                image sscene elinakedhjob5 = "elizhandjobtopless5.png"
+
                                 if isitdaytime == 1:
                                     scene castle castleRoomBlurred
                                 else:
@@ -14454,6 +16683,9 @@ label backtocastlelobby:
                                 elif elizabethOutfit == 3:
                                     show fullBodyZ currentOutfit3 at right
                                     with moveinright
+                                elif elizabethOutfit == 4:
+                                    show fullBodyZ eliNaked at right
+                                    with moveinright
                                 z sad "It’s unlike you to ask me for help. What is it?"
 
                                 e neutral "I can’t concentrate on work at all. I want to make this city an amazing place to live but it’s so hard."
@@ -14469,7 +16701,7 @@ label backtocastlelobby:
 
                                 z blush "I’m no-"
 
-                                e neutral "Like a handjob, get it?"
+                                e smile "Like a handjob, get it?"
 
                                 z blush "No! I’m not giving you one."
 
@@ -14631,13 +16863,18 @@ label backtocastlelobby:
                                     with flash
                                     "It goes all over her face and her chest, dripping over her chin, tits, and the floor"
                                     with flash
+                                    if titsout == 0:
+                                        scene sscene elihjob5
+                                    else:
+                                        scene sscene elinakedhjob5
+
                                     z blush "Hah…hah….hah."
                                     "Elizabeth couldn’t hide her excitement with the panting she was doing. It was almost as heavy as your own."
                                     e smile "That was perfect princess. You ever do that before?"
                                     z blush "It’s…it’s all over…my chest.."
                                     "Seemed like she was in a trance again.."
                                     "You snapped your fingers and your clothes envelop your body seemingly out of nowhere"
-                                    "I got to go Elizabeth, see you later."
+                                    e smile "I got to go Elizabeth, see you later."
                                     "You walk out of her room as if nothing happened, leaving her there to stare into nothing as your cum continues to drip off her face"
                                     $ haveIactionedElizabeth = 1
                                     $ elifirsttimehandjob = 1
@@ -14662,7 +16899,11 @@ label backtocastlelobby:
                                 jump timetogetsome1
 
                             label fuckhergood:
-                                image sscene pushelizabeth = "pushingelizrape.png"
+                                image sscene pushelizabeth = "pushingelizrape.png" #Delete these in future
+                                image sscene eliRapZeroNight = "McgropeEliNight.png"
+                                image sscene eliRapZeroStruggle = "McgropeEliStruggle.png"
+                                image sscene eliRapZeroStruggleNight = "McgropeEliStruggleNight.png"
+
                                 with Dissolve(1.5)
                                 e smile "No more waiting."
                                 #5 different dialogue scenarios
@@ -15627,18 +17868,36 @@ label backtocastlelobby:
                                     xalign 0.9
                                 with move
 
-                                z blush "Ah! That's, wait! stop that hurts!"
+                                z blush "Ah! That's, wait! Stop that hurts!"
                                 "You move her even closer so her ass rubs against your quickly hardening cock"
                                 z sad "Oh, oh no what are you doing please don't do this!"
                                 if playerOutfit == 1 or playerOutfit == 2:
                                     "You mumble a magical phrase and your armour is replaced with your civilian clothes"
                                 hide fullBodyZ
                                 hide fullbodyE
-                                scene sscene eliRapZero
-                                with Dissolve(0.5)
+                                if isitdaytime == 1:
+                                    scene sscene eliRapZero
+                                    with Dissolve(0.5)
+                                else:
+                                    scene sscene eliRapZeroNight
+                                    with Dissolve(0.5)
                                 "You pull down one side of her dress and put your hand underneath her top"
+                                if isitdaytime == 1:
+                                    scene sscene eliRapZeroStruggle
+                                    with Dissolve(0.5)
+                                else:
+                                    scene sscene eliRapZeroStruggleNight
+                                    with Dissolve(0.5)
+
                                 z cry "No! I'll do anything you want, I'll go back to the dungeon!"
                                 "She struggles at first but quickly realizes the futility"
+
+                                if isitdaytime == 1:
+                                    scene sscene eliRapZero
+                                    with Dissolve(0.5)
+                                else:
+                                    scene sscene eliRapZeroNight
+                                    with Dissolve(0.5)
                                 "You continue to grope her soft tit, and move your other hand to her crotch and grab her pussy"
                                 e neutral "...."
                                 z cry "No....no."
@@ -15650,6 +17909,10 @@ label backtocastlelobby:
                                 else:
                                     scene castle castleRoomBlurredNight
                                     with Dissolve(0.5)
+
+                                e neutral "Ad Lucem!!"
+                                "With a low hum the room suddenly brightens up as if it was daytime, now she'll have to watch as you take her."
+                                scene sscene pushelizabeth
                                 "You grab Elizabeth and push her onto the bed"
                                 e neutral "Clothes Kurama."
                                 "Your clothes erupt in a blue aura and in less than a second, dissapear leaving you naked"
@@ -15967,7 +18230,7 @@ label backtocastlelobby:
 
                                     e smile "Thank you for being so cooperative. It's good to know you can act civil if you really want to."
 
-                                    z blush "Your welcome..."
+                                    z blush "You're welcome..."
                                     $ elizabethlove += loveMul
                                     show text "{b}{color=#00fa9a}Love Increased{/color}{/b}" at loveLocationBottomLeft
                                     z blush ""
@@ -16862,7 +19125,10 @@ label backtocastlelobby:
                                             z blush ""
                                             hide text
                                             $ haveItalkedToElizabeth = 1
-                                            call screen lobbycastle
+                                            if isitdaytime == 1:
+                                                call screen lobbycastle
+                                            else:
+                                                call screen lobbycastlenight
 
                                         label complimentandreassure:
                                             e neutral "Alright I'm getting tired of this conversation."
@@ -16925,7 +19191,7 @@ label backtocastlelobby:
 
                                         z sad "Why would they not?...Oh."
 
-                                        e smile "There it it, you get it now don't you?"
+                                        e smile "There it is, you get it now don't you?"
                                         e smile "Nobody would dare to touch queen Elizabeth, you could walk down the street and you'd be the most beautiful woman they've ever seen."
                                         e smile "You could wear the most extravagant, expensive clothes and dance down the middle of the scummiest street filled with degenerates."
                                         e smile "A diamond among trash. You could look down upon everyone like the filth they are, with no repercussions."
@@ -16952,7 +19218,10 @@ label backtocastlelobby:
                                         z happy ""
                                         hide text
                                         $ haveItalkedToElizabeth = 1
-                                        call screen lobbycastle
+                                        if isitdaytime == 1:
+                                            call screen lobbycastle
+                                        else:
+                                            call screen lobbycastlenight
 
 
                                     label improvethecity:
@@ -17395,7 +19664,7 @@ label backtocastlelobby:
                                             e smile "Do you want to see my cock?"
                                             z sad "What? Yes!"
                                             e neutral "……"
-                                            z blush "I mean, yes! What? Like in general"
+                                            z blush "I mean, yes! What? Like in general..."
                                             e smile "You want to touch it?"
                                             z blush "Yes!"
                                             e smile "Maybe suck on it a little bit?"
@@ -17455,7 +19724,7 @@ label backtocastlelobby:
                             e neutral "Well several...as many as you can really."
                             z blush "What if t-they get their dirty cum all over my dress?"
                             e neutral "Well I'm sure we can wa-"
-                            z blush "D-Dity....cum...all over me.."
+                            z blush "D-Dirty....cum...all over me.."
                             "You realize at this point that the princess is out of it"
                             e neutral "Uh, alright so...I guess you go do that and I'll see you later?"
                             "Completely entranced by the idea of getting men to ejaculate she doesn't respond"
@@ -17753,7 +20022,7 @@ label backtocastlelobby:
 
                             label thirdjobsimple:
                                 e neutral "Princess our Gold is getting low, I'll need you to work today."
-                                z happy "Ah, may I give out....h-hanjobs today?"
+                                z happy "Ah, may I give out....h-handjobs today?"
                                 z blush "I-I mean since it makes us so much money"
                                 e smile "Heh, sure Princess. Don't dissapoint your customers."
                                 z blush "O-Of course not!"
@@ -17796,6 +20065,9 @@ label backtocastlelobby:
                     with moveinright
                 elif sarahOutfit == 3:
                     show fullBodyS xmasdress at right
+                elif sarahOutfit == 4:
+                    show fullBodyS sarahNaked at right
+                    with moveinright
 
 
 
@@ -17827,6 +20099,8 @@ label backtocastlelobby:
                         show fullBodyS sexyUW at right
                     elif sarahOutfit == 3:
                         show fullBodyS xmasdress at right
+                    elif sarahOutfit == 4:
+                        show fullBodyS sarahNaked at right
 
                     if playerOutfit == 0:
                         show fullbodyE neutralArmsCrossed at left
@@ -17978,6 +20252,11 @@ label backtocastlelobby:
                                     jump addresssarah
 
                                 label cleagetquest:
+
+                                    $ renpy.notify("Quest Added: Tsundere? I Don't Even Know Herdere")
+                                    $ check_listOne.append("Tsundere? I Don't Even Know Herdere")
+                                    $ checkTWO = 1
+
                                     e neutral "Hmm, if I get the flowers, would you be able to make more potions?"
 
                                     s neutral "Of course! I could make them en mass."
@@ -18048,6 +20327,8 @@ label backtocastlelobby:
                                 show fullBodyS sexyUW at right
                             elif sarahOutfit == 3:
                                 show fullBodyS xmasdress at right
+                            elif sarahOutfit == 4:
+                                show fullBodyS sarahNaked at right
 
 
                             e neutral "Good evening Sarah."
@@ -18189,8 +20470,10 @@ label backtocastlelobby:
                                     e neutral "Have a good night Sarah."
                                     s blush "Good night."
                                     $ haveItalkedtoSarah = 1
-                                    call screen lobbycastle
-
+                                    if isitdaytime == 1:
+                                        call screen lobbycastle
+                                    else:
+                                        call screen lobbycastlenight
                                 label fuckthestore:
                                     e neutral "Eh who cares about the store."
                                     s surprised "..I do?"
@@ -18468,7 +20751,7 @@ label backtocastlelobby:
                     menu:
                         "Change Outfit":
                             jump changeoutfitS
-                        "Sexual Actions":
+                        "Massage":
                             jump letsgetphysicalS
                         "Let me look at you..":
                             jump lookatSarah
@@ -18563,11 +20846,30 @@ label backtocastlelobby:
                             window hide
                             pause
 
+                        elif sarahOutfit == 4:
+                            image showoff sarahnakedZOOM = "sarahnudeZOOM.png"
+                            show showoff sarahnakedZOOM:
+                                xalign 0.5 yalign 0.5
+
+                                xpos 100 ypos -1150 xanchor 0 yanchor 0
+                                linear 12.0 xpos 100 ypos -225
+
+                                xpos 100 ypos -225 xanchor 0 yanchor 0
+                                linear 12.0 xpos 100 ypos -1150
+                                repeat
+
+                            pause
+                            hide showoff
+                            show fullBodyS sarahNaked:
+                                xalign 0.5 yalign 0.5
+                            window hide
+                            pause
+
                         hide fullBodyS
                         jump sarahMenu
 
                     label changeoutfitS:
-                        "Sarah, I would like you to wear..."
+                        e neutral "Sarah, I would like you to wear..."
                         call screen screen_clothes(sarah_clothes, adj=tutorials_adjustment)
 
                         $ chosen_outfit = _return
@@ -18580,6 +20882,23 @@ label backtocastlelobby:
                             hide fullBodyS
                             with Dissolve(1.0)
                             show fullBodyS neutral at right
+                            with Dissolve(1.2)
+                            pause
+
+                        elif chosen_outfit == "Naked":
+                            $ sarahOutfit  = 4
+                            e smile "Take off all your clothes, I want to see your tight little pussy and your tits."
+                            if sarahLoveLevel >= sarahCorLevel:
+                                s blush "W-Well if it's for the king...I don't mind showing off a little."
+                            else:
+                                s blush "You wanna see me naked huh? You want me to turn you on with my body?"
+                                s neutral "This tight little pussy is ready to be fucked."
+
+                            image fullBodyS sarahNaked = "sarahnude.png"
+
+
+                            hide fullBodyS
+                            show fullBodyS sarahNaked at right
                             with Dissolve(1.2)
                             pause
 
@@ -18658,7 +20977,10 @@ label backtocastlelobby:
                         jump sarahMenu
 
                     label letsgetphysicalS:
-                        if checkEIGHTEEN == 0:
+                        if haveIactionedSarahNight == 1:
+                            "You've already done stuff with Sarah, come back tomorrow night"
+                            jump addresssarah
+                        if lianaRecruitCheck == 0:
                             s neutral "HAAARRRGHHHH!"
                             e smile "Haha what was that?"
                             s neutral "I've been working all day standing on my feet my shoulders are killing me! So I was trying to stretch em out."
@@ -18694,7 +21016,14 @@ label backtocastlelobby:
                         with vpunch
                         e smile "Oh! Uh alright I guess this is the best spot."
                         s neutral "Massage now please!"
-                        scene sscene sarahmassage3
+                        image massagesarah:
+                            "sarahmassage3.png"
+                            0.8
+                            "sarahmassage3b.png"
+                            0.8
+                            repeat
+
+                        show massagesarah
                         with Dissolve(0.5)
                         "You're suprised at Sarah's enthusiasm but begin to massage her shoulders nonetheless"
                         window hide
@@ -18705,10 +21034,478 @@ label backtocastlelobby:
                         s neutral "Yeah that was great! I feel a lot looser."
                         e smile "Heh."
                         s neutral "Oh stop it!"
-                        #insert if statement here to go furthur
-                        e smile "Alright I'll see you later then, glad you enjoyed it."
-                        s neutral "I did! Have a good night thanks again [sarahchoosename]."
-                        call screen lobbycastlenight
+                        show massagesarah
+                        with Dissolve(0.5)
+                        window hide
+                        pause
+                        if sarahLoveLevel >= 20 or sarahCorLevel >= 20:
+                            if sarahLoveLevel >= 20 and sarahCorLevel < 20:
+                                menu:
+                                    "Makeout":
+                                        jump makeoutsarah
+
+                            elif sarahLoveLevel < 20 and sarahCorLevel >= 20:
+                                menu:
+                                    "Feel her tits":
+                                        jump feelupsarah
+                            else:
+                                menu:
+                                    "Makeout":
+                                        jump makeoutsarah
+                                    "Feel her tits":
+                                        jump feelupsarah
+
+                        else:
+                            jump goodbyesarah
+
+
+
+                        label makeoutsarah:
+                            image sscene sarahmakeout1 = "sarahmakeout1.png" #delete in later build (0.76)
+                            image sscene sarahmakeout2 = "sarahmakeout2.png"
+                            e neutral "....Hey."
+                            s neutral "Yeah?"
+                            e smile "Turn around..."
+                            scene sscene sarahmakeout1
+                            with Dissolve(1.0)
+                            s neutral "Like this?"
+                            window hide
+                            pause
+                            e smile "Y-Yeah..."
+                            s neutral "What's wrong your highness?..."
+                            e neutral "Nothing I just...really...want.."
+                            s neutral "This?"
+                            scene sscene sarahmakeout2
+                            with Dissolve(1.0)
+                            pause
+                            scene sscene sarahmakeout1
+                            e smile "Haha yeah...you...you're uh..really pretty?"
+                            s blush "Wow look at that, the most powerful King and womanizer at a loss for words."
+                            e smile "Hey now gimme a break."
+                            s neutral "How about another kiss?"
+                            scene sscene sarahmakeout2
+                            s blush "mmmmmm"
+                            "Sarah's tongue entangled your own as you enjoyed eachother's warmth"
+                            scene sscene sarahmakeout1
+                            s neutral "You taste really good.."
+                            e smile "If I could just stay here and make out with you all night I probably would."
+                            s neutral "Haha well thank you I guess."
+                            jump sarahnextpart1
+
+                        label feelupsarah:
+
+                            image sscene sarahmagrope1 = "sarahmagrope1.png"
+                            image sscene sarahmagrope2 = "sarahmagrope2.png"
+
+                            "You can't hold yourself back anymore you gotta grab some tiddies"
+                            scene sscene sarahmagrope1
+                            with Dissolve(0.5)
+                            s surprised "Oh!"
+                            image gropesarah:
+                                "sarahmagrope1c.png"
+                                0.7
+                                "sarahmagrope1b.png"
+                                0.7
+                                repeat
+                            show gropesarah
+                            s neutral "Those aren't my shoulders [sarahchoosename]..."
+                            e smile "No but, figured I could still make you feel good this way..."
+                            s blush "Well you might not be wrong but....mmmm..."
+                            image gropesarahgood:
+                                "sarahmagrope2.png"
+                                0.7
+                                "sarahmagrope2b.png"
+                                0.7
+                                repeat
+                            show gropesarahgood
+                            with Dissolve(0.5)
+                            "You pull down her top and feel her bare tits, they had weight but were really soft"
+                            s nakedhappy "Uhn....You really are naughty..."
+                            e smile "Can't help it when you're the sexiest shopkeeper in the city."
+                            s nakedlust "I don't know have you met Gliff yet?"
+                            e neutral "Let's focus on you and your tits."
+                            s nakedlust "Haha okay I can't...mmmm...complain about that..."
+                            "You spend the next few minutes massaging and squeezing her tits and nipples while listening to Sarah's cute little moans"
+                            jump sarahnextpart0
+
+                        label sarahstriptime:
+
+                            image sscene sarahstriptease0 = "stripscenesarah1.png" #delete in older update (0.79)
+                            image sscene sarahstriptease1 = "stripscenesarah2.png"
+                            image sscene sarahstriptease2 = "stripscenesarah3.png"
+                            image sscene sarahstriptease3 = "stripscenesarah4.png"
+                            image sscene sarahstriptease4 = "stripscenesarah5.png"
+
+                            s nakedsurprised "Ohh I have an Idea!"
+                            scene sscene sarahstriptease0
+                            with Dissolve(0.8)
+                            "Sarah gets up off of you and turns around towards, hips slanted slightly"
+                            e smile "Oh?"
+                            s nakedlust "I'd like to..."
+                            scene sscene sarahstriptease1
+                            s nakedlust "Go a little further..."
+                            s nakedlust "So why not give you a little show?"
+                            scene sscene sarahstriptease2
+                            "Sarah slowly takes her clothes off revealing her shapely tits and naked body"
+                            scene sscene sarahstriptease3
+                            "Your own body recognized what needed to be done as you felt yourself getting hard"
+                            e smile "Wow. That was a great idea.."
+                            s nakedlust "I thought you might like it...now it's your tur-"
+                            scene sscene sarahstriptease4
+                            "You snap your fingers and say the magic words in your mind, then your clothes dissapear immediately"
+                            s nakedstare "Hey! How come I don't get a show?"
+                            e smile "Haha sorry, I kinda just want to get to the action."
+                            scene sscene sarahstriptease3
+                            with Dissolve(0.5)
+                            s nakedstare"*Sigh*, I guess that's fine then..."
+                            s nakedlust "So uh...what do you want to do to me?"
+                            "Just her asking the question increased your heartrate, there isn't many things that excited you more than a woman wanting your cock"
+                            "But her question still needed to be answered..."
+
+                            jump sarahnextpart1
+
+                        label sarahnextpart0:
+
+                            if sarahLoveLevel >= 35 or sarahCorLevel >= 35:
+                                jump sarahstriptime
+
+                            else:
+                                jump goodbyesarah
+
+                        label sarahnextpart1:
+                            if sarahLoveLevel >= 35 and sarahCorLevel < 35:
+                                menu:
+                                    "Suck on her tits":
+                                        jump sucksarahtits
+
+                            elif sarahLoveLevel < 35 and sarahCorLevel >= 35:
+                                menu:
+                                    "Fuck her throat":
+                                        jump fucksarahthroat
+                            elif sarahLoveLevel >= 35 and sarahCorLevel >= 35:
+                                menu:
+                                    "Suck on her tits":
+                                        jump sucksarahtits
+                                    "Fuck her throat":
+                                        jump fucksarahthroat
+                            else:
+                                jump goodbyesarah
+
+                        label sarahnextpart2:
+                            if sarahLoveLevel >= 55 and sarahCorLevel < 55:
+                                menu:
+                                    "Sex":
+                                        jump sarahcowgirl
+
+                            elif sarahLoveLevel < 55 and sarahCorLevel >= 55:
+                                menu:
+                                    "Anal":
+                                        jump sarahanal
+                            else:
+                                menu:
+                                    "Sex":
+                                        jump sarahcowgirl
+                                    "Anal":
+                                        jump sarahanal
+
+                        label sarahcowgirl:
+                            image sscene sarahride1 = "cowgirlsarah1.png"
+                            image sscene sarahride7 = "cowgirlsarah7.png"
+                            image sscene sarahride8 = "cowgirlsarah8.png"
+                            scene blank darkness
+                            with Dissolve(1.0)
+                            e neutral "I want you Sarah, I want you so bad!"
+                            s nakedlust "[sarahchoosename]! Take me right now!"
+                            scene sscene sarahride1
+                            with Dissolve(1.0)
+                            "With pure joy on her face Sarah gets on top of you and penetrates herself on your cock"
+                            s nakedhappy "Ah..y-yes.."
+                            image sarahcowgirl1:
+                                "cowgirlsarah2.png"
+                                0.15
+                                "cowgirlsarah3.png"
+                                0.15
+                                "cowgirlsarah4.png"
+                                0.4
+                                "cowgirlsarah5.png"
+                                0.4
+                                "cowgirlsarah6.png"
+                                0.4
+                                repeat
+
+                            show sarahcowgirl1
+                            "Sarah moves her hips fast towards you then moves back nice and slow, getting into a rythm"
+                            e smile "Fuck Sarah your pussy's amazing."
+                            s nakedlust "[sarahchoosename] your cock inside me...I love it! You feel so good!"
+                            "Sarah continues to ride you, truly happy to become one"
+                            window hide
+                            pause
+                            e neutral "Fuck Sarah I think..."
+                            scene sscene sarahride7
+                            s nakedhappy "C-Cum inside me! Please! Impregnate me!"
+                            scene sscene sarahride8
+                            with hpunch
+                            e smile "Fuck yes!"
+                            with flash
+                            s nakedlust "Yes! I can feel it!"
+                            with flash
+                            s nakedlust "I love you! I love you [sarahchoosename]!"
+                            "You pump everything you have into her"
+                            "After you were finally done, the two of you were locked into an embrace"
+                            scene blank darkness
+                            with Dissolve(2.0)
+                            "You both fall onto the bed and drift into sleep, Sarah's eyes filled with happy tears"
+                            "You were thoroughly satisfied, and happy that you met this beautiful little shop keeper"
+                            $ haveIactionedSarahNight = 1
+                            call screen lobbycastlenight
+
+                        label sarahanal:
+                            image sscene sarahanal1 = "analsarah1.png"
+                            image sscene sarahanal2 = "analsarah2.png"
+                            image sscene sarahanal3 = "analsarah3.png"
+                            image sscene sarahanal4 = "analsarah4.png"
+                            image sscene sarahanal5 = "analsarah5.png"
+
+                            scene blank darkness
+                            with Dissolve(1.0)
+                            e neutral "Turn around on your stomach."
+                            s nakedsurprised "hah..hah..Okay..."
+                            "You lie on top of her, pushing her into the bed as much as you can so she can't move"
+                            s nakedhappy "Hnh...."
+                            "You hold her by her wrists and whisper in her ear"
+                            e smile "I'm going to fuck you until you can't speak."
+                            scene sscene sarahanal1
+                            with Dissolve(0.8)
+                            s nakedsurprised "W-Wait that's my-"
+                            scene sscene sarahanal2
+                            with vpunch
+                            s nakedlust "AHH!"
+                            e smile "I'm going to fuck your ass."
+                            scene sscene sarahanal3
+                            with vpunch
+                            s nakedsurprised "NOO!"
+                            e smile "And you're going to like it."
+                            scene sscene sarahanal4
+                            with vpunch
+                            s nakedlust "Oh my gods!!!"
+                            image sarahanalfuck1:
+                                "analsarah1.png"
+                                0.07
+                                "analsarah2.png"
+                                0.07
+                                "analsarah3.png"
+                                0.07
+                                "analsarah4.png"
+                                1.0
+                                "analsarah3.png"
+                                0.07
+                                "analsarah2.png"
+                                0.07
+                                repeat
+
+                            transform sarahbuttfuck:
+                                linear 1.21 yoffset 3
+                                linear 0.14 yoffset -2
+                                repeat
+                            show sarahanalfuck1 at sarahbuttfuck
+                            window hide
+                            pause
+                            s nakedsurprised "I don't u-understand!"
+                            s nakedsurprised "I have a p-perfectly goo-AH! Good pussy and yet..."
+                            e smile "Yeah?"
+                            s nakedhappy "Y-You're fucking my ass!"
+                            e smile "I'm fucking your ass because I WANT to fuck your ass!"
+                            e smile "You keep squeezing my cock when I'm balls deep, I bet you're loving this aren't you?"
+                            s nakedhappy "....."
+                            "You continued pounding Sarah's tight ass for a while as she moaned in carnal pleasure"
+                            "Hey pussy was soon wet and she couldn't help soaking the sheets"
+                            e smile "Ah fuck I'm getting close, you want it don't you?"
+                            s nakedhappy "Y-Yes!"
+                            e yell "Tell me where you want it!"
+                            s nakedlust "Cum in my ass!"
+                            scene sscene sarahanal5
+                            with vpunch
+                            with flash
+                            pause
+                            with vpunch
+                            pause
+                            with flash
+                            "You pumped her raw asshole full of your sperm, which spilled out of her"
+                            "Sarah squirted all over the bed and her orgasmic after shocks lined up with yours"
+                            with vpunch
+                            s nakedsurprised "I....I...uh..."
+                            e smile "That's a good girl Sarah. You're gonna let me fuck your ass whenever I want right?"
+                            s nakedsurprised "Uhn....uh huh.."
+                            scene blank darkness
+                            with Dissolve(1.2)
+                            "You leave Sarah passed out on her dirty bed, in your post-orgasm clarity you realized that was pretty intense but you kinda liked it"
+                            $ haveIactionedSarahNight = 1
+                            call screen lobbycastlenight
+
+                        label sucksarahtits:
+                            image sscene sarahtittysuck0 = "sarahtittysuck1.png"
+                            image sscene sarahtittysuck1 = "sarahtittysuck2.png"
+                            image sscene sarahtittysuck2 = "sarahtittysuck3.png"
+                            image sscene sarahtittysuck3 = "sarahtittysuck4.png"
+                            image sscene sarahtittysuck4 = "sarahtittysuck5.png"
+
+                            scene sscene sarahtittysuck0
+                            with Dissolve(1.0)
+                            "The both of you get on the bed, sarah takes deep anxious breaths as she lies on her back fully naked"
+                            e smile "God sarah I want to ravish you right now."
+                            s nakedsurprised "Oh wow r-ravish me?"
+                            e smile "You have such great tits, I need to suck on these things."
+                            s nakedhappy "O-Okay they're sensitive so just..."
+                            scene sscene sarahtittysuck1
+                            s nakedlust "AH!"
+
+                            image sucksarahtits1:
+                                "sarahtittysuck2.png"
+                                0.4
+                                "sarahtittysuck3.png"
+                                0.4
+                                "sarahtittysuck4.png"
+                                0.8
+                                repeat
+
+                            show sucksarahtits1
+                            s nakedlust "mmmmm"
+                            window hide
+                            pause
+
+                            scene sscene sarahtittysuck0
+                            with Dissolve(0.8)
+                            e smile "You like that?"
+                            s nakedhappy "I honestly never thought having my t-tits sucked like that could feel so g-good..."
+                            show sucksarahtits1
+
+                            image sucksarahtits2:
+                                "sarahtittysuck2b.png"
+                                0.4
+                                "sarahtittysuck3b.png"
+                                0.4
+                                "sarahtittysuck4b.png"
+                                0.8
+                                repeat
+
+                            show sucksarahtits2
+                            "You start sucking them again with renewed vigor"
+                            s nakedlust "Oh gods! [sarahchoosename]!"
+                            "Sucking Sarah's breasts was getting you really riled up"
+                            "They had a nice firm feel and Sarah's nipples were hard as you played with them using your tongue"
+                            window hide
+                            pause
+                            scene sscene sarahtittysuck0
+                            with Dissolve(0.8)
+                            s nakedlust "Hah...hah..."
+                            jump sarahnextpart2
+
+                        label fucksarahthroat:
+                            image sscene sarahdeepthroat0 = "ubj1.png"
+                            image sscene sarahdeepthroat1 = "ubj2.png"
+                            image sscene sarahdeepthroat2 = "ubj3.png"
+                            image sscene sarahdeepthroat3 = "ubj4.png"
+                            image sscene sarahdeepthroat4 = "ubj5.png"
+                            image sscene sarahdeepthroat5 = "ubj6.png"
+
+                            e neutral "Lie down on your back."
+                            scene sscene sarahdeepthroat0
+                            with Dissolve(1.0)
+                            "Sarah does as she's told and lies down with her head off the edge of the bed"
+                            scene sscene sarahdeepthroat1
+                            "You place your hardening cock on her face"
+                            s nakedlust "Oh wow....It's so t-thick...."
+                            e neutral "I'm going to shove my cock down your throat and you're gonna take it."
+                            "Before she can even respond you push the head of your dick past her lips"
+                            scene sscene sarahdeepthroat2
+                            with vpunch
+                            s nakedsurprised "UHK!"
+                            "It was moist inside her mouth and her tongue instinctively started to explore your cock"
+                            scene sscene sarahdeepthroat3
+                            with vpunch
+                            s nakedhappy "mmmmmm!"
+                            e smile "Oh fuck that's good..."
+                            scene sscene sarahdeepthroat4
+                            with vpunch
+                            "As you push deep down her throat your cock stretched her mouth as it tried to fit all of you"
+                            window hide
+                            pause
+                            pause
+                            with hpunch
+                            s nakedhappy "Uhnnn ugh!"
+                            "Sarah began to choke on your cock a little as you left it there"
+                            e smile "Gods that feels good..."
+                            image deepthroatsarah1:
+
+                                "ubj3.png"
+                                0.1
+                                "ubj4.png"
+                                0.1
+                                "ubj5.png"
+                                0.1
+                                "ubj6.png"
+                                0.1
+                                "ubj5.png"
+                                0.8
+                                "ubj4.png"
+                                0.1
+                                "ubj3.png"
+                                0.1
+
+                                repeat
+
+                            show deepthroatsarah1
+                            window hide
+                            pause
+                            "Your whole body was starting to feel good, Sarah's garbled moans vibrated your cock as you went balls deep down her throat"
+
+                            image deepthroatsarah2:
+
+                                "ubj3.png"
+                                0.06
+                                "ubj4.png"
+                                0.06
+                                "ubj5.png"
+                                0.06
+                                "ubj6.png"
+                                0.06
+                                "ubj5.png"
+                                0.2
+                                "ubj4.png"
+                                0.06
+                                "ubj3.png"
+                                0.06
+                                repeat
+
+                            show deepthroatsarah2
+                            window hide
+                            pause
+                            e smile "Oh yeah that's it right fucking there!"
+                            s nakedlust "Uhn! Uhn! Uhn! Uhn!"
+                            scene sscene sarahdeepthroat4
+                            with vpunch
+                            e smile "FUCK YES!"
+                            "Your cock explodes down Sarah's throat"
+                            with hpunch
+                            with flash
+                            s nakedlust "MMMMMMM!"
+                            window hide
+                            with flash
+                            pause
+                            with flash
+                            e smile "That's right fucking take it you slut...."
+                            "You finish draining your balls in her mouth, she swallowed every drop"
+                            e smile "Wow that was great...."
+                            jump sarahnextpart2
+
+
+
+                        label goodbyesarah:
+                            s neutral "Thank you [sarahchoosename] that felt....really good."
+                            e smile "Alright I'll see you later then, glad you enjoyed it."
+                            s neutral "I did! Have a good night thanks again [sarahchoosename]."
+                            $ haveIactionedSarahNight = 1
+                            call screen lobbycastlenight
 
 
 
@@ -18766,8 +21563,16 @@ label backtocastlelobby:
                             s blush "This will actually fit me...and the style too it..."
                             s blush "Where did you get this?"
                             e smile "Don't worry about where I got it just enjoy yourself."
+                            $ sarahLoveLevel += 5
+                            show text "{b}{color=#00fa9a} Love Increased {/color}{/b}" at loveLocationBottomLeft
                             s blush "Thank you so much [sarahchoosename] I will gladly wear this whenever you ask!"
+                            hide text
+                            with Dissolve(1.0)
                             e smile "Atta girl."
+                            $ renpy.notify("Quest Completed: Too Short For Your Own Good")
+                            $ checkTHREE = 4
+                            $ check_listTwo.append("Too Short For Your Own Good")
+                            $ check_listOne.remove("Too Short For Your Own Good")
                             $ sarah_clothes.append(item_choice)
                             $ inventory.remove(item_choice)
                             jump addresssarah
@@ -18805,6 +21610,9 @@ label backtocastlelobby:
 
 
     label throneSitting:
+        image castle throneRoomTalkMaryLook = "throneRoomZoomMaryLookNotMC.png"  #Delete these when appropriate!!
+        image castle throneRoomTalkMCLook = "throneRoomZoomMCLookNotMary.png"
+
         if day == "Tuesday" or day == "Thursday" or day == "Sunday":
             scene castle throneRoomZoom
             menu:
@@ -18813,29 +21621,23 @@ label backtocastlelobby:
                 "Back":
                     jump choice_castle_1
         else:
-            if maryOutfit == 0:
-                scene castle throneRoomWithMary
-            elif maryOutfit == 1:
-                scene castle throneRoomWithMaryLevelTwo
-            elif maryOutfit == 2:
-                scene castle throneRoomWithMaryLevelThree
-            else:
-                scene castle throneRoomWithMaryLevelFour
 
-        menu:
-            "Mary":
-                jump talkToMary
-            "Send Elizabeth to dungeon":
-                jump sendElizabethToDungeon
-            "Back":
-                jump choice_castle_1
+            scene castle throneRoomWithMary
+
+            menu:
+                "Mary":
+                    jump talkToMary
+                "Send Elizabeth to dungeon":
+                    jump sendElizabethToDungeon
+                "Back":
+                    jump choice_castle_1
 
     label sendElizabethToDungeon1:
         if iselizabethworking == 1:
             "Elizabeth is working right now, can't send her to the dungeon"
             jump throneSitting
         if elizabethdungeonalready == 1:
-            "You already send Elizabeth to the dungeon today, let her rest for now"
+            "You already sent Elizabeth to the dungeon today, let her rest for now"
             jump throneSitting
         if firstimedungeon == 0:
             "Elizabeth is already in the dungeon, maybe you should go see her"
@@ -18882,7 +21684,10 @@ label backtocastlelobby:
                 jump throneSitting
 
     label talkToMary:
+        image castle throneRoomTalk = "throneRoomZoomMaryLook.png" #Delete this later its already at top
+
         if theballinfotoggle == 1:
+            scene castle throneRoomTalk
             e neutral "So Mary."
             r neutral "Yes [marychoosename]?"
             e neutral "About this ball."
@@ -18971,10 +21776,15 @@ label backtocastlelobby:
                     e neutral "Eh, alright I suppose."
                     r neutral "Now go get yourself a nice suit if you don't already have one and I'll prepare everything for next Saturday evening."
                     e neutral "Will do."
+                    $ renpy.notify ("Quest Added: A Suit For A Suitor")
+                    $ check_listOne.append("A Suit For A Suitor")
+                    if checkFOUR == 0:
+                        $ checkFOUR = 1
                     "If you don't already have some sort of formal wear you need to get one otherwise you can't start the event"
                     $ theballinfotoggle = 2
 
         if isSarahUnlocked == 1:
+            scene castle throneRoomTalk
             r neutral "Sir, we need some items."
             e neutral "......"
             r neutral "Sir did you hear me?"
@@ -18984,6 +21794,13 @@ label backtocastlelobby:
             r neutral "So you can go get them at the item shop in the market."
             e neutral "I'm the King, why would I take a stroll out to the item shop??!"
             r smile "To advance the plot and meet a new NPC? Consider this your first quest."
+
+            $ renpy.notify("Quest Added: Can't Sleep At Night")
+            $ check_listOne.append("Can't Sleep At Night")
+            $ checkONE = 1
+
+
+            scene castle throneRoomWithMary
             e neutral "Oh...well....alright."
             $ isSarahUnlocked = 2
             jump throneSitting
@@ -18999,11 +21816,11 @@ label backtocastlelobby:
                     jump throneSitting
 
             label talktomary:
-                $ maryDungeonLevel = 2
                 if haveItalkedToMary == 0:
-                    if checkFOURTEEN == 0 and elizabethcorruption >=40 and maryDungeonLevel == 2:
-                        $ checkFOURTEEN = 1
+                    if marydungeontalk == 0 and elizabethcorruption >=40 and maryLoveLevel >= 30 and maryCorLevel >= 20 and maryDungeonLevel == 2:
+                        $ marydungeontalk = 1
                         e neutral "Hmmm."
+                        scene castle throneRoomTalk
                         r smile "What is it [marychoosename]?"
                         e neutral "I'm wondering how we can up our game in the dungeon with the princess."
                         e neutral "We've been able to make her see that she's a pervert but I really want to push her to the limit before we break her down fully into a sexual deviant."
@@ -19026,6 +21843,7 @@ label backtocastlelobby:
                             call screen lobbycastlenight
 
                     if dowehavesarah == 1:
+                        scene castle throneRoomTalk
                         r neutral "I set up the shopkeeper in her room, as you requested."
 
                         e neutral "Good job, what did you think of her?"
@@ -19076,9 +21894,9 @@ label backtocastlelobby:
                             e neutral "She's got an exotic background so she's sure to be a good time at night. Plus she looks like a screamer so that'll be fun."
 
                             r blush "A-Ah I see. Okay then."
-
+                            scene castle throneRoomWithMary
                             "Mary bites her lip when she thinks you aren't looking"
-
+                            scene castle throneRoomTalkMCLook
                             e neutral "Why did you want to know?"
 
                             r blush "mmmm..."
@@ -19090,13 +21908,14 @@ label backtocastlelobby:
                             show text "{b}{color=#dc143c}Corruption Increased{/color}{/b}" at loveLocationBottomLeft
                             r blush ""
                             hide text
-
+                            scene castle throneRoomWithMary
                             e neutral "Well whatever."
                             $ dowehavesarah = 2
                             jump talkToMary
 
 
                     if maryConversationLevel == 0:
+                        scene castle throneRoomTalk
                         e neutral "Mary."
                         r neutral "Ah…can I help you?....."
                         r neutral "...Sir?"
@@ -19109,6 +21928,7 @@ label backtocastlelobby:
                                 jump maryConLevelone_three
 
                     elif maryConversationLevel == 1:
+                        scene castle throneRoomTalk
                         e smile "Greetings Mary!"
 
                         r smile "Hello [marychoosename], what can I do for you?"
@@ -19141,6 +21961,7 @@ label backtocastlelobby:
 
 
                 label givemarygift:
+                    scene castle throneRoomTalk
                     e neutral "I actually have something for you."
                     r smile "Oh uh, what is it?"
                     call screen inventory_screenGive(inventory,adj=tutorials_adjustment)
@@ -19237,6 +22058,7 @@ label backtocastlelobby:
 
 
                 label maryWearThis:
+                    scene castle throneRoomTalk
                     e smile "Mary, when you're with me I want you to wear.."
                     call screen screen_clothes(mary_clothes,adj=tutorials_adjustment)
 
@@ -19354,6 +22176,7 @@ label backtocastlelobby:
                     e smile "\[pfft, Naah.\]"
                     e neutral "\[I'm pretty sure I've corrupted Mary enough. She seems to take some amount of pleasure in obeying my orders. Time to take them to the next level.\]"
                     e smile "Let's see how she responds."
+                    scene castle throneRoomTalk
                     r neutral "I'm sorry [marychoosename]?"
                     e neutral "Nothing Mary don't worry about it. I have an order for you, come kneel in front of me."
                     if maryLoveLevel > maryCorLevel:
@@ -20219,6 +23042,7 @@ label backtocastlelobby:
                             $ firsttimedancemary = 0
                             jump talkToMary
                     else:
+                        scene castle throneRoomTalk
                         e neutral "Mary do you mind if you-"
                         r smile "Another dance [marychoosename]?"
                         e smile "Yeah exactly."
@@ -20403,7 +23227,11 @@ label backtocastlelobby:
 
                             "You exchange smiles then nod to let her know she can put her clothes back on"
                             $ haveIactionedMary = 1
-                            call screen lobbycastle
+
+                            if isitdaytime == 1:
+                                call screen lobbycastle
+                            else:
+                                call screen lobbycastlenight
 
                         label youmakemehard:
                             "You breathe in deeply than exhale"
@@ -20434,6 +23262,7 @@ label backtocastlelobby:
 
 
             label talkaboutelizabeth:
+                scene castle throneRoomTalk
                 e neutral "So what do you think about Elizabeth?"
 
                 r neutral "The princess?"
@@ -20486,6 +23315,7 @@ label backtocastlelobby:
                 jump throneSitting
 
             label talkaboutmary:
+                scene castle throneRoomTalk
                 e neutral "Well Mary I actually have something I'd like to discuss with you."
 
                 r neutral "Oh?"
@@ -20693,8 +23523,11 @@ label backtocastlelobby:
         jump throneSitting
 
     label maryConLevelone_one:
+
         e neutral "How are you doing?"
+        scene castle throneRoomTalkMCLook
         "Mary takes a moment to respond"
+        scene castle throneRoomTalk
         r neutral "I am fine, thank you."
         e neutral "What is it? Why the pause?"
         r blush "It’s just that...no one has asked me that before..at least not in this city."
@@ -20703,7 +23536,9 @@ label backtocastlelobby:
         r blush ""
         hide text
         e neutral "What? Why? Where you mistreated here?"
+        scene castle throneRoomTalkMCLook
         "Mary yields a troubled look, like she knows what to say but struggles to articulate it"
+        scene castle throneRoomTalk
         r neutral "No. I’m fine. I was never mistreated."
         e neutral "But?"
         r neutral "But…..I’m an elf."
@@ -21196,6 +24031,7 @@ label pacificaVisit:
     image side player nakedsmile = "playerHeadnakedsmile.png"
     image side player naked = "playerHeadnaked.png"
 
+
     scene sscene pacificaVisit0
     with Dissolve(3.0)
     "As you lie in your bed naked per usual, you hear a knock on the door"
@@ -21203,8 +24039,8 @@ label pacificaVisit:
     scene sscene pacificaVisit1
     with Dissolve(1.0)
     "Pacifica enters your room wearing her night outfit which consisted of a thin shirt and panties"
-    if checkEIGHT == 0:
-        $ checkEIGHT = 1
+    if pacipajamacheck == 0:
+        $ pacipajamacheck = 1
         "Pacifica's Pajamas have been added to her wardrobe"
         image fullBodyP pajamas = "pacificaFullBodyPajamas.png"
         $ pacificaconvolist.append("Pajamas")
@@ -21230,8 +24066,10 @@ label pacificaVisit:
     p blush "Don't kings have women sleep with them all the time or something?"
     e nakedsmile "I'm pretty new at the king thing but that is a policy I can totally get behind."
     p smile "Haha I'm sure you can."
+    if howfargonepacificaRomance == 0:
+        $ howfargonepacificaRomance = 1
 
-    if checkFIVE == 1:
+    if pacificaRoomProgressLevel == 1:
         jump pacificaGoToMorning
     else:
         scene sscene pacificaHandy3
@@ -21274,7 +24112,7 @@ label pacificaVisit:
         window hide
         pause
         e nakedcum "Fuck."
-        p blush "Man your throbbing really hard, you gonna cum?"
+        p blush "Man you're throbbing really hard, you gonna cum?"
         e nakedcum "Shit, I think-"
         image pacificaHandjob3:
             "pacificaHandy6b.png"
@@ -21315,10 +24153,13 @@ label pacificaVisit:
         e nakedsmile "Nice is an understatement, but yeah you're amazing."
         p blush "Hehe thanks, glad I could be of service."
 
-        if checkFIVE == 2:
+        if pacificaRoomProgressLevel == 2:
             "Now depleted, you feel fatigue hit you"
             e naked "*Yawwwwn*"
             p smile "I think I could sleep now too."
+            if howfargonepacificaRomance == 1:
+                $ howfargonepacificaRomance = 2
+
             jump pacificaGoToMorning
         else:
             p smile "....hmmmm."
@@ -21335,7 +24176,7 @@ label pacificaVisit:
             with Dissolve(1.0)
             p blush "If I do this!"
             e nakedsmile "Fuck me..."
-            p blush "That's the plan boss."
+            p blush "That's the plan [pacificachoosename]."
             scene sscene pacificaRCowgirl1
             pause
             scene sscene pacificaRCowgirl2
@@ -21686,6 +24527,9 @@ label pacificaVisit:
                 p neutral "*YAWN*"
                 p smile "I'm just..gonna lie down here beside you."
                 e nakedsmile "Sure no problem."
+                if howfargonepacificaRomance == 2:
+                    $ howfargonepacificaRomance = 3
+
                 jump pacificaGoToMorning
 
 
@@ -21716,7 +24560,7 @@ label pacificaVisit:
         scene sscene pacificaMorning1Zoom
         with Dissolve(1.0)
 
-        if checkFIVE != 4:
+        if pacificaRoomProgressLevel != 4:
             e naked "...."
             e naked "Alright, time to get up."
             call screen worldmap
@@ -21942,6 +24786,8 @@ label pacificaVisit:
             scene blank darkness
             with Dissolve(2.0)
             "You kiss her again until you're satisfied, then get dressed"
+            if howfargonepacificaRomance == 3:
+                $ howfargonepacificaRomance = 4
             call screen worldmap
 
 
@@ -22019,6 +24865,10 @@ label townsquare:
                     with  moveinright
                 elif pacificaOutfit == 6:
                     show fullBodyP pajamas:
+                        xalign 0.25 yalign 1.0
+                    with  moveinright
+                elif pacificaOutfit == 7:
+                    show fullBodyP naked:
                         xalign 0.25 yalign 1.0
                     with  moveinright
                 "You see Pacifica running towards you down the alley as you approach her"
@@ -22188,6 +25038,9 @@ label townsquare:
             elif pacificaOutfit == 6:
                 show fullBodyP pajamas at right
                 with moveinright
+            elif pacificaOutfit == 7:
+                show fullBodyP naked at right
+                with moveinright
 
             if playerOutfit == 0:
                 show fullbodyE neutralArmsCrossed at left behind fullBodyP
@@ -22230,6 +25083,9 @@ label townsquare:
                 with  moveinright
             elif pacificaOutfit == 6:
                 show fullBodyP pajamas at right
+                with  moveinright
+            elif pacificaOutfit == 7:
+                show fullBodyP naked at right
                 with  moveinright
             menu:
                 "Talk":
@@ -22332,14 +25188,14 @@ label townsquare:
                     "Now armed with a Grappling Hook, Pacifica has an increased chance to complete heists"
                     $ heistMultiplier += 10
                     $ inventory.remove(item_choice)
-                    if checkSEVEN == 0:
-                        $ checkSEVEN = 2
-                    elif checkSEVEN == 1:
-                        $ checkSEVEN = 4
-                    elif checkSEVEN == 3:
-                        $ checkSEVEN = 5
-                    elif checkSEVEN == 6:
-                        $ checkSEVEN = 7
+                    if pacificaItems== 0:
+                        $ pacificaItems= 2
+                    elif pacificaItems== 1:
+                        $ pacificaItems= 4
+                    elif pacificaItems== 3:
+                        $ pacificaItems= 5
+                    elif pacificaItems== 6:
+                        $ pacificaItems= 7
                     jump pacificaOptions
 
                 elif item_choice == "Quiet Boots":
@@ -22358,14 +25214,14 @@ label townsquare:
                     "Pacifica's chance to succeed at heists has increased!"
                     $ heistMultiplier += 10
                     $ inventory.remove(item_choice)
-                    if checkSEVEN == 0:
-                        $ checkSEVEN = 3
-                    elif checkSEVEN == 1:
-                        $ checkSEVEN = 6
-                    elif checkSEVEN == 2:
-                        $ checkSEVEN = 5
-                    elif checkSEVEN == 4:
-                        $ checkSEVEN = 7
+                    if pacificaItems== 0:
+                        $ pacificaItems= 3
+                    elif pacificaItems== 1:
+                        $ pacificaItems= 6
+                    elif pacificaItems== 2:
+                        $ pacificaItems= 5
+                    elif pacificaItems== 4:
+                        $ pacificaItems= 7
                     jump pacificaOptions
 
                 elif item_choice == "Invisiscroll":
@@ -22399,6 +25255,9 @@ label townsquare:
                     elif pacificaOutfit == 6:
                         show fullBodyP pajamas at right
                         with  Dissolve(0.5)
+                    elif pacificaOutfit == 7:
+                        show fullBodyP naked at right
+                        with  Dissolve(0.5)
 
                     p neutral "Oh..."
                     p smile "Well still, it can definitely come in handy in sticky situations, thanks again!"
@@ -22407,14 +25266,14 @@ label townsquare:
                     "With the Invisiscroll in her repertoire Pacifica's chance to succeed on a hiest has increased!"
                     $ heistMultiplier += 10
                     $ inventory.remove(item_choice)
-                    if checkSEVEN == 0:
-                        $ checkSEVEN = 1
-                    elif checkSEVEN == 2:
-                        $ checkSEVEN = 4
-                    elif checkSEVEN == 3:
-                        $ checkSEVEN = 6
-                    elif checkSEVEN == 5:
-                        $ checkSEVEN = 7
+                    if pacificaItems== 0:
+                        $ pacificaItems= 1
+                    elif pacificaItems== 2:
+                        $ pacificaItems= 4
+                    elif pacificaItems== 3:
+                        $ pacificaItems= 6
+                    elif pacificaItems== 5:
+                        $ pacificaItems= 7
                     jump pacificaOptions
 
 
@@ -22618,7 +25477,7 @@ label townsquare:
                 p smile "What kind you thinking?"
 
                 "Choose what kind of heist to send Pacifica on. Remember, the smaller the job the more likely it is to succeed, but the smaller the reward."
-                "Pacifica will also need some gold to use towards the job, so spend wisely. In later build versions you'll be able to buy items to increase your chances."
+                "Pacifica will also need some gold to use towards the job, so spend wisely. If you don't like your chances you can buy some special items to increase your chances."
 
                 menu:
                     "Rob an old lady":
@@ -22775,6 +25634,17 @@ label townsquare:
                         e smile "Of course."
                         hide fullBodyP
                         jump pacificaOptions
+                    if selected_outfit == "Naked":
+                        image fullBodyP naked = "pacificanude.png"
+                        $ pacificaOutfit = 7
+                        e smile "Take off your clothes for me."
+                        if pacificaLoveLevel >= pacificaCorLevel:
+                            p blush "Hehe sure! I ain't bashful."
+                        else:
+                            p smile "Sure thing [pacificachoosename], you can look as much as you want, in fact, I insist."
+                        hide fullBodyP
+                        jump pacificaOptions
+
                     if selected_outfit == "Catgirl Outfit":
                         $ pacificaOutfit = 5
                         e neutral "Put on the catgirl outfit I like how tight it fits you."
@@ -22944,6 +25814,26 @@ label townsquare:
                         window hide
                         pause
 
+                    elif pacificaOutfit == 7:
+                        image showoff pacificanakedZOOM = "pacificanudeZOOM.png"
+                        show showoff pacificanakedZOOM:
+                            xalign 0.5 yalign 0.5
+
+                            xpos 100 ypos -1100 xanchor 0 yanchor 0
+                            linear 12.0 xpos 100 ypos -145
+
+                            xpos 100 ypos -145 xanchor 0 yanchor 0
+                            linear 12.0 xpos 100 ypos -1100
+                            repeat
+
+
+                        pause
+                        hide showoff
+                        show fullBodyP naked:
+                            xalign 0.5 yalign 0.5
+                        window hide
+                        pause
+
                     elif pacificaOutfit == 4:
                         image showoff pacificachristmasZOOM = "PasificachristmasZOOM.png"
                         show showoff pacificachristmasZOOM:
@@ -23066,14 +25956,14 @@ label townsquare:
 
                 label cometomyroomtonight:
                     e smile "Pacifica, I'd like you to...visit me tonight."
-                    if checkFIVE != 0:
+                    if pacificaRoomProgressLevel != 0:
                         if pacificaLoveLevel >= 35:
                             p blusharms "Oh yeah sure, um I can...do that."
-                            $ checkFOUR = 1
+                            $ willpacificavisit = 1
                             jump pacificaOptions
                         elif pacificaLoveLevel >= 15:
                             p blusharms "Yeah sure I can stop by."
-                            $ checkFOUR = 1
+                            $ willpacificavisit = 1
                             jump pacificaOptions
                     else:
                         p blusharms "Oh well.."
@@ -23098,8 +25988,9 @@ label townsquare:
             image side pacifica blusharms = "PacificaheadblushWarms.png"
             image side pacifica hood = "Pacificaheadcloak.png"
             image side pacifica smile = "Pacificaheadsmile.png"
-            image side pacifica nakedsmile = "Pacificaheadsex1.png"
-            image side pacifica nakedsurprised = "Pacificaheadsex2.png"
+            image side pacifica nakedcry = "headshots_pacif1.png"
+            image side pacifica nakedyell = "headshots_pacif2.png"
+            image side pacifica nakedcum = "headshots_pacif3.png"
 
             $ pacifica_clothes = ["Drow Thief Outfit","Cloak Hood Up", "Cloak Hood Down"]
             $ lilly_clothes = ["Small Dirty Dress"]
@@ -23351,7 +26242,7 @@ label townsquare:
                     "You didn’t think it possible but your cock grew even harder as you really picked up speed"
                     show sscene pSexFour
                     with hpunch
-                    "Pure terror and embarrassment showed on the drow thiefs face as moans still escaped her mouth after every breath"
+                    "Pure terror and embarrassment showed on the drow thief's face as moans still escaped her mouth after every breath"
                     show sscene pSexSix
                     with Dissolve(0.5)
                     "Pacifica looks at you in desperation, unable to speak properly"
@@ -23976,7 +26867,7 @@ label townsquare:
                 "The man says something and starts to tense up as Elizabeth speeds up the handjob and whispers something in his ear"
                 scene sscene eliworkingflash5
                 with Dissolve(0.8)
-                "He can't take it anymore as he starts cumming in her hand, most of it hits the ground but some land on the princesses dress"
+                "He can't take it anymore as he starts cumming in her hand, most of it hits the ground but some land on the princess's dress"
                 scene sscene eliworkingjerk2
                 with Dissolve(0.8)
                 "She doesn't seem to mind as she laughs and takes the man's gold as payment and walks away leaving him slumped against the wall"

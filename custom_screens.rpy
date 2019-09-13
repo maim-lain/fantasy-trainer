@@ -2,7 +2,7 @@
 style centered_style:
     xalign 0.4
     yalign 0.4
-    spacing 2
+    spacing 15
 
 style patreon_text:
     color "#fff"
@@ -28,14 +28,61 @@ screen inventory_screen(item_list,adj):
                 for item in item_list:
                     textbutton item:
                         action Return(item)
-                        
-        
+
+
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("Exit Inventory."):
             xfill True
             action Return(False)
             top_margin 10
+
+
+
+
+#screen for viewing Quests
+screen quest_screen(quest_list, completed_list, adj):
+    modal True
+    frame:
+        xsize 500
+        xalign .5
+        ysize 485
+        ypos 30
+
+        has side "c r b"
+
+        viewport:
+            yadjustment adj
+            mousewheel True
+
+            vbox:
+                #style "centered_style"
+
+                null height 10
+                text "Current Quests"
+                null height 5
+
+
+                for item in quest_list:
+
+                    textbutton item:
+                        action Return(item)
+
+
+                null height 10
+                text "Completed Quests"
+                null height 5
+
+                for item in completed_list:
+                    textbutton item
+
+        bar adjustment adj style "vscrollbar"
+
+        textbutton _("Exit."):
+            xfill True
+            action Return(False)
+            top_margin 10
+
 
 #screen for viewing and choosing player outfit
 screen outfit_screen(item_list,adj):
@@ -57,15 +104,15 @@ screen outfit_screen(item_list,adj):
                 for item in item_list:
                     textbutton item:
                         action Return(item)
-                        
-        
+
+
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("Exit Inventory."):
             xfill True
             action Return(False)
             top_margin 10
-            
+
 #screen for giving someone something from yoiur inventory
 screen inventory_screenGive(item_list,adj):
     modal True
@@ -86,10 +133,10 @@ screen inventory_screenGive(item_list,adj):
                 for item in item_list:
                     textbutton item:
                         action Return(item)
-                        
-        
+
+
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("Exit Inventory."):
             xfill True
             action Return(False)
@@ -118,8 +165,8 @@ screen shop_screen(item_list,gold,adj):
 
 
         bar adjustment adj style "vscrollbar"
-        
-       
+
+
         textbutton _("Finish Looking."):
             xfill True
             action [ Hide("shop_screen"), Return(None)]
@@ -148,8 +195,8 @@ screen gliff_screen(item_list,adj):
 
 
         bar adjustment adj style "vscrollbar"
-        
-       
+
+
         textbutton _("Leave Store."):
             xfill True
             action [ Hide("gliff_screen"), Return(None)]
@@ -179,12 +226,12 @@ screen screen_clothes(clothes_list,adj):
 
 
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("That's enough for now."):
             xfill True
             action [ Hide("screen_clothes"), Return(None)]
             top_margin 10
-    
+
 screen girl_List(girl_list,adj):
     modal True
     frame:
@@ -207,12 +254,12 @@ screen girl_List(girl_list,adj):
 
 
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("That's enough for now."):
             xfill True
             action [ Hide("girl_List"), Return(None)]
             top_margin 10
-            
+
 screen banquet_screen(girl_list,adj):
     modal True
     frame:
@@ -235,7 +282,7 @@ screen banquet_screen(girl_list,adj):
 
 
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("No Banquet this week."):
             xfill True
             action [ Hide("girl_List"), Return(None)]
@@ -264,7 +311,7 @@ screen view_scenes(scene_list,adj):
 
 
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("Go Back."):
             xfill True
             action [ Hide("scene_List"), Return(None)]
@@ -275,27 +322,33 @@ screen view_scenes(scene_list,adj):
 #patreon supporters screen, view only no functions
 screen patreon_supporters(adj):
     modal True
-    
+
     frame:
         xsize 350
         xalign .5
         ysize 600
         ypos 30
-        
+
         has side "c r b"
-        
+
         viewport:
             yadjustment adj
             mousewheel True
-            
+
             vbox:
                # style "patreon_text"
-                
+
+                null height 10
+                text "Twentyfive Dollar Patrons"
+                null height 5
+
+                textbutton "Dal Vispu"
+
                 null height 10
                 text "Ten Dollar Patrons"
                 null height 5
-                
-                
+
+
                 textbutton "Davidjir"
                 textbutton "citi96"
                 textbutton "Nighthawkvibes"
@@ -304,7 +357,7 @@ screen patreon_supporters(adj):
                 textbutton "Kyle smithart"
                 textbutton "Lederpusmaximus"
                 textbutton "Matthew L Young"
-                textbutton "realname_tba"    
+                textbutton "realname_tba"
                 textbutton "Stefan Kemske"
                 textbutton "altherr martin"
                 textbutton "Aurelien Adam"
@@ -328,13 +381,17 @@ screen patreon_supporters(adj):
                 textbutton "Styrka"
                 textbutton "Tyler Winningham"
                 textbutton "Valtyr"
-                
-                
-                
+                textbutton "Andrew In"
+                textbutton "Taylor Wilmore"
+                textbutton "Dawjaw"
+                textbutton "Aegis Linnear"
+                textbutton "Scumknuckles"
+
+
                 null height 10
                 text "Five Dollar Patrons"
                 null height 5
-                
+
                 textbutton "Kyle Jones"
                 textbutton "LarryLaw"
                 textbutton "jon"
@@ -504,13 +561,45 @@ screen patreon_supporters(adj):
                 textbutton "Thierry Bridet"
                 textbutton "Wirglays"
                 textbutton "yetie"
+                textbutton "Kohlhaus Christopher"
+                textbutton "AbstractRude"
+                textbutton "Cthulhu"
+                textbutton "Resz"
+                textbutton "Lan222222"
+                textbutton "Mad Lion"
+                textbutton "Papito1999"
+                textbutton "Firastos"
+                textbutton "Joshua Dyer"
+                textbutton "James T. Tackett"
+                textbutton "Willim robert jones"
+                textbutton "justin sepulveda"
+                textbutton "Nerfguns Sitgarn"
+                textbutton "Brandon Rose"
+                textbutton "V Hays"
+                textbutton "madnessoreilli"
+                textbutton "gerado manuel marquez cardoso"
+                textbutton "bigbagel12"
+                textbutton "edeltoast"
+                textbutton "Ted Leonard"
+                textbutton "alexander scholl"
+                textbutton "jordan tawse"
+                textbutton "Ryan Murtaught"
+                textbutton "holy shit just let me fucking sign in"
+                textbutton "Davion nerd"
+                textbutton "Marcel Köhler"
+                textbutton "Harest"
+                textbutton "Lukas Neander"
+                textbutton "Adam Sun"
+                textbutton "chaoticPopo"
+                textbutton "DoomedInfidel"
+                textbutton "ZeroMisanthrope241"
+                textbutton "Rollo Resh"
+                textbutton "Ryan Thomas"
 
-                
-                
                 null height 10
                 text "One Dollar Patrons"
                 null height 5
-                
+
                 textbutton "L"
                 textbutton "Steve C"
                 textbutton "Tu"
@@ -614,82 +703,113 @@ screen patreon_supporters(adj):
                 textbutton "Vladislav Borodich"
                 textbutton "TV"
                 textbutton "nobody"
+                textbutton "The Joester"
+                textbutton "Kyran Hayes"
+                textbutton "Siegfred987"
+                textbutton "Jesterspark"
+                textbutton "Merlin1967"
+                textbutton "DarkKnight"
+                textbutton "Star123"
+                textbutton "Hikaru"
+                textbutton "Shugo"
+                textbutton "Zee Poller"
+                textbutton "Gabriell nicholis"
+                textbutton "Jshock"
+                textbutton "Dragoon48"
+                textbutton "Randall"
+                textbutton "Moises Gabriel Salas Aguilar Aquila"
+                textbutton "altso"
+                textbutton "Ucciuburdu"
+                textbutton "Chad Thurman"
+                textbutton "Greezzlies"
+                textbutton "Vailor"
+                textbutton "Anon Anonymous"
+                textbutton "Richard"
+                textbutton "Asterisk"
+                textbutton "Elwood Blakk"
+                textbutton "Anothony mulkey"
+                textbutton "Pingo"
+                textbutton "Blyss"
+                textbutton ""
+                textbutton ""
+                textbutton ""
 
-                
+
+
         bar adjustment adj style "vscrollbar"
-        
+
         textbutton _("Finished Looking."):
             xfill True
             action [ Hide("patreon_supporters"), Return(None)]
-            top_margin 10        
-                
-                
+            top_margin 10
+
+
 # BARS AND BAR STUFF!
 
 screen love_bar(love):
     text "{color=#00fa9a}Love{/color}":
-        xpos 760 ypos 140 
+        xpos 760 ypos 140
     frame:
         xalign 0.62 ypos 175
         xsize 23 ysize 500
         vbar:
             value StaticValue(love, 70)
-            
+
 screen cor_bar(corruption):
     text "{color=#dc143c}Corruption{/color}":
-        xpos 820 ypos 140 
+        xpos 820 ypos 140
     frame:
         xalign 0.68 ypos 175
         xsize 23 ysize 500
         vbar:
             value StaticValue(corruption, 70)
-            
+
 screen lilly_bar(lillylove):
     text "{color=#00008b}Lilly's Love{/color}":
-        xpos 680 ypos 140 
+        xpos 680 ypos 140
     frame:
         xalign 0.58 ypos 175
         xsize 23 ysize 500
         vbar:
             value StaticValue(lillylove, 20)
-            
+
 
 screen melony_bar(melresist):
     text "{color=#9400D3}Your Resistance{/color}":
-        xpos 680 ypos 140 
+        xpos 680 ypos 140
     frame:
         xalign 0.58 ypos 175
         xsize 23 ysize 500
         vbar:
             value StaticValue(melresist, 100)
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #textbutton "Close Inventory" action [ Hide("inventory_screen"), Show("inventory_button"), Return(None)]
